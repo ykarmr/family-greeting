@@ -14,6 +14,15 @@ const zenMaru = Zen_Maru_Gothic({
   weight: ["400", "500", "700"],
 });
 
+import { Shippori_Mincho_B1 } from "next/font/google";
+
+const shippori = Shippori_Mincho_B1({
+  variable: "--font-mincho",
+  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["latin"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: "両家顔合わせのしおり",
   description: "FAMILY GREETING - 顔合わせのご案内",
@@ -27,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${kleeOne.variable} ${zenMaru.variable} antialiased`}
+        className={`${kleeOne.variable} ${zenMaru.variable} ${shippori.variable} antialiased`}
       >
         {children}
       </body>

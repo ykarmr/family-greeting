@@ -2,35 +2,35 @@
 
 :root {
   /* ジブリ風喫茶店 カラーパレット */
-  --color-cream: #F4EDE3;
-  --color-beige: #E3D5C3;
-  --color-beige-light: #F9F5EF;
-  --color-white: #FFFEF9;
-  
+  --color-cream: #f4ede3;
+  --color-beige: #e3d5c3;
+  --color-beige-light: #f9f5ef;
+  --color-white: #fffef9;
+
   /* アクセントカラー - ジブリ風 */
-  --color-sage: #9DB388;
-  --color-sage-light: #C5D8B5;
-  --color-sage-dark: #7A9668;
-  --color-pink: #E7A89E;
-  --color-pink-light: #F3CCC6;
-  --color-pink-dark: #D38F85;
-  --color-terracotta: #D89A7A;
-  --color-forest: #6B8E5F;
-  
+  --color-sage: #9db388;
+  --color-sage-light: #c5d8b5;
+  --color-sage-dark: #7a9668;
+  --color-pink: #e7a89e;
+  --color-pink-light: #f3ccc6;
+  --color-pink-dark: #d38f85;
+  --color-terracotta: #d89a7a;
+  --color-forest: #6b8e5f;
+
   /* テキストカラー - 温かみのある茶色 */
-  --color-text: #5F4B3D;
-  --color-text-dark: #4A3828;
-  --color-text-light: #8C7A68;
-  
+  --color-text: #5f4b3d;
+  --color-text-dark: #4a3828;
+  --color-text-light: #8c7a68;
+
   /* ボーダー・装飾 */
-  --color-border: #DED2C0;
-  --color-border-light: #EDE5D8;
-  --color-gold: #C9A86A;
-  --color-gold-light: #E0C598;
-  
+  --color-border: #ded2c0;
+  --color-border-light: #ede5d8;
+  --color-gold: #c9a86a;
+  --color-gold-light: #e0c598;
+
   /* ジブリ風グリーン */
-  --color-grass: #A5C882;
-  --color-leaf: #8FAE72;
+  --color-grass: #a5c882;
+  --color-leaf: #8fae72;
 }
 
 @theme inline {
@@ -57,62 +57,93 @@
   --color-leaf: var(--color-leaf);
   --font-sans: var(--font-rounded);
   --font-serif: var(--font-handwritten);
+  --font-mincho: var(--font-mincho);
 }
 
 body {
-  background: var(--color-cream);
+  background-color: var(--color-cream);
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.5),
+      rgba(244, 237, 227, 0.2)
+    ),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
   color: var(--color-text);
-  font-family: var(--font-serif), "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
-  letter-spacing: 0.05em;
-  line-height: 1.9;
+  font-family: var(--font-mincho), "Hiragino Mincho ProN", serif;
+  letter-spacing: 0.08em;
+  line-height: 2;
 }
 
-/* セクション共通スタイル - 手作り感のある優しいデザイン */
+/* ヴィンテージ・雑誌風共通スタイル */
 .section-title {
-  font-family: var(--font-serif), "Hiragino Mincho ProN", serif;
+  font-family: var(--font-mincho);
   color: var(--color-text-dark);
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 2rem;
+  font-weight: 700;
   text-align: center;
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.15em;
+  margin-bottom: 2rem;
+  letter-spacing: 0.2em;
   position: relative;
   display: inline-block;
   width: 100%;
+  text-shadow: 2px 2px 0 rgba(227, 213, 195, 0.5);
 }
 
 .section-title::before,
 .section-title::after {
-  content: "✿";
+  content: "";
   display: inline-block;
-  margin: 0 1rem;
-  color: var(--color-sage);
-  font-size: 0.5em;
+  width: 40px;
+  height: 1px;
+  background: var(--color-text-dark);
   vertical-align: middle;
-  opacity: 0.5;
+  margin: 0 1.5rem;
+  opacity: 0.6;
 }
 
 .section-divider {
   border: none;
   height: 1px;
-  background: var(--color-border-light);
-  margin: 2rem auto;
-  width: 60%;
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--color-text-light) 0,
+    var(--color-text-light) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+  margin: 3rem auto;
+  width: 80%;
+  opacity: 0.5;
 }
 
-/* 手作り感のあるカードスタイル */
-.soft-card {
+/* 雑誌風カードスタイル */
+.magazine-card {
   background: var(--color-white);
-  border-radius: 1.5rem;
-  padding: 2rem;
-  box-shadow: 0 8px 32px rgba(157, 179, 136, 0.12);
-  border: none;
+  padding: 3rem;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 10px 20px rgba(0, 0, 0, 0.03);
   position: relative;
-  transition: transform 0.5s ease;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+/* 古紙の風合いをプラス */
+.paper-texture {
+  position: relative;
+}
+.paper-texture::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
+  pointer-events: none;
+  mix-blend-mode: multiply;
+  z-index: 1;
 }
 
 .soft-card:hover {
-  transform: translateY(-2px) rotate(-0.5deg);
+  transform: translateY(-2px);
 }
 
 /* 装飾ライン */
@@ -130,7 +161,12 @@ body {
   flex: 1;
   max-width: 60px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-border),
+    transparent
+  );
 }
 
 /* 手書き風の仕切り */
@@ -294,7 +330,8 @@ section {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -315,7 +352,8 @@ section {
 }
 
 @keyframes pulse-soft {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
     opacity: 1;
   }
@@ -364,7 +402,8 @@ section {
     font-size: 10pt !important;
   }
 
-  html, body {
+  html,
+  body {
     background: #fff !important;
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;

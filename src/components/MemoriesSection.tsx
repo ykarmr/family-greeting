@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { memories } from "@/data/content";
 import { useInView } from "@/hooks/useInView";
 
+
+
 export function MemoriesSection() {
   const { ref, isInView } = useInView();
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -41,137 +43,80 @@ export function MemoriesSection() {
   return (
     <section
       ref={ref}
-      className="px-6 md:px-12 lg:px-20 py-16 bg-white relative overflow-hidden"
+      className="px-6 md:px-12 lg:px-20 py-24 bg-[#1a1a1a] relative overflow-hidden text-white"
     >
-      {/* さりげなく配置された装飾 */}
-      <div className="absolute top-20 left-[8%] text-[var(--color-pink-light)] text-xs opacity-30">
-        ✿
-      </div>
-      <div className="absolute bottom-24 right-[12%] text-[var(--color-sage-light)] text-sm opacity-25">
-        🌿
-      </div>
+      {/* 背景ノイズ */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none"
+         style={{
+           backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E")`
+         }}
+      />
 
       {/* タイトル */}
       <div
-        className={`section-header transition-all duration-700 ${
+        className={`section-header text-center mb-12 transition-all duration-700 ${
           isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <div className="flex justify-center">
-          <span className="magazine-label">おもいで</span>
-        </div>
-        <h2 className="section-title">{memories.title}</h2>
+        <span className="text-[var(--color-sage)] font-serif tracking-[0.2em] text-xs block mb-2">Moments in Time</span>
+        <h2 className="section-title !text-white text-shadow-glow">{memories.title}</h2>
       </div>
 
-      <div className="max-w-3xl mx-auto">
-        {/* スライドショーコンテナ */}
-        <div
-          className={`bg-[var(--color-white)] rounded-xl overflow-hidden transition-all duration-700 ${
-            isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-          style={{ boxShadow: '0 8px 32px rgba(157, 179, 136, 0.12)' }}
-        >
-          {/* 画像表示エリア */}
-          <div className="relative aspect-[16/10] md:aspect-[16/9] bg-[var(--color-beige-light)] overflow-hidden">
-            {memories.images.map((image, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-opacity duration-700 ${
-                  index === currentIndex ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <Image
-                  src={image.src}
-                  alt={image.caption}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 95vw, (max-width: 1024px) 80vw, 896px"
-                  quality={90}
-                />
+      <div className="max-w-4xl mx-auto flex flex-col items-center">
+        {/* スライドプロジェクター風コンテナ */}
+        <div className="relative w-full max-w-2xl bg-[#eee] p-4 md:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.5)] rounded-sm rotate-1">
+           {/* スライドマウント */}
+           <div className="bg-white p-2 shadow-inner border border-gray-300 aspect-[4/3] relative">
+              <div className="absolute top-0 left-0 w-full h-full bg-[#111] shadow-inner flex items-center justify-center overflow-hidden">
+                 {memories.images.map((image, index) => (
+                    <div
+                      key={index}
+                      className={`absolute inset-0 transition-opacity duration-1000 ${
+                        index === currentIndex ? "opacity-100" : "opacity-0"
+                      }`}
+                    >
+                      <Image
+                        src={image.src}
+                        alt={image.caption}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 768px) 100vw, 800px"
+                        quality={90}
+                      />
+                      {/* ビネット効果 */}
+                      <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_50%,rgba(0,0,0,0.4)_100%)] pointer-events-none"></div>
+                    </div>
+                 ))}
+                 
+                 {/* 映写機のノイズ線（CSSアニメーションで動かせるとベストだが静的で雰囲気を出す） */}
+                 <div className="absolute inset-0 pointer-events-none opacity-20 bg-[linear-gradient(90deg,transparent_0%,rgba(255,255,255,0.1)_50%,transparent_100%)] bg-[length:200%_100%] animate-pulse"></div>
               </div>
-            ))}
-
-            {/* ナビゲーションボタン */}
-            <button
-              onClick={goToPrevious}
-              className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/95 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
-              aria-label="前の画像"
-            >
-              <svg
-                className="w-5 h-5 md:w-6 md:h-6 text-[var(--color-text)]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/95 hover:bg-white rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-110"
-              aria-label="次の画像"
-            >
-              <svg
-                className="w-5 h-5 md:w-6 md:h-6 text-[var(--color-text)]"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </div>
-
-          {/* キャプション */}
-          <div className="p-6 md:p-8 text-center">
-            <p className="text-xs md:text-sm text-[var(--color-text-light)] mb-2">
-              {memories.images[currentIndex].date}
-            </p>
-            <p
-              className="text-base md:text-lg text-[var(--color-text)] font-medium tracking-wide leading-relaxed"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
-              {memories.images[currentIndex].caption}
-            </p>
-          </div>
-
-          {/* インジケーター（ドット） */}
-          <div className="flex items-center justify-center gap-2 md:gap-3 pb-6 md:pb-8">
-            {memories.images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`transition-all duration-300 rounded-full ${
-                  index === currentIndex
-                    ? "w-7 h-2.5 md:w-8 md:h-3 bg-[var(--color-sage)]"
-                    : "w-2.5 h-2.5 md:w-3 md:h-3 bg-[var(--color-border)] hover:bg-[var(--color-sage-light)]"
-                }`}
-                aria-label={`スライド ${index + 1} へ移動`}
-              />
-            ))}
-          </div>
+           </div>
+           
+           {/* 手書きキャプションエリア */}
+           <div className="mt-4 text-center pb-2">
+              <p className="font-handwritten text-gray-600 text-xl rotate-[-1deg]">
+                 {memories.images[currentIndex].caption} 
+                 <span className="text-xs text-gray-400 ml-2 font-sans tracking-widest">{memories.images[currentIndex].date}</span>
+              </p>
+           </div>
         </div>
 
-        {/* 説明テキスト */}
-        <p
-          className={`text-center text-sm md:text-base text-[var(--color-text-light)] mt-6 md:mt-8 tracking-wider transition-all duration-700 ${
-            isInView ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <span className="text-[var(--color-pink)]">✿</span> {currentIndex + 1}{" "}
-          / {memories.images.length}{" "}
-          <span className="text-[var(--color-pink)]">✿</span>
-        </p>
+        {/* コントローラー */}
+        <div className="mt-12 flex items-center gap-8">
+           <button onClick={goToPrevious} className="w-12 h-12 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-colors">
+              ←
+           </button>
+           
+           <div className="font-serif text-white/50 tracking-widest text-sm">
+              {currentIndex + 1} <span className="mx-2 text-white/20">/</span> {memories.images.length}
+           </div>
+
+           <button onClick={goToNext} className="w-12 h-12 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-colors">
+              →
+           </button>
+        </div>
+
       </div>
     </section>
   );

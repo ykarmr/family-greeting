@@ -7,71 +7,63 @@ export function MenuSection() {
   const { ref, isInView } = useInView();
 
   return (
-    <section ref={ref} className="px-6 md:px-12 lg:px-20 py-16 bg-[var(--color-cream)] relative overflow-hidden">
-      {/* さりげなく配置された装飾 */}
-      <div className="absolute top-20 right-[12%] text-[var(--color-sage-light)] text-xs opacity-25">
-        🌿
-      </div>
+    <section ref={ref} className="px-6 md:px-12 lg:px-20 py-24 bg-[var(--color-beige-light)] relative overflow-hidden">
+        {/* 背景テクスチャ */}
+        <div className="absolute inset-0 opacity-30 pointer-events-none mix-blend-multiply"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.1'/%3E%3C/svg%3E")`
+        }}
+      />
+      
+      <div className={`max-w-4xl mx-auto transition-all duration-1000 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
+        
+        {/* メニューカード本体 */}
+        <div className="relative bg-white p-8 md:p-12 shadow-2xl rotate-1 mx-auto max-w-3xl">
+           {/* クリップ/テープ風装飾 */}
+           <div className="absolute -top-4 left-1/2 -translate-x-1/2 w-32 h-8 bg-[#E6DCC8] opacity-80 shadow-sm transform -rotate-1"></div>
 
-      <div
-        className={`section-header transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}
-      >
-        <div className="flex justify-center">
-          <span className="magazine-label">お食事</span>
-        </div>
-        <h2 className="section-title">{menu.title}</h2>
-      </div>
-
-      <div className="max-w-2xl mx-auto">
-        <div
-          className={`bg-[var(--color-white)] rounded-xl overflow-hidden transition-all duration-700 delay-100 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-          style={{ boxShadow: '0 6px 24px rgba(157, 179, 136, 0.1)' }}
-        >
-          {/* ヘッダー */}
-          <div className="px-6 py-6 text-center" style={{ background: 'linear-gradient(135deg, var(--color-sage-light)/15, transparent)' }}>
-            <span className="text-xs text-[var(--color-sage)] opacity-60">✿</span>
-            <h3
-              className="text-sm text-[var(--color-text-dark)] mt-2"
-              style={{ fontFamily: "var(--font-serif)" }}
-            >
-              {menu.course}
-            </h3>
-          </div>
-
-          {/* メニュー一覧 */}
-          <div className="px-6 py-6 space-y-3 md:space-y-4">
-            {menu.items.map((item, index) => (
-              <div
-                key={`menu-${item}`}
-                className={`flex items-center justify-center gap-3 text-sm md:text-base text-[var(--color-text)] transition-all duration-500 ${isInView ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"}`}
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                <span className="text-[var(--color-pink)] text-xs md:text-sm">❀</span>
-                <span className="tracking-wide">{item}</span>
-                <span className="text-[var(--color-pink)] text-xs md:text-sm">❀</span>
+           {/* インナーフレーム */}
+           <div className="border-[3px] border-double border-[var(--color-coffee)]/20 h-full p-6 md:p-10 relative">
+              
+              {/* タイトルエリア */}
+              <div className="text-center mb-12">
+                 <div className="inline-block border-b-2 border-[var(--color-text-dark)] pb-2 mb-2">
+                    <span className="font-serif font-bold text-2xl tracking-[0.2em] text-[var(--color-text-dark)]">本日の御献立</span>
+                 </div>
+                 <p className="font-serif text-sm text-[var(--color-text-light)] tracking-widest">{menu.course}</p>
               </div>
-            ))}
-          </div>
 
-          {/* 区切り */}
-          <div className="flex items-center justify-center gap-3 py-3">
-            <div className="w-12 h-px bg-[var(--color-border-light)]" />
-            <span className="text-[var(--color-sage)] text-sm">🌿</span>
-            <div className="w-12 h-px bg-[var(--color-border-light)]" />
-          </div>
+              {/* メニューリスト */}
+              <div className="space-y-6">
+                {menu.items.map((item, index) => (
+                  <div key={index} className="flex items-baseline gap-4 group">
+                    <span className="font-serif text-[var(--color-text-dark)] text-lg shrink-0 group-hover:text-[var(--color-sage-dark)] transition-colors duration-300">
+                      {item}
+                    </span>
+                    <div className="flex-1 border-b border-dotted border-[var(--color-text-light)] opacity-40 relative -top-1"></div>
+                    <span className="text-[10px] text-[var(--color-text-light)] tracking-widest shrink-0 font-serif opacity-0 group-hover:opacity-100 transition-opacity">SPECIAL</span>
+                  </div>
+                ))}
+              </div>
 
-          {/* ドリンク */}
-          <div
-            className={`text-center pb-8 px-6 transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-          >
-            <p className="text-xs md:text-sm text-[var(--color-text-light)] mb-3 tracking-widest flex items-center justify-center gap-2">
-              <span className="text-[var(--color-pink)]">✿</span> お飲み物 <span className="text-[var(--color-pink)]">✿</span>
-            </p>
-            <p className="text-sm md:text-base text-[var(--color-text)]">
-              {menu.drinks.join(" ・ ")}
-            </p>
-          </div>
+              {/* ドリンク */}
+              <div className="mt-16 pt-8 border-t border-[var(--color-text-light)]/20 text-center">
+                 <span className="inline-block bg-[var(--color-text-dark)] text-white text-xs px-4 py-1 tracking-widest mb-4 font-serif rounded-sm">お飲み物</span>
+                 <p className="font-serif text-[var(--color-text)] leading-loose">
+                    {menu.drinks.join("　・　")}
+                 </p>
+              </div>
+
+              {/* 店主の印風スタンプ */}
+              <div className="absolute bottom-6 right-6 opacity-30 rotate-[-12deg]">
+                 <div className="w-16 h-16 border-2 border-[var(--color-retro-red)] rounded-full flex items-center justify-center text-[var(--color-retro-red)] font-serif font-bold text-xs tracking-widest shadow-inner">
+                    吉日<br/>限定
+                 </div>
+              </div>
+
+           </div>
         </div>
+
       </div>
     </section>
   );
