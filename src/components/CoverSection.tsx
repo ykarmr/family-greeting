@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useInView } from "@/hooks/useInView";
 
 export function CoverSection() {
@@ -29,8 +28,8 @@ export function CoverSection() {
           <span className="text-sm md:text-base font-bold font-serif tracking-widest border-b border-[var(--color-text)] pb-1">創刊号</span>
         </div>
         <div className="flex flex-col items-end gap-1">
-           <span className="text-[10px] md:text-xs tracking-[0.2em] font-serif text-[var(--color-text-light)]">2026.01.25</span>
-           <span className="text-sm md:text-base font-bold font-serif tracking-widest text-[var(--color-text-dark)]">特別編集</span>
+           <span className="text-[10px] md:text-xs tracking-[0.2em] font-serif text-[var(--color-text-light)]">製作者</span>
+           <span className="text-sm md:text-base font-bold font-serif tracking-widest text-[var(--color-text-dark)]">有村勇樹・池上紗弥香</span>
         </div>
       </div>
 
@@ -53,13 +52,10 @@ export function CoverSection() {
         <div className="relative aspect-[3/2] md:aspect-[16/9] shadow-2xl bg-[#EFEBE4] p-3 md:p-4 rotate-1">
            {/* 写真フレーム */}
            <div className="relative w-full h-full overflow-hidden border border-[var(--color-border)] bg-gray-100">
-             <Image
+             <img
                 src="/images/cover.jpg"
                 alt="Main Visual"
-                fill
-                className="object-cover grayscale-[20%] sepia-[10%] contrast-[0.95]"
-                sizes="100vw"
-                priority
+                className="w-full h-full object-cover grayscale-[20%] sepia-[10%] contrast-[0.95]"
              />
              {/* フィルムノイズなどの演出 */}
              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-coffee)]/20 to-transparent mix-blend-overlay pointer-events-none"></div>

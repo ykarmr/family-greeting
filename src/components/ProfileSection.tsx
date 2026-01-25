@@ -135,10 +135,17 @@ export function ProfileIntroSection() {
              <div className={`md:col-span-4 transition-all duration-700 delay-100 ${isInView ? "opacity-100" : "opacity-0"}`}>
                <div className="sticky top-8">
                  <div className="relative aspect-[3/4] rounded-sm overflow-hidden shadow-xl rotate-[-2deg] border-4 border-white bg-white">
-                    {/* Placeholder for Groom Photo - normally Image component */}
-                    <div className="w-full h-full bg-[#E5E5E5] flex items-center justify-center text-[var(--color-text-light)]">
-                       <span className="text-4xl">Groom</span>
-                    </div>
+                    {groom.image ? (
+                      <img
+                        src={groom.image}
+                        alt={groom.name}
+                        className="w-full h-full object-contain"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-[#E5E5E5] flex items-center justify-center text-[var(--color-text-light)]">
+                         <span className="text-4xl">Groom</span>
+                      </div>
+                    )}
                  </div>
                  <div className="mt-6 text-center md:text-left">
                    <p className="font-serif text-2xl font-bold text-[var(--color-text-dark)] mb-1">{groom.name}</p>
@@ -174,10 +181,17 @@ export function ProfileIntroSection() {
              <div className={`md:col-span-4 md:col-start-9 transition-all duration-700 delay-300 ${isInView ? "opacity-100" : "opacity-0"}`}>
                <div className="sticky top-8">
                  <div className="relative aspect-[3/4] rounded-sm overflow-hidden shadow-xl rotate-[2deg] border-4 border-white bg-white">
-                    {/* Placeholder for Bride Photo */}
-                    <div className="w-full h-full bg-[#E5E5E5] flex items-center justify-center text-[var(--color-text-light)]">
-                       <span className="text-4xl">Bride</span>
-                    </div>
+                    {bride.image ? (
+                      <img
+                        src={bride.image}
+                        alt={bride.name}
+                        className="w-full h-full object-contain"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-[#E5E5E5] flex items-center justify-center text-[var(--color-text-light)]">
+                         <span className="text-4xl">Bride</span>
+                      </div>
+                    )}
                  </div>
                  <div className="mt-6 text-center md:text-right">
                    <p className="font-serif text-2xl font-bold text-[var(--color-text-dark)] mb-1">{bride.name}</p>

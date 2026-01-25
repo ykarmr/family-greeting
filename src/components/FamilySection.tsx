@@ -33,23 +33,33 @@ function ScrapbookCard({
            </h3>
 
            <div className="space-y-12">
-              {data.members.map((member, i) => (
-                 <div key={i} className="flex gap-6 items-start relative group">
-                    {/* 写真枠 (プレースホルダー) */}
-                    <div className="w-20 h-24 bg-[#E0D8CC] shadow-inner flex items-center justify-center relative shrink-0 overflow-visible transform rotate-1 group-even:-rotate-1 transition-transform hover:scale-105 duration-300">
+              {data.members.map((member) => (
+                 <div key={member.name} className="flex gap-6 items-start relative group">
+                    {/* 写真枠 */}
+                    <div className="w-20 h-24 bg-[#E0D8CC] shadow-inner relative shrink-0 overflow-hidden transform rotate-1 group-even:-rotate-1 transition-transform hover:scale-105 duration-300">
                        {/* 写真の四隅 (Photo Corners) */}
                        <div className="absolute -top-1 -left-1 w-4 h-4 border-t-4 border-l-4 border-[var(--color-coffee)]/40 z-20"></div>
                        <div className="absolute -top-1 -right-1 w-4 h-4 border-t-4 border-r-4 border-[var(--color-coffee)]/40 z-20"></div>
                        <div className="absolute -bottom-1 -left-1 w-4 h-4 border-b-4 border-l-4 border-[var(--color-coffee)]/40 z-20"></div>
                        <div className="absolute -bottom-1 -right-1 w-4 h-4 border-b-4 border-r-4 border-[var(--color-coffee)]/40 z-20"></div>
                        
-                       <span className="text-3xl opacity-50 filter grayscale">
-                         {member.relation === "父" && "👨"}
-                         {member.relation === "母" && "👩"}
-                         {member.relation.match(/(兄|弟)/) && "👦"}
-                         {member.relation.match(/(姉|妹)/) && "👧"}
-                         {!["父", "母"].includes(member.relation) && !member.relation.match(/(兄|弟|姉|妹)/) && "👤"}
-                       </span>
+                       {member.image ? (
+                         <img
+                           src={member.image}
+                           alt={`${member.relation} ${member.name}`}
+                           className="absolute inset-0 w-full h-full object-contain"
+                         />
+                       ) : (
+                         <div className="w-full h-full flex items-center justify-center">
+                           <span className="text-3xl opacity-50 filter grayscale">
+                             {member.relation === "父" && "👨"}
+                             {member.relation === "母" && "👩"}
+                             {member.relation.match(/(兄|弟)/) && "👦"}
+                             {member.relation.match(/(姉|妹)/) && "👧"}
+                             {!["父", "母"].includes(member.relation) && !member.relation.match(/(兄|弟|姉|妹)/) && "👤"}
+                           </span>
+                         </div>
+                       )}
                     </div>
 
                     {/* テキスト情報 */}

@@ -24,7 +24,7 @@ export function EventInfoSection() {
     <section ref={ref} className="px-6 md:px-12 lg:px-20 py-16 bg-[var(--color-cream)] relative overflow-hidden">
       
       {/* 背景装飾 */}
-      <div className="absolute top-0 right-0 p-8 opacity-10 font-serif text-9xl text-[var(--color-text-light)] select-none pointer-events-none">NO.1</div>
+      <div className="absolute top-0 right-0 p-8 opacity-10 font-serif text-9xl text-[var(--color-text-light)] select-none pointer-events-none">Info</div>
 
       <div className={`max-w-5xl mx-auto transition-all duration-1000 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         
@@ -82,8 +82,8 @@ export function EventInfoSection() {
                   {/* タイムライン */}
                   <div className="absolute left-[4.5rem] top-0 bottom-0 w-[1px] bg-[var(--color-sage)]/20"></div>
 
-                  {schedule.items.map((item, i) => (
-                     <div key={i} className="flex items-start gap-3 relative group">
+                  {schedule.items.map((item) => (
+                     <div key={item.content} className="flex items-start gap-3 relative group">
                         {/* 時刻エリア */}
                         <div className="w-16 text-right shrink-0 pt-0.5">
                            <span className="font-serif text-sm text-[var(--color-sage)] font-bold">

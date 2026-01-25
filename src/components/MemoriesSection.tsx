@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { memories } from "@/data/content";
 import { useInView } from "@/hooks/useInView";
@@ -70,18 +69,15 @@ export function MemoriesSection() {
               <div className="absolute top-0 left-0 w-full h-full bg-[#111] shadow-inner flex items-center justify-center overflow-hidden">
                  {memories.images.map((image, index) => (
                     <div
-                      key={index}
+                      key={`memory-${image.src}-${index}`}
                       className={`absolute inset-0 transition-opacity duration-1000 ${
                         index === currentIndex ? "opacity-100" : "opacity-0"
                       }`}
                     >
-                      <Image
+                      <img
                         src={image.src}
                         alt={image.caption}
-                        fill
-                        className="object-contain"
-                        sizes="(max-width: 768px) 100vw, 800px"
-                        quality={90}
+                        className="w-full h-full object-contain"
                       />
                       {/* ビネット効果 */}
                       <div className="absolute inset-0 bg-[radial-gradient(circle,transparent_50%,rgba(0,0,0,0.4)_100%)] pointer-events-none"></div>
@@ -104,16 +100,16 @@ export function MemoriesSection() {
 
         {/* コントローラー */}
         <div className="mt-12 flex items-center gap-8">
-           <button onClick={goToPrevious} className="w-12 h-12 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-colors">
-              ←
+           <button type="button" onClick={goToPrevious} className="w-12 h-12 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-colors">
+              <img src="/images/arrow-left.svg" alt="前へ" width="24" height="24" />
            </button>
            
            <div className="font-serif text-white/50 tracking-widest text-sm">
               {currentIndex + 1} <span className="mx-2 text-white/20">/</span> {memories.images.length}
            </div>
 
-           <button onClick={goToNext} className="w-12 h-12 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-colors">
-              →
+           <button type="button" onClick={goToNext} className="w-12 h-12 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-colors">
+              <img src="/images/arrow-right.svg" alt="次へ" width="24" height="24" />
            </button>
         </div>
 

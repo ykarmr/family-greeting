@@ -28,15 +28,15 @@ export function MenuSection() {
               {/* タイトルエリア */}
               <div className="text-center mb-12">
                  <div className="inline-block border-b-2 border-[var(--color-text-dark)] pb-2 mb-2">
-                    <span className="font-serif font-bold text-2xl tracking-[0.2em] text-[var(--color-text-dark)]">本日の御献立</span>
+                    <span className="font-serif font-bold text-2xl tracking-[0.2em] text-[var(--color-text-dark)]">本日のメニュー</span>
                  </div>
                  <p className="font-serif text-sm text-[var(--color-text-light)] tracking-widest">{menu.course}</p>
               </div>
 
               {/* メニューリスト */}
               <div className="space-y-6">
-                {menu.items.map((item, index) => (
-                  <div key={index} className="flex items-baseline gap-4 group">
+                {menu.items.map((item) => (
+                  <div key={item} className="flex items-baseline gap-4 group">
                     <span className="font-serif text-[var(--color-text-dark)] text-lg shrink-0 group-hover:text-[var(--color-sage-dark)] transition-colors duration-300">
                       {item}
                     </span>
@@ -53,14 +53,6 @@ export function MenuSection() {
                     {menu.drinks.join("　・　")}
                  </p>
               </div>
-
-              {/* 店主の印風スタンプ */}
-              <div className="absolute bottom-6 right-6 opacity-30 rotate-[-12deg]">
-                 <div className="w-16 h-16 border-2 border-[var(--color-retro-red)] rounded-full flex items-center justify-center text-[var(--color-retro-red)] font-serif font-bold text-xs tracking-widest shadow-inner">
-                    吉日<br/>限定
-                 </div>
-              </div>
-
            </div>
         </div>
 

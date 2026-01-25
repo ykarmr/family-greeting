@@ -3,20 +3,6 @@
 // このファイルを編集して内容をカスタマイズしてください
 // =====================================================
 
-export const eventInfo = {
-  date: "2026年2月7日",
-  dayOfWeek: "土",
-  time: "午前11時30分より",
-  venue: {
-    name: "東天紅 LUCIS GARDEN 上野店",
-    floor: "9F",
-    postalCode: "〒110-8707",
-    address: "東京都台東区池之端1-4-1 上野不忍池畔",
-    meetingPoint: "当日は1階ロビーにお集まりください。",
-    mapUrl: "https://maps.google.com/?q=東京都台東区池之端1-4-1",
-  },
-};
-
 export const greeting = {
   title: "ご挨拶",
   message: `本日はお忙しい中、両家顔合わせの会にお集まりいただき
@@ -28,11 +14,26 @@ export const greeting = {
 どうぞ最後までごゆっくりお過ごしください。`,
 };
 
+export const eventInfo = {
+  date: "2026年2月7日",
+  dayOfWeek: "土",
+  time: "午前11時30分より",
+  venue: {
+    name: "東天紅 LUCIS GARDEN 上野店",
+    floor: "9F",
+    postalCode: "〒110-8707",
+    address: "東京都台東区池之端１丁目４−１ 9F",
+    meetingPoint: "当日は1階ロビーにお集まりください。",
+    mapUrl: "https://www.google.com/maps/place/%E3%83%AB%E3%83%BC%E3%82%AD%E3%82%B9%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3/@35.7106097,139.7685127,16z/data=!3m1!5s0x60188c26bace2625:0x5e217e59dc7dc174!4m15!1m8!3m7!1s0x60188c26986d78b3:0x3f5d35e552bfd111!2z44Or44O844Kt44K544Ks44O844OH44Oz!8m2!3d35.7106097!4d139.7685127!10e1!16s%2Fg%2F1vzqs7lb!3m5!1s0x60188c26986d78b3:0x3f5d35e552bfd111!8m2!3d35.7106097!4d139.7685127!16s%2Fg%2F1vzqs7lb?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoASAFQAw%3D%3D",
+  },
+};
+
 export const schedule = {
   title: "当日の流れ",
   items: [
-    { time: "11:00", content: "集合（1階ロビー）" },
-    { time: "11:30", content: "開会・乾杯のご挨拶" },
+    { time: "11:15", content: "集合（1階ロビー）" },
+    { time: "11:30", content: "入店" },
+    { time: "11:35", content: "開会・乾杯のご挨拶" },
     { time: "11:45", content: "お食事スタート" },
     { time: "12:30", content: "自己紹介タイム" },
     { time: "13:30", content: "記念撮影" },
@@ -43,42 +44,51 @@ export const schedule = {
 
 export const groom = {
   role: "新郎",
-  name: "山田 太郎",
-  furigana: "やまだ たろう",
-  birthDate: "1995年4月15日",
+  name: "有村 勇樹",
+  furigana: "ありむら ゆうき",
+  birthDate: "1997年5月8日",
   bloodType: "A型",
-  hometown: "東京都",
+  hometown: "鹿児島県鹿児島市",
   job: "IT企業勤務",
-  hobbies: ["サッカー観戦", "料理", "旅行"],
-  favorites: ["ラーメン", "寿司"],
-  personality: "穏やかで真面目",
+  hobbies: ["バドミントン", "お酒", "プログラミング"],
+  favorites: ["ラーメン", "寿司", "焼肉", "お酒に合うもの全般"],
+  personality: "穏やかで真面目、マイペース",
   message: "これからどうぞよろしくお願いいたします。",
+  image: "/images/groom.jpg",
 };
 
 export const bride = {
   role: "新婦",
-  name: "鈴木 花子",
-  furigana: "すずき はなこ",
-  birthDate: "1997年8月20日",
+  name: "池上 紗弥香",
+  furigana: "いけがみ さやか",
+  birthDate: "1998年12月17日",
   bloodType: "O型",
-  hometown: "神奈川県",
-  job: "看護師",
-  hobbies: ["カフェ巡り", "読書", "ヨガ"],
-  favorites: ["パスタ", "スイーツ"],
+  hometown: "鹿児島県徳之島",
+  job: "イベント運営会社勤務",
+  hobbies: ["野球観戦(ヤクルトスワローズ)"],
+  favorites: ["餃子"],
   personality: "明るく社交的",
   message: "温かい家庭を築いていきたいと思います。",
+  image: "/images/bride.jpg",
 };
 
 export const ourStory = {
   title: "ふたりのなれそめ",
-  content: `私たちは2022年の春、友人の結婚式で出会いました。
+  content: `私たちは、2024年の春に出会いました。
 
-共通の趣味である旅行の話で意気投合し、
-その後、何度かグループで遊ぶうちに
-自然とお付き合いするようになりました。
+お互いにお酒が好きという共通点からすぐに意気投合し、
+一緒に過ごす時間を重ねるうちに、
+自然とお付き合いが始まりました。
 
-3年間の交際を経て、2025年の12月に
-思い出の場所でプロポーズをしました。`,
+出会いから約1年後には同棲をスタート。
+日々の何気ない時間を大切にしながら、
+二人での生活を築いていきました。
+
+そして約2年間の交際を経て、
+2025年12月、
+これからの人生を共に歩んでいきたいという
+想いを込めて、プロポーズをして
+今日という日を迎えることができました。`,
 };
 
 export const groomFamily = {
@@ -86,21 +96,28 @@ export const groomFamily = {
   members: [
     {
       relation: "父",
-      name: "山田 一郎",
-      furigana: "やまだ いちろう",
-      description: "趣味はゴルフと釣り。休日はよく海に出かけています。",
+      name: "有村 賢治",
+      furigana: "ありむら けんじ",
+      description: `定年の年にめでたい報告が聞けてうれしい限りです！。
+      鹿児島の焼酎オタクです
+      `,
+      image: "/images/groom-father.jpg",
     },
     {
       relation: "母",
-      name: "山田 幸子",
-      furigana: "やまだ さちこ",
-      description: "料理が得意で、家族の健康を支えてくれています。",
+      name: "有村 智子",
+      furigana: "ありむら ともこ",
+      description: `還暦を少し過ぎた現在も、看護師として働いております。
+      私は種子島出身なので、徳之島にご縁のある紗弥香さんと勇樹が結婚することとなり、大変うれしく、ありがたく思っております。
+      ` ,
+      image: "/images/groom-mother.jpg",
     },
     {
-      relation: "弟",
-      name: "山田 次郎",
-      furigana: "やまだ じろう",
+      relation: "兄",
+      name: "有村 大樹",
+      furigana: "ありむら だいき",
       description: "大学生。サッカー部で活躍中です。",
+      image: "/images/groom-brother.jpg",
     },
   ],
 };
@@ -113,18 +130,21 @@ export const brideFamily = {
       name: "鈴木 健一",
       furigana: "すずき けんいち",
       description: "会社員。休日は庭いじりを楽しんでいます。",
+      image: "/images/bride-father.jpg",
     },
     {
       relation: "母",
       name: "鈴木 美咲",
       furigana: "すずき みさき",
       description: "手芸が趣味。娘の服を手作りしてくれました。",
+      image: "/images/bride-mother.jpg",
     },
     {
       relation: "姉",
       name: "鈴木 優子",
       furigana: "すずき ゆうこ",
       description: "既婚。2歳の息子がいます。",
+      image: "/images/bride-sister.jpg",
     },
   ],
 };
@@ -133,39 +153,20 @@ export const menu = {
   title: "お料理メニュー",
   course: "中華コース",
   items: [
-    "前菜盛り合わせ",
-    "フカヒレスープ",
+    "六種冷菜盛り合わせ",
     "北京ダック",
-    "海老のチリソース",
-    "黒酢酢豚",
-    "五目炒飯",
-    "杏仁豆腐",
+    "フカヒレスープ",
+    "海老のチリソース煮、蒸しパン添え",
+    "鎮江黒酢の酢豚",
+    "本日の魚料理",
+    "あんかけ焼きそば",
+    "デザート盛り合せ",
   ],
   drinks: ["ビール", "ワイン", "ソフトドリンク各種"],
 };
 
-export const futurePlans = {
-  title: "結婚後の予定",
-  wedding: {
-    date: "2026年10月10日（土）",
-    venue: "〇〇ホテル",
-    note: "詳細が決まり次第、改めてご連絡いたします。",
-  },
-  newHome: {
-    area: "東京都内",
-    note: "新居が決まりましたら、改めてご報告させていただきます。",
-  },
-  message: `まだまだ未熟なふたりですが、
-お互いを思いやり、
-笑顔の絶えない家庭を築いていきたいと思います。
 
-今後ともどうぞよろしくお願いいたします。`,
-};
 
-export const closingMessage = {
-  title: "本日はありがとうございます",
-  message: "皆さんにお会いできるのを楽しみにしています！",
-};
 
 export const memories = {
   title: "ふたりの思い出",
@@ -191,4 +192,29 @@ export const memories = {
       date: "2025.06",
     },
   ],
+};
+
+
+export const futurePlans = {
+  title: "結婚後の予定",
+  marry: {
+    date: "2026年3月5日（木）",
+    note: "入籍手続きのみを行い、結婚式は後日予定しております。",
+  },
+  wedding: {
+    date: "年内予定",
+    note: "詳細が決まり次第、改めてご連絡いたします。",
+  },
+
+  message: `まだまだ未熟なふたりですが、
+お互いを思いやり、
+笑顔の絶えない家庭を築いていきたいと思います。
+
+今後ともどうぞよろしくお願いいたします。`,
+};
+
+
+export const closingMessage = {
+  title: "本日はありがとうございます",
+  message: "今後ともどうぞよろしくお願いいたします。",
 };

@@ -21,24 +21,22 @@ export function FuturePlansSection() {
          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left Column: Plans */}
             <div className="space-y-10">
+                <div>
+                  <h3 className="font-serif text-xl font-bold border-l-4 border-[var(--color-sage)] pl-4 mb-4 text-[var(--color-text-dark)]">
+                     入籍日
+                  </h3>
+                  <div className="bg-[var(--color-beige-light)] p-6">
+                     <p className="font-serif font-bold text-lg mb-2">{futurePlans.marry.date}</p>
+                     <p className="text-xs text-[var(--color-text-light)] italic border-t border-[var(--color-border)] pt-2">{futurePlans.marry.note}</p>
+                  </div>
+               </div>
                <div>
                   <h3 className="font-serif text-xl font-bold border-l-4 border-[var(--color-pink)] pl-4 mb-4 text-[var(--color-text-dark)]">
-                     Wedding
+                     結婚式
                   </h3>
                   <div className="bg-[var(--color-beige-light)] p-6">
                      <p className="font-serif font-bold text-lg mb-2">{futurePlans.wedding.date}</p>
-                     <p className="text-sm mb-4">{futurePlans.wedding.venue}</p>
                      <p className="text-xs text-[var(--color-text-light)] italic border-t border-[var(--color-border)] pt-2">{futurePlans.wedding.note}</p>
-                  </div>
-               </div>
-
-               <div>
-                  <h3 className="font-serif text-xl font-bold border-l-4 border-[var(--color-sage)] pl-4 mb-4 text-[var(--color-text-dark)]">
-                     New Home
-                  </h3>
-                  <div className="bg-[var(--color-beige-light)] p-6">
-                     <p className="font-serif font-bold text-lg mb-2">{futurePlans.newHome.area}</p>
-                     <p className="text-xs text-[var(--color-text-light)] italic border-t border-[var(--color-border)] pt-2">{futurePlans.newHome.note}</p>
                   </div>
                </div>
             </div>
@@ -48,7 +46,7 @@ export function FuturePlansSection() {
                {/* 縦書きのメッセージ */}
                <div className="writing-vertical-rl text-lg leading-loose font-serif h-full mx-auto md:ml-auto md:mr-0 text-[var(--color-text)] tracking-wider py-4 border-r border-[var(--color-border)] pr-8 mr-4">
                   {futurePlans.message.split('\n').map((line, i) => (
-                     <span key={i} className="mb-4 inline-block">{line}</span>
+                     <span key={line} className="mb-4 inline-block">{line}</span>
                   ))}
                </div>
                
