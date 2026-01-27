@@ -182,24 +182,69 @@ export const memories = {
   title: "ふたりの思い出",
   images: [
     {
+      src: "/images/memory13.jpeg",
+      caption: "付き合った日！",
+      date: "2024.03",
+    },
+    {
+      src: "/images/memory5.jpeg",
+      caption: "初野球観戦",
+      date: "2024.03",
+    },
+    {
+      src: "/images/memory6.jpeg",
+      caption: "三崎口デート！",
+      date: "2024.05",
+    },
+    {
+      src: "/images/memory10.jpeg",
+      caption: "音楽FES!",
+      date: "2024.05",
+    },
+    {
+      src: "/images/memory8.jpeg",
+      caption: "今井夫婦とのご飯会！",
+      date: "2024.06",
+    },
+    {
+      src: "/images/memory9.jpeg",
+      caption: "有村家とのご飯会！",
+      date: "2024.06",
+    },
+    {
+      src: "/images/memory11.jpeg",
+      caption: "福島旅行!",
+      date: "2024.07",
+    },
+    {
+      src: "/images/memory7.jpeg",
+      caption: "喜恵子とのご飯会！",
+      date: "2024.10",
+    },
+    {
+      src: "/images/memory12.jpeg",
+      caption: "北海道！",
+      date: "2025.06",
+    },
+    {
       src: "/images/memory1.jpeg",
-      caption: "初めてのデート",
-      date: "2023.03",
+      caption: "仙台旅行",
+      date: "2025.08",
     },
     {
       src: "/images/memory2.jpeg",
-      caption: "旅行の思い出",
-      date: "2023.08",
+      caption: "ディズニーデート",
+      date: "2025.12",
     },
     {
       src: "/images/memory3.jpeg",
-      caption: "一緒に過ごした日々",
-      date: "2024.05",
+      caption: "ディズニーデート",
+      date: "2025.12",
     },
     {
       src: "/images/memory4.jpeg",
       caption: "プロポーズの日",
-      date: "2025.06",
+      date: "2025.12",
     },
   ],
 };
