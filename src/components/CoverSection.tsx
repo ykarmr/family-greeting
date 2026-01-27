@@ -35,7 +35,7 @@ export function CoverSection() {
 
       {/* メインタイトルエリア */}
       <div className={`relative z-10 text-center mb-6 md:mb-10 transition-all duration-1000 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <h1 className="text-4xl md:text-6xl font-bold tracking-[0.3em] font-serif text-[var(--color-text-dark)] mb-4">
+        <h1 className="text-4xl md:text-6xl font-bold tracking-[0.3em] text-[var(--color-text-dark)] mb-4" style={{ fontFamily: 'var(--font-yosugara)' }}>
           両家顔合わせの栞
         </h1>
         <div className="mt-6 md:mt-8 flex justify-center items-center gap-4">

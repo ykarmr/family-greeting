@@ -3,101 +3,7 @@
 import { bride, groom, ourStory } from "@/data/content";
 import { useInView } from "@/hooks/useInView";
 
-type ProfileData = typeof groom | typeof bride;
-
-function ProfileCard({
-  data,
-  isGroom,
-  isInView,
-  delay,
-}: {
-  data: ProfileData;
-  isGroom: boolean;
-  isInView: boolean;
-  delay: number;
-}) {
-  const accentColor = isGroom ? "var(--color-sage)" : "var(--color-pink)";
-  const decorEmoji = isGroom ? "🌿" : "✿";
-
-  return (
-    <div
-      className={`bg-[var(--color-white)] rounded-2xl overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-[var(--color-border-light)] transition-all duration-700 delay-[${delay}ms] ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
-    >
-      {/* ヘッダー部分 */}
-      <div className="px-6 py-6 relative bg-[var(--color-beige-light)]">
-        {/* 背景装飾 */}
-        <div className="absolute top-2 right-3 text-lg opacity-25" style={{ color: accentColor }}>
-          {decorEmoji}
-        </div>
-        <div className="absolute bottom-2 left-3 text-lg opacity-25" style={{ color: accentColor }}>
-          {decorEmoji}
-        </div>
-
-        <div className="text-center relative z-10">
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <span 
-              className="inline-block text-white text-xs px-4 py-1 rounded-full font-medium"
-              style={{ background: accentColor }}
-            >
-              {data.role}
-            </span>
-          </div>
-
-          <h3
-            className="text-lg font-medium text-[var(--color-text-dark)] tracking-wider mb-1"
-            style={{ fontFamily: "var(--font-serif)" }}
-          >
-            {data.name}
-          </h3>
-          <p className="text-xs text-[var(--color-text-light)]">
-            {data.furigana}
-          </p>
-        </div>
-      </div>
-
-      {/* プロフィール情報 */}
-      <div className="p-6 md:p-8 space-y-3 md:space-y-4">
-        <div className="magazine-label mb-4">PROFILE DETAILS</div>
-        <ProfileRow label="生年月日" value={data.birthDate} />
-        <ProfileRow label="血液型" value={data.bloodType} />
-        <ProfileRow label="出身地" value={data.hometown} />
-        <ProfileRow label="お仕事" value={data.job} />
-        <ProfileRow label="趣味" value={data.hobbies.join("、")} />
-        <ProfileRow label="好きな食べ物" value={data.favorites.join("、")} />
-        <ProfileRow label="性格" value={data.personality} />
-      </div>
-
-      {/* ひとこと */}
-      <div className="mx-6 mb-6 p-4 rounded-lg magazine-quote">
-        <p className="text-sm md:text-base text-[var(--color-text)] leading-relaxed">
-          {data.message}
-        </p>
-        <p className="magazine-caption mt-2" style={{ borderTop: 'none' }}>PERSONAL MESSAGE</p>
-      </div>
-    </div>
-  );
-}
-
-function ProfileRow({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="flex items-start gap-3 md:gap-4 pb-3 md:pb-3.5 border-b border-[var(--color-border-light)] last:border-0 last:pb-0">
-      <span className="w-24 md:w-28 text-[var(--color-text-light)] text-xs md:text-sm shrink-0 pt-0.5">
-        {label}
-      </span>
-      <span className="text-[var(--color-text)] text-sm md:text-base flex-1 leading-relaxed">
-        {value}
-      </span>
-    </div>
-  );
-}
-
-const InterviewItem = ({ question, answer }: { question: string; answer: string }) => (
+const InterviewItem = ({ question, answer }: { question: string; answer: string | string[] }) => (
   <div className="mb-2">
     <dt className="text-[10px] text-[var(--color-text-light)] font-bold tracking-widest mb-1 border-b border-[var(--color-border-light)] inline-block pb-0.5">
       {question}
@@ -125,7 +31,7 @@ export function ProfileIntroSection() {
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className={`section-header text-left mb-16 transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <span className="block text-xs uppercase tracking-[0.3em] text-[var(--color-text-light)] mb-2 font-serif">Getting to know us</span>
-          <h2 className="section-title text-left !m-0 !text-left !w-auto">新郎新婦のご紹介</h2>
+          <h2 className="section-title text-left !m-0 !text-left !w-auto">私たちのご紹介</h2>
         </div>
 
         <div className="space-y-24">
@@ -160,7 +66,10 @@ export function ProfileIntroSection() {
                 <div className="absolute -top-3 -left-3 w-8 h-8 bg-[var(--color-sage)] opacity-20 rounded-full"></div>
                 
                 {/* ひとこと (Lead) */}
-                <div className="mb-10 font-serif text-lg leading-loose text-[var(--color-text-dark)] border-b pb-6 border-dashed border-[var(--color-border)]">
+                <div 
+                   className="mb-10 font-serif text-lg leading-loose text-[var(--color-text-dark)] border-b pb-6 border-dashed border-[var(--color-border)]"
+                   style={{ fontFamily: "var(--font-yosugara)" }}
+                >
                   "{groom.message}"
                 </div>
 
@@ -206,7 +115,10 @@ export function ProfileIntroSection() {
                 <div className="absolute -top-3 -right-3 w-8 h-8 bg-[var(--color-pink)] opacity-20 rounded-full"></div>
                 
                 {/* ひとこと (Lead) */}
-                <div className="mb-10 font-serif text-lg leading-loose text-[var(--color-text-dark)] border-b pb-6 border-dashed border-[var(--color-border)]">
+                <div 
+                  className="mb-10 font-serif text-lg leading-loose text-[var(--color-text-dark)] border-b pb-6 border-dashed border-[var(--color-border)]"
+                  style={{ fontFamily: "var(--font-yosugara)" }}
+                  >
                   "{bride.message}"
                 </div>
 
@@ -258,7 +170,7 @@ export function OurStorySection() {
       <div className="max-w-3xl mx-auto relative z-10 py-12">
         <div className={`text-center mb-16 transition-all duration-1000 ${isInView ? "opacity-100" : "opacity-0"}`}>
            <span className="font-serif text-[var(--color-beige)] tracking-[0.5em] text-xs uppercase mb-4 block">The Story of Us</span>
-           <h2 className="font-serif text-3xl md:text-4xl text-[var(--color-white)] tracking-[0.3em]" style={{ textShadow: "0 0 10px rgba(255,255,255,0.5)" }}>
+           <h2 className="text-3xl md:text-4xl text-[var(--color-white)] tracking-[0.3em]" style={{ fontFamily: 'var(--font-yosugara)', textShadow: "0 0 10px rgba(255,255,255,0.5)" }}>
               {ourStory.title}
            </h2>
         </div>
@@ -267,7 +179,10 @@ export function OurStorySection() {
             {/* 映写機のような光のエフェクト */}
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-40 bg-white/5 blur-3xl rounded-full pointer-events-none"></div>
 
-            <p className="text-base md:text-xl text-[var(--color-white)] leading-[2.5] whitespace-pre-line text-center font-serif" style={{ textShadow: "0 2px 4px rgba(0,0,0,0.8)" }}>
+            <p className="text-base md:text-xl text-[var(--color-white)] leading-[2.5] whitespace-pre-line text-center font-serif" style={{ 
+              fontFamily: 'var(--font-yosugara)',
+              textShadow: "0 2px 4px rgba(0,0,0,0.8)" 
+            }}>
                {ourStory.content}
             </p>
 

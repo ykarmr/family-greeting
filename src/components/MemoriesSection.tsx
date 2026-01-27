@@ -58,7 +58,9 @@ export function MemoriesSection() {
         }`}
       >
         <span className="text-[var(--color-sage)] font-serif tracking-[0.2em] text-xs block mb-2">Moments in Time</span>
-        <h2 className="section-title !text-white text-shadow-glow">{memories.title}</h2>
+        <h2 className="text-3xl md:text-4xl text-[var(--color-white)] tracking-[0.3em]" style={{ fontFamily: 'var(--font-yosugara)', textShadow: "0 0 10px rgba(255,255,255,0.5)" }}>
+          {memories.title}
+        </h2>
       </div>
 
       <div className="max-w-4xl mx-auto flex flex-col items-center">
@@ -91,7 +93,9 @@ export function MemoriesSection() {
            
            {/* 手書きキャプションエリア */}
            <div className="mt-4 text-center pb-2">
-              <p className="font-handwritten text-gray-600 text-xl rotate-[-1deg]">
+              <p className="font-handwritten text-gray-600 text-xl rotate-[-1deg]"
+                 style={{ fontFamily: "var(--font-yosugara)" }}
+              >
                  {memories.images[currentIndex].caption} 
                  <span className="text-xs text-gray-400 ml-2 font-sans tracking-widest">{memories.images[currentIndex].date}</span>
               </p>

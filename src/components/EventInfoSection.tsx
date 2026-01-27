@@ -30,7 +30,7 @@ export function EventInfoSection() {
         
         <div className="section-header mb-12">
           <span className="magazine-label">Information</span>
-          <h2 className="section-title">開催情報</h2>
+          <h2 className="section-title">インフォメーション</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-stretch">
