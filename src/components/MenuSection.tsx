@@ -37,7 +37,7 @@ export function MenuSection() {
               <div className="space-y-6">
                 {menu.items.map((item) => (
                   <div key={item} className="flex items-baseline gap-4 group">
-                    <span className="font-serif text-[var(--color-text-dark)] text-lg shrink-0 group-hover:text-[var(--color-sage-dark)] transition-colors duration-300">
+                    <span className="font-serif text-[var(--color-text-dark)] text-lg group-hover:text-[var(--color-sage-dark)] transition-colors duration-300 break-words overflow-wrap-anywhere">
                       {item}
                     </span>
                     <div className="flex-1 border-b border-dotted border-[var(--color-text-light)] opacity-40 relative -top-1"></div>
@@ -49,7 +49,7 @@ export function MenuSection() {
               {/* ドリンク */}
               <div className="mt-16 pt-8 border-t border-[var(--color-text-light)]/20 text-center">
                  <span className="inline-block bg-[var(--color-text-dark)] text-white text-xs px-4 py-1 tracking-widest mb-4 font-serif rounded-sm">お飲み物</span>
-                 <p className="font-serif text-[var(--color-text)] leading-loose">
+                 <p className="font-serif text-[var(--color-text)] leading-loose break-words overflow-wrap-anywhere">
                     {menu.drinks.join("　・　")}
                  </p>
               </div>

@@ -74,6 +74,19 @@ body {
   font-family: var(--font-mincho), "Hiragino Mincho ProN", serif;
   letter-spacing: 0.08em;
   line-height: 2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* グローバルなテキスト折り返し設定 */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+p, div, span, h1, h2, h3, h4, h5, h6 {
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 /* ヴィンテージ・雑誌風共通スタイル */

@@ -13,7 +13,7 @@ export function FuturePlansSection() {
       
       <div className={`max-w-4xl mx-auto p-8 md:p-12 bg-white border-t-4 border-[var(--color-sage)] shadow-xl relative transition-all duration-1000 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
          {/* 雑誌風ヘッダー */}
-         <div className="flex flex-col md:flex-row justify-between items-end mb-12 border-b-2 border-black pb-4">
+         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b-2 border-black pb-4">
             <h2 className="font-serif text-4xl font-bold tracking-widest text-[var(--color-text-dark)] uppercase">Future<br/>Plans</h2>
             <span className="font-serif text-sm tracking-[0.3em] mb-1">これからのこと</span>
          </div>
