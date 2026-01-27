@@ -22,16 +22,16 @@ export function ClosingSection() {
 
       <div className={`relative z-10 transition-all duration-1000 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
         <div className="mb-12 border-b border-white/20 pb-12">
-           <h2 className="font-serif text-3xl md:text-5xl text-[var(--color-white)] tracking-[0.2em] mb-6">
+           <h2 className="font-serif text-4xl md:text-6xl text-[var(--color-white)] tracking-[0.2em] mb-6">
               Thank You
            </h2>
-           <p className="text-[var(--color-beige)] font-serif text-sm md:text-base tracking-widest">
+           <p className="text-[var(--color-beige)] font-serif text-base md:text-lg tracking-widest">
               {closingMessage.message}
            </p>
         </div>
 
         <div className="flex flex-col items-center gap-4">
-           <div className="flex items-center gap-4 text-white/60 font-serif tracking-widest text-xs uppercase">
+           <div className="flex items-center gap-4 text-white/60 font-serif tracking-widest text-sm uppercase">
               <span>{groom.name}</span>
               <span>&</span>
               <span>{bride.name}</span>
@@ -39,13 +39,13 @@ export function ClosingSection() {
            
            <div className="w-px h-8 bg-white/20 my-2"></div>
            
-           <div className="text-white/40 font-serif text-[10px] tracking-[0.5em]">
+           <div className="text-white/40 font-serif text-xs tracking-[0.5em]">
               2026.02.07
            </div>
         </div>
       </div>
       
-      <div className="absolute bottom-8 text-[10px] text-white/10 tracking-[1em] uppercase font-sans">
+      <div className="absolute bottom-8 text-xs text-white/10 tracking-[1em] uppercase font-sans">
          Family Greeting
       </div>
     </section>

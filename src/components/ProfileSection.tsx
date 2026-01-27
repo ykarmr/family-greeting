@@ -5,10 +5,10 @@ import { useInView } from "@/hooks/useInView";
 
 const InterviewItem = ({ question, answer }: { question: string; answer: string | string[] }) => (
   <div className="mb-2">
-    <dt className="text-[10px] text-[var(--color-text-light)] font-bold tracking-widest mb-1 border-b border-[var(--color-border-light)] inline-block pb-0.5">
+    <dt className="text-xs text-[var(--color-text-light)] font-bold tracking-widest mb-1 border-b border-[var(--color-border-light)] inline-block pb-0.5">
       {question}
     </dt>
-    <dd className="font-serif text-[var(--color-text)] leading-relaxed">
+    <dd className="font-serif text-base text-[var(--color-text)] leading-relaxed">
       {answer}
     </dd>
   </div>
@@ -30,7 +30,7 @@ export function ProfileIntroSection() {
 
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className={`section-header text-left mb-16 transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
-          <span className="block text-xs uppercase tracking-[0.3em] text-[var(--color-text-light)] mb-2 font-serif">Getting to know us</span>
+          <span className="block text-sm uppercase tracking-[0.3em] text-[var(--color-text-light)] mb-2 font-serif">Getting to know us</span>
           <h2 className="section-title text-left !m-0 !text-left !w-auto">私たちのご紹介</h2>
         </div>
 
@@ -54,9 +54,9 @@ export function ProfileIntroSection() {
                     )}
                  </div>
                  <div className="mt-6 text-center md:text-left">
-                   <p className="font-serif text-2xl font-bold text-[var(--color-text-dark)] mb-1">{groom.name}</p>
-                   <p className="font-sans text-xs text-[var(--color-text-light)] tracking-wider uppercase mb-3">{groom.furigana}</p>
-                   <span className="inline-block px-3 py-1 bg-[var(--color-sage)] text-white text-xs tracking-widest font-serif">{groom.role}</span>
+                   <p className="font-serif text-3xl font-bold text-[var(--color-text-dark)] mb-1">{groom.name}</p>
+                   <p className="font-sans text-sm text-[var(--color-text-light)] tracking-wider uppercase mb-3">{groom.furigana}</p>
+                   <span className="inline-block px-3 py-1 bg-[var(--color-sage)] text-white text-sm tracking-widest font-serif">{groom.role}</span>
                  </div>
                </div>
              </div>
@@ -67,7 +67,7 @@ export function ProfileIntroSection() {
                 
                 {/* ひとこと (Lead) */}
                 <div 
-                   className="mb-10 font-serif text-lg leading-loose text-[var(--color-text-dark)] border-b pb-6 border-dashed border-[var(--color-border)]"
+                   className="mb-10 font-serif text-xl leading-loose text-[var(--color-text-dark)] border-b pb-6 border-dashed border-[var(--color-border)]"
                    style={{ fontFamily: "var(--font-yosugara)" }}
                 >
                   "{groom.message}"
@@ -103,9 +103,9 @@ export function ProfileIntroSection() {
                     )}
                  </div>
                  <div className="mt-6 text-center md:text-right">
-                   <p className="font-serif text-2xl font-bold text-[var(--color-text-dark)] mb-1">{bride.name}</p>
-                   <p className="font-sans text-xs text-[var(--color-text-light)] tracking-wider uppercase mb-3">{bride.furigana}</p>
-                   <span className="inline-block px-3 py-1 bg-[var(--color-pink)] text-white text-xs tracking-widest font-serif">{bride.role}</span>
+                   <p className="font-serif text-3xl font-bold text-[var(--color-text-dark)] mb-1">{bride.name}</p>
+                   <p className="font-sans text-sm text-[var(--color-text-light)] tracking-wider uppercase mb-3">{bride.furigana}</p>
+                   <span className="inline-block px-3 py-1 bg-[var(--color-pink)] text-white text-sm tracking-widest font-serif">{bride.role}</span>
                  </div>
                </div>
              </div>
@@ -116,7 +116,7 @@ export function ProfileIntroSection() {
                 
                 {/* ひとこと (Lead) */}
                 <div 
-                  className="mb-10 font-serif text-lg leading-loose text-[var(--color-text-dark)] border-b pb-6 border-dashed border-[var(--color-border)]"
+                  className="mb-10 font-serif text-xl leading-loose text-[var(--color-text-dark)] border-b pb-6 border-dashed border-[var(--color-border)]"
                   style={{ fontFamily: "var(--font-yosugara)" }}
                   >
                   "{bride.message}"
@@ -169,8 +169,8 @@ export function OurStorySection() {
 
       <div className="max-w-3xl mx-auto relative z-10 py-12">
         <div className={`text-center mb-16 transition-all duration-1000 ${isInView ? "opacity-100" : "opacity-0"}`}>
-           <span className="font-serif text-[var(--color-beige)] tracking-[0.5em] text-xs uppercase mb-4 block">The Story of Us</span>
-           <h2 className="text-3xl md:text-4xl text-[var(--color-white)] tracking-[0.3em]" style={{ fontFamily: 'var(--font-yosugara)', textShadow: "0 0 10px rgba(255,255,255,0.5)" }}>
+           <span className="font-serif text-[var(--color-beige)] tracking-[0.5em] text-sm uppercase mb-4 block">The Story of Us</span>
+           <h2 className="text-4xl md:text-5xl text-[var(--color-white)] tracking-[0.3em]" style={{ fontFamily: 'var(--font-yosugara)', textShadow: "0 0 10px rgba(255,255,255,0.5)" }}>
               {ourStory.title}
            </h2>
         </div>
@@ -179,7 +179,7 @@ export function OurStorySection() {
             {/* 映写機のような光のエフェクト */}
             <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-64 h-40 bg-white/5 blur-3xl rounded-full pointer-events-none"></div>
 
-            <p className="text-base md:text-xl text-[var(--color-white)] leading-[2.5] whitespace-pre-line text-center font-serif" style={{ 
+            <p className="text-lg md:text-2xl text-[var(--color-white)] leading-[2.8] whitespace-pre-line text-center font-serif" style={{ 
               fontFamily: 'var(--font-yosugara)',
               textShadow: "0 2px 4px rgba(0,0,0,0.8)" 
             }}>

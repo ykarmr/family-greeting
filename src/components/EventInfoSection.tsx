@@ -40,27 +40,27 @@ export function EventInfoSection() {
               <div>
                  <div className="flex justify-between items-start mb-6 border-b-2 border-dashed border-[var(--color-text-light)]/30 pb-4">
                     <div className="flex flex-col">
-                       <span className="font-serif text-[var(--color-text-light)] text-xs tracking-widest uppercase mb-1">Date</span>
-                       <span className="font-serif text-3xl font-bold text-[var(--color-text-dark)]">{eventInfo.date}</span>
+                       <span className="font-serif text-[var(--color-text-light)] text-sm tracking-widest uppercase mb-1">Date</span>
+                       <span className="font-serif text-4xl font-bold text-[var(--color-text-dark)]">{eventInfo.date}</span>
                     </div>
-                    <div className="bg-[var(--color-text-dark)] text-[#F4EDE3] px-3 py-1 rounded-sm font-serif text-sm">
+                    <div className="bg-[var(--color-text-dark)] text-[#F4EDE3] px-4 py-2 rounded-sm font-serif text-base">
                        {eventInfo.dayOfWeek}
                     </div>
                  </div>
 
                  <div className="space-y-6">
                     <div>
-                       <span className="font-serif text-[var(--color-text-light)] text-xs tracking-widest uppercase block mb-1">Time</span>
-                       <p className="font-serif text-xl">{eventInfo.time}</p>
+                       <span className="font-serif text-[var(--color-text-light)] text-sm tracking-widest uppercase block mb-1">Time</span>
+                       <p className="font-serif text-2xl">{eventInfo.time}</p>
                     </div>
                     
                     <div>
-                       <span className="font-serif text-[var(--color-text-light)] text-xs tracking-widest uppercase block mb-1">Place</span>
-                       <p className="font-serif text-xl font-bold mb-1">{eventInfo.venue.name}</p>
-                       <p className="text-sm text-[var(--color-text)] mb-4">{eventInfo.venue.address} {eventInfo.venue.floor}</p>
+                       <span className="font-serif text-[var(--color-text-light)] text-sm tracking-widest uppercase block mb-1">Place</span>
+                       <p className="font-serif text-2xl font-bold mb-1">{eventInfo.venue.name}</p>
+                       <p className="text-base text-[var(--color-text)] mb-4">{eventInfo.venue.address} {eventInfo.venue.floor}</p>
                        
-                       <div className="bg-white/50 p-4 border border-[var(--color-text-dark)]/10 rounded-sm text-sm">
-                          <span className="block text-xs text-[var(--color-sage)] font-bold mb-1">MEETING POINT</span>
+                       <div className="bg-white/50 p-4 border border-[var(--color-text-dark)]/10 rounded-sm text-base">
+                          <span className="block text-sm text-[var(--color-sage)] font-bold mb-1">MEETING POINT</span>
                           {eventInfo.venue.meetingPoint}
                        </div>
                     </div>
@@ -68,7 +68,7 @@ export function EventInfoSection() {
               </div>
 
               {eventInfo.venue.mapUrl && (
-                  <a href={eventInfo.venue.mapUrl} target="_blank" rel="noopener noreferrer" className="mt-8 flex items-center justify-center gap-2 w-full py-3 border border-[var(--color-text-dark)] text-[var(--color-text-dark)] font-serif text-sm hover:bg-[var(--color-text-dark)] hover:text-white transition-colors uppercase tracking-widest">
+                  <a href={eventInfo.venue.mapUrl} target="_blank" rel="noopener noreferrer" className="mt-8 flex items-center justify-center gap-2 w-full py-3 border border-[var(--color-text-dark)] text-[var(--color-text-dark)] font-serif text-base hover:bg-[var(--color-text-dark)] hover:text-white transition-colors uppercase tracking-widest">
                      View Map
                   </a>
               )}
@@ -76,7 +76,7 @@ export function EventInfoSection() {
 
            {/* Right Ticket: Schedule */}
            <TicketCard className="p-6 md:p-8 bg-white border-2 border-[var(--color-sage)]/20 shadow-xl">
-               <div className="absolute top-4 left-4 border border-[var(--color-sage)]/30 px-2 py-0.5 text-[10px] tracking-[0.2em] text-[var(--color-sage)]">PROGRAM</div>
+               <div className="absolute top-4 left-4 border border-[var(--color-sage)]/30 px-2 py-0.5 text-xs tracking-[0.2em] text-[var(--color-sage)]">PROGRAM</div>
                
                <div className="mt-10 space-y-4 relative">
                   {/* タイムライン */}
@@ -86,14 +86,14 @@ export function EventInfoSection() {
                      <div key={item.content} className="flex items-start gap-3 relative group">
                         {/* 時刻エリア */}
                         <div className="w-16 text-right shrink-0 pt-0.5">
-                           <span className="font-serif text-sm text-[var(--color-sage)] font-bold">
+                           <span className="font-serif text-base text-[var(--color-sage)] font-bold">
                               {item.time}
                            </span>
                         </div>
                         
                         {/* 内容 */}
                         <div className="flex-1 pl-4">
-                           <p className="text-sm md:text-base font-medium text-[var(--color-text-dark)] leading-relaxed group-hover:text-[var(--color-sage-dark)] transition-colors">
+                           <p className="text-base md:text-lg font-medium text-[var(--color-text-dark)] leading-relaxed group-hover:text-[var(--color-sage-dark)] transition-colors">
                               {item.content}
                            </p>
                         </div>
@@ -101,7 +101,7 @@ export function EventInfoSection() {
                   ))}
                </div>
 
-               <div className="mt-8 pt-5 border-t border-[var(--color-border)] text-center text-xs tracking-widest font-serif text-[var(--color-text-light)]">
+               <div className="mt-8 pt-5 border-t border-[var(--color-border)] text-center text-sm tracking-widest font-serif text-[var(--color-text-light)]">
                   時間は目安です
                </div>
            </TicketCard>

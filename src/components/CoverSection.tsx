@@ -24,23 +24,23 @@ export function CoverSection() {
       {/* ヘッダー情報（巻数・日付） */}
       <div className="absolute top-8 md:top-12 w-full px-8 md:px-16 flex justify-between items-end z-10">
         <div className="flex flex-col items-start gap-1">
-          <span className="text-[10px] md:text-xs tracking-[0.3em] font-serif uppercase text-[var(--color-text-light)]">Family Greeting</span>
-          <span className="text-sm md:text-base font-bold font-serif tracking-widest border-b border-[var(--color-text)] pb-1">創刊号</span>
+          <span className="text-xs md:text-sm tracking-[0.3em] font-serif uppercase text-[var(--color-text-light)]">Family Greeting</span>
+          <span className="text-base md:text-lg font-bold font-serif tracking-widest border-b border-[var(--color-text)] pb-1">創刊号</span>
         </div>
         <div className="flex flex-col items-end gap-1">
-           <span className="text-[10px] md:text-xs tracking-[0.2em] font-serif text-[var(--color-text-light)]">製作者</span>
-           <span className="text-sm md:text-base font-bold font-serif tracking-widest text-[var(--color-text-dark)]">有村勇樹・池上紗弥香</span>
+           <span className="text-xs md:text-sm tracking-[0.2em] font-serif text-[var(--color-text-light)]">製作者</span>
+           <span className="text-base md:text-lg font-bold font-serif tracking-widest text-[var(--color-text-dark)]">有村勇樹・池上紗弥香</span>
         </div>
       </div>
 
       {/* メインタイトルエリア */}
       <div className={`relative z-10 text-center mb-6 md:mb-10 transition-all duration-1000 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-        <h1 className="text-4xl md:text-6xl font-bold tracking-[0.3em] text-[var(--color-text-dark)] mb-4" style={{ fontFamily: 'var(--font-yosugara)' }}>
-          両家顔合わせの栞
+        <h1 className="text-5xl md:text-7xl font-bold tracking-[0.3em] text-[var(--color-text-dark)] mb-4" style={{ fontFamily: 'var(--font-yosugara)' }}>
+          顔合わせの栞
         </h1>
         <div className="mt-6 md:mt-8 flex justify-center items-center gap-4">
             <div className="h-[1px] w-12 bg-[var(--color-text-light)] opacity-50"></div>
-            <span className="font-serif italic text-lg md:text-xl text-[var(--color-sage-dark)]">The Two Families</span>
+            <span className="font-serif italic text-xl md:text-2xl text-[var(--color-sage-dark)]">The Two Families</span>
             <div className="h-[1px] w-12 bg-[var(--color-text-light)] opacity-50"></div>
         </div>
       </div>
@@ -63,7 +63,7 @@ export function CoverSection() {
            
            {/* キャプション */}
            <div className="absolute -bottom-8 right-4 max-w-[200px] text-right">
-             <p className="text-[10px] text-[var(--color-text-light)] font-serif leading-relaxed tracking-wider transform -rotate-1">
+             <p className="text-xs text-[var(--color-text-light)] font-serif leading-relaxed tracking-wider transform -rotate-1">
                ふたつの家族が<br/>ひとつになる日
              </p>
            </div>
@@ -72,7 +72,7 @@ export function CoverSection() {
 
       {/* 下部装飾 */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 z-10 opacity-60">
-        <span className="text-[10px] tracking-[0.5em] uppercase font-serif">Scroll Down</span>
+        <span className="text-xs tracking-[0.5em] uppercase font-serif">Scroll Down</span>
         <div className="w-[1px] h-12 bg-[var(--color-text)]"></div>
       </div>
     </section>

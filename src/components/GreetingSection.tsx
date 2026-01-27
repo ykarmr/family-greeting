@@ -30,7 +30,7 @@ export function GreetingSection() {
             </div>
 
             <div className="relative z-10 text-center">
-               <h2 className="text-xl md:text-2xl mb-12 tracking-[0.3em] text-[var(--color-text-dark)] flex items-center justify-center gap-4"
+               <h2 className="text-2xl md:text-3xl mb-12 tracking-[0.3em] text-[var(--color-text-dark)] flex items-center justify-center gap-4"
                   style={{ fontFamily: 'var(--font-yosugara)'}}
                >
                  <span className="h-[1px] w-8 bg-[var(--color-text-light)]"></span>
@@ -39,14 +39,14 @@ export function GreetingSection() {
                </h2>
 
                <p
-                 className="text-base md:text-lg text-[var(--color-text)] leading-[2.5rem] tracking-widest whitespace-pre-line"
+                 className="text-lg md:text-xl text-[var(--color-text)] leading-[2.8rem] tracking-widest whitespace-pre-line"
                  style={{ fontFamily: "var(--font-yosugara)" }}
                >
                  {greeting.message}
                </p>
                
                {/* サイン風 */}
-               <div className="mt-12 text-right font-handwritten text-[var(--color-text-light)] text-sm tracking-widest"
+               <div className="mt-12 text-right font-handwritten text-[var(--color-text-light)] text-base tracking-widest"
                  style={{ fontFamily: "var(--font-yosugara)" }}
                >
                  {groom.name} & {bride.name}

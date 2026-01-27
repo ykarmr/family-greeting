@@ -28,7 +28,7 @@ function ScrapbookCard({
         <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-32 h-6 bg-[#E8E0D0] opacity-90 shadow-sm z-20 rotate-2 mix-blend-multiply"></div>
 
         <div className="relative z-10">
-           <h3 className="font-serif text-2xl text-center mb-10 tracking-[0.2em] text-[var(--color-text-dark)] border-b-2 border-dotted border-[var(--color-border)] pb-4 inline-block w-full">
+           <h3 className="font-serif text-3xl text-center mb-10 tracking-[0.2em] text-[var(--color-text-dark)] border-b-2 border-dotted border-[var(--color-border)] pb-4 inline-block w-full">
               {data.title}
            </h3>
 
@@ -65,15 +65,15 @@ function ScrapbookCard({
                     {/* テキスト情報 */}
                     <div className="flex-1 pt-2">
                        <div className="flex items-baseline gap-3 mb-1">
-                          <span className="font-serif text-[var(--color-text-dark)] text-lg border-b border-[var(--color-text-light)]/50 pb-0.5" style={{ color: accentColor }}>
+                          <span className="font-serif text-[var(--color-text-dark)] text-xl border-b border-[var(--color-text-light)]/50 pb-0.5" style={{ color: accentColor }}>
                              {member.relation}
                           </span>
-                          <span className="font-serif text-xl font-bold text-[var(--color-text-dark)]">
+                          <span className="font-serif text-2xl font-bold text-[var(--color-text-dark)]">
                              {member.name}
                           </span>
                        </div>
-                       <p className="text-[10px] text-[var(--color-text-light)] mb-2 tracking-wider">{member.furigana}</p>
-                       <p className="font-handwritten text-[var(--color-text)] text-sm leading-7 relative">
+                       <p className="text-xs text-[var(--color-text-light)] mb-2 tracking-wider">{member.furigana}</p>
+                       <p className="font-handwritten text-[var(--color-text)] text-base leading-7 relative">
                           {/* 罫線風背景 */}
                           <span className="absolute inset-0 block" style={{backgroundImage: "repeating-linear-gradient(transparent, transparent 27px, #E5E5E5 28px)"}}></span>
                           <span className="relative z-10 block pt-[4px]">{member.description}</span>

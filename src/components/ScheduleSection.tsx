@@ -44,7 +44,7 @@ export function ScheduleSection() {
               >
                 {/* 時間 */}
                 <div className="w-12 text-right pr-3">
-                  <span className="text-xs font-medium text-[var(--color-text-dark)]">
+                  <span className="text-sm font-medium text-[var(--color-text-dark)]">
                     {item.time}
                   </span>
                 </div>
@@ -54,7 +54,7 @@ export function ScheduleSection() {
 
                 {/* 内容 */}
                 <div className="pl-4 flex-1 pt-0">
-                  <p className="text-sm text-[var(--color-text)] font-medium">{item.content}</p>
+                  <p className="text-base text-[var(--color-text)] font-medium">{item.content}</p>
                 </div>
               </div>
             ))}
@@ -62,7 +62,7 @@ export function ScheduleSection() {
         </div>
 
         <p
-          className={`text-center text-xs text-[var(--color-text-light)] mt-8 transition-all duration-700 ${
+          className={`text-center text-sm text-[var(--color-text-light)] mt-8 transition-all duration-700 ${
             isInView ? "opacity-100" : "opacity-0"
           }`}
         >

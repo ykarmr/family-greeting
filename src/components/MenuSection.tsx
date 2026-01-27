@@ -28,16 +28,16 @@ export function MenuSection() {
               {/* タイトルエリア */}
               <div className="text-center mb-12">
                  <div className="inline-block border-b-2 border-[var(--color-text-dark)] pb-2 mb-2">
-                    <span className="font-serif font-bold text-2xl tracking-[0.2em] text-[var(--color-text-dark)]">本日のメニュー</span>
+                    <span className="font-serif font-bold text-3xl tracking-[0.2em] text-[var(--color-text-dark)]">本日のメニュー</span>
                  </div>
-                 <p className="font-serif text-sm text-[var(--color-text-light)] tracking-widest">{menu.course}</p>
+                 <p className="font-serif text-base text-[var(--color-text-light)] tracking-widest">{menu.course}</p>
               </div>
 
               {/* メニューリスト */}
               <div className="space-y-6">
                 {menu.items.map((item) => (
                   <div key={item} className="flex items-baseline gap-4 group">
-                    <span className="font-serif text-[var(--color-text-dark)] text-lg group-hover:text-[var(--color-sage-dark)] transition-colors duration-300 break-words overflow-wrap-anywhere">
+                    <span className="font-serif text-[var(--color-text-dark)] text-xl group-hover:text-[var(--color-sage-dark)] transition-colors duration-300 break-words overflow-wrap-anywhere">
                       {item}
                     </span>
                     <div className="flex-1 border-b border-dotted border-[var(--color-text-light)] opacity-40 relative -top-1"></div>

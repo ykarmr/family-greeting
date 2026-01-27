@@ -14,29 +14,29 @@ export function FuturePlansSection() {
       <div className={`max-w-4xl mx-auto p-8 md:p-12 bg-white border-t-4 border-[var(--color-sage)] shadow-xl relative transition-all duration-1000 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
          {/* 雑誌風ヘッダー */}
          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 border-b-2 border-black pb-4">
-            <h2 className="font-serif text-4xl font-bold tracking-widest text-[var(--color-text-dark)] uppercase">Future<br/>Plans</h2>
-            <span className="font-serif text-sm tracking-[0.3em] mb-1">これからのこと</span>
+            <h2 className="font-serif text-5xl font-bold tracking-widest text-[var(--color-text-dark)] uppercase">Future<br/>Plans</h2>
+            <span className="font-serif text-base tracking-[0.3em] mb-1">これからのこと</span>
          </div>
 
          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* Left Column: Plans */}
             <div className="space-y-10">
                 <div>
-                  <h3 className="font-serif text-xl font-bold border-l-4 border-[var(--color-sage)] pl-4 mb-4 text-[var(--color-text-dark)]">
+                  <h3 className="font-serif text-2xl font-bold border-l-4 border-[var(--color-sage)] pl-4 mb-4 text-[var(--color-text-dark)]">
                      入籍日
                   </h3>
                   <div className="bg-[var(--color-beige-light)] p-6">
-                     <p className="font-serif font-bold text-lg mb-2">{futurePlans.marry.date}</p>
-                     <p className="text-xs text-[var(--color-text-light)] italic border-t border-[var(--color-border)] pt-2">{futurePlans.marry.note}</p>
+                     <p className="font-serif font-bold text-xl mb-2">{futurePlans.marry.date}</p>
+                     <p className="text-sm text-[var(--color-text-light)] italic border-t border-[var(--color-border)] pt-2">{futurePlans.marry.note}</p>
                   </div>
                </div>
                <div>
-                  <h3 className="font-serif text-xl font-bold border-l-4 border-[var(--color-pink)] pl-4 mb-4 text-[var(--color-text-dark)]">
+                  <h3 className="font-serif text-2xl font-bold border-l-4 border-[var(--color-pink)] pl-4 mb-4 text-[var(--color-text-dark)]">
                      結婚式
                   </h3>
                   <div className="bg-[var(--color-beige-light)] p-6">
-                     <p className="font-serif font-bold text-lg mb-2">{futurePlans.wedding.date}</p>
-                     <p className="text-xs text-[var(--color-text-light)] italic border-t border-[var(--color-border)] pt-2">{futurePlans.wedding.note}</p>
+                     <p className="font-serif font-bold text-xl mb-2">{futurePlans.wedding.date}</p>
+                     <p className="text-sm text-[var(--color-text-light)] italic border-t border-[var(--color-border)] pt-2">{futurePlans.wedding.note}</p>
                   </div>
                </div>
             </div>
@@ -44,7 +44,7 @@ export function FuturePlansSection() {
             {/* Right Column: Message */}
             <div className="relative">
                {/* 縦書きのメッセージ */}
-               <div className="writing-vertical-rl text-lg leading-loose font-serif h-full mx-auto md:ml-auto md:mr-0 text-[var(--color-text)] tracking-wider py-4 border-r border-[var(--color-border)] pr-8 mr-4"
+               <div className="writing-vertical-rl text-xl leading-loose font-serif h-full mx-auto md:ml-auto md:mr-0 text-[var(--color-text)] tracking-wider py-4 border-r border-[var(--color-border)] pr-8 mr-4"
                   style={{ fontFamily: "var(--font-yosugara)" }}
                >
                   {futurePlans.message.split('\n').map((line, i) => (
