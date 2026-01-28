@@ -10,11 +10,11 @@ import { GreetingSection } from "@/components/GreetingSection";
 import { MemoriesSection } from "@/components/MemoriesSection";
 import { MenuSection } from "@/components/MenuSection";
 import {
-  ProfileIntroSection,
   OurStorySection,
+  ProfileIntroSection,
 } from "@/components/ProfileSection";
-import { ScheduleSection } from "@/components/ScheduleSection";
 import { PrintView } from "@/components/print/PrintView";
+import { SeatingSection } from "@/components/SeatingSection";
 
 export default function Home() {
   return (
@@ -30,10 +30,13 @@ export default function Home() {
         {/* 3. 開催情報（日時・場所） */}
         <EventInfoSection />
 
-        {/* 4. 新郎新婦プロフィール */}
+        {/* 4. 座席案内 */}
+        <SeatingSection />
+
+        {/* 5. 新郎新婦プロフィール */}
         <ProfileIntroSection />
 
-        {/* 5. ふたりのなれそめ */}
+        {/* 6. ふたりのなれそめ */}
         <OurStorySection />
 
         {/* 6. ふたりの思い出（スライドショー） */}

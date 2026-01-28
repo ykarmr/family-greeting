@@ -143,7 +143,7 @@ export const brideFamily = {
       image: "/images/bride-sister.jpg",
     },
     {
-      relation: "姉夫",
+      relation: "姉義兄",
       name: "今井 洋佑",
       furigana: "いまい ようすけ",
       description: "紗弥香の義理のビッグブラザー",
@@ -268,6 +268,24 @@ export const futurePlans = {
 今後ともどうぞよろしくお願いいたします。`,
 };
 
+
+export const seating = {
+  title: "座席",
+  table: {
+    name: "円卓",
+    positions: [
+      { id: 1, role: "新郎", name: "有村 勇樹", angle: 160 },
+      { id: 2, role: "新婦", name: "池上 紗弥香", angle: 200 },
+      { id: 3, role: "新婦母", name: "池上 喜恵子", angle: 240 },
+      { id: 4, role: "新婦兄", name: "池上 雄太郎", angle: 360 },
+      { id: 5, role: "新婦姉", name: "今井 優理香", angle: 280 },
+      { id: 6, role: "新婦姉義兄", name: "今井 洋佑", angle: 320 },
+      { id: 8, role: "新郎兄", name: "有村 大樹", angle: 40 },
+      { id: 9, role: "新郎母", name: "有村 智子", angle: 120 },
+      { id: 10, role: "新郎父", name: "有村 賢治", angle: 80 },
+    ]
+  }
+};
 
 export const closingMessage = {
   title: "本日はありがとうございます",

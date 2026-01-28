@@ -31,7 +31,7 @@ export function ProfileIntroSection() {
       <div className="relative z-10 max-w-6xl mx-auto">
         <div className={`section-header text-left mb-16 transition-all duration-700 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"}`}>
           <span className="block text-sm uppercase tracking-[0.3em] text-[var(--color-text-light)] mb-2 font-serif">Getting to know us</span>
-          <h2 className="section-title text-left !m-0 !text-left !w-auto">私たちのご紹介</h2>
+          <h2 className="section-title text-left !m-0 !text-left !w-auto">プロフィール</h2>
         </div>
 
         <div className="space-y-24">
