@@ -414,11 +414,11 @@ section {
   font-size: 1.25rem;
 }
 
-/* 印刷用スタイル - シンプル化（PrintViewで専用コンポーネントを使用） */
+/* 印刷用スタイル - 専用コンポーネント用 */
 @media print {
   @page {
     size: A5 portrait;
-    margin: 8mm 6mm;
+    margin: 5mm;
   }
 
   html {
@@ -436,21 +436,41 @@ section {
 
   body {
     font-family: "Hiragino Mincho ProN", "Yu Mincho", serif !important;
-    color: #4a4a4a !important;
-    line-height: 1.6 !important;
+    color: #000 !important;
+    line-height: 1.5 !important;
+    background-color: var(--color-cream) !important;
   }
 
-  /* ページ区切り */
+  /* A5サイズのページ枠 */
+  .print-page-container {
+    width: 148.5mm !important;
+    height: 210mm !important;
+    position: relative !important;
+    overflow: hidden !important;
+    background-color: var(--color-cream) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* セクションごとの改ページ */
   .print-page {
     page-break-after: always !important;
     break-after: page !important;
-    page-break-inside: avoid !important;
-    break-inside: avoid !important;
-    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
   }
 
   .print-page:last-child {
     page-break-after: avoid !important;
     break-after: avoid !important;
+  }
+
+  /* 印刷時にWeb用の要素を完全に隠す */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* 印刷時に特定の要素を表示 */
+  .print\:block {
+    display: block !important;
   }
 }

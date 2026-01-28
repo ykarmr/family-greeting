@@ -1,0 +1,510 @@
+"use client";
+
+import {
+  bride,
+  brideFamily,
+  eventInfo,
+  futurePlans,
+  greeting,
+  groom,
+  groomFamily,
+  memories,
+  menu,
+  ourStory,
+  schedule,
+  seating,
+  siteUrl,
+} from "@/data/content";
+
+/* 装飾用コンポーネント: 植物モチーフ */
+const BotanicalDecor = ({ className = "" }: { className?: string }) => (
+  <svg viewBox="0 0 100 100" className={`w-24 h-24 opacity-10 pointer-events-none ${className}`} fill="currentColor" aria-hidden="true">
+    <title>Botanical Ornament</title>
+    <path d="M50 90C50 90 20 60 20 35C20 15 35 10 50 30C65 10 80 15 80 35C80 60 50 90 50 90Z" fill="none" stroke="currentColor" strokeWidth="0.5" />
+    <path d="M50 30C50 30 55 50 70 50C85 50 75 35 50 30Z" />
+    <path d="M50 45C50 45 45 65 30 65C15 65 25 50 50 45Z" />
+    <path d="M50 60C50 60 60 80 75 80C90 80 80 65 50 60Z" />
+    <path d="M50 30L50 85" stroke="currentColor" strokeWidth="0.5" />
+  </svg>
+);
+
+/* 装飾用コンポーネント: 角飾り */
+const CornerDecor = ({ className = "" }: { className?: string }) => (
+  <div className={`w-8 h-8 pointer-events-none ${className}`}>
+    <div className="absolute top-0 left-0 w-full h-[1px] bg-[var(--color-sage)]/30"></div>
+    <div className="absolute top-0 left-0 w-[1px] h-full bg-[var(--color-sage)]/30"></div>
+    <div className="absolute top-1 left-1 w-2 h-2 border-t border-l border-[var(--color-sage)]/40"></div>
+  </div>
+);
+
+/* 共通コンポーネント: 印刷用ページ枠 */
+const PrintPage = ({ children, className = "", contentClassName = "" }: { children: React.ReactNode; className?: string; contentClassName?: string }) => (
+  <div className={`print-page-container bg-[var(--color-cream)] relative flex flex-col overflow-hidden ${className}`}>
+    {/* 背景テクスチャ */}
+    <div
+      className="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
+      style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20L0 40h40L20 20zM0 0l20 20L40 0H0z' fill='%238da58d' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
+      }}
+    />
+    {/* 角の装飾 */}
+    <CornerDecor className="absolute top-6 left-6" />
+    <CornerDecor className="absolute top-6 right-6 rotate-90" />
+    <CornerDecor className="absolute bottom-6 left-6 -rotate-90" />
+    <CornerDecor className="absolute bottom-6 right-6 rotate-180" />
+    
+    <div className={`relative z-10 flex-1 flex flex-col p-8 pt-10 ${contentClassName}`}>
+      {children}
+    </div>
+  </div>
+);
+
+export function PrintCover() {
+  return (
+    <PrintPage contentClassName="justify-center items-center">
+      {/* 右上のアクセント */}
+      <BotanicalDecor className="absolute -top-4 -right-4 w-32 h-32 text-[var(--color-sage)]" />
+      {/* 左下のアクセント */}
+      <BotanicalDecor className="absolute -bottom-4 -left-4 w-32 h-32 text-[var(--color-sage)] rotate-180" />
+
+      <div className="absolute top-10 left-10 right-10 flex justify-between border-b border-[var(--color-text-dark)]/20 pb-2 text-[10px] font-serif opacity-60">
+        <span>Family Greeting Booklet</span>
+        <span>2026.02.07</span>
+      </div>
+      
+      <div className="text-center w-full px-10 mb-12 relative">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 text-[var(--color-sage)] opacity-20">
+          <svg width="40" height="40" viewBox="0 0 40 40">
+            <title>Title Ribbon Accent</title>
+            <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
+            <path d="M20 5L20 35M5 20L35 20" stroke="currentColor" strokeWidth="0.5" />
+          </svg>
+        </div>
+        <h1 className="text-6xl font-bold mb-8 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+          顔合わせの栞
+        </h1>
+        <div className="w-16 h-[1px] bg-[var(--color-text-dark)] mx-auto mb-6 opacity-30"></div>
+        <p className="text-2xl font-serif tracking-widest text-[var(--color-text-dark)]/80">
+          有村家 ・ 池上家
+        </p>
+      </div>
+
+      <div className="w-full max-w-[300px] border border-[var(--color-text-dark)]/10 p-3 bg-white shadow-2xl relative">
+        <div className="absolute -top-1.5 -left-1.5 w-6 h-6 border-t-2 border-l-2 border-[var(--color-sage)]/30"></div>
+        <div className="absolute -bottom-1.5 -right-1.5 w-6 h-6 border-b-2 border-r-2 border-[var(--color-sage)]/30"></div>
+        <div className="aspect-[3/2] bg-gray-100 flex items-center justify-center overflow-hidden">
+          <img src="/images/cover.jpg" alt="Cover" className="w-full h-full object-cover" />
+        </div>
+      </div>
+
+      <div className="mt-16 text-center">
+        <p className="text-xs font-serif tracking-[0.6em] text-black/30 font-light">
+          SINCE 2026
+        </p>
+      </div>
+    </PrintPage>
+  );
+}
+
+/* 2. ご挨拶 */
+export function PrintGreeting() {
+  return (
+    <PrintPage className="justify-center">
+      <div className="max-w-md mx-auto bg-white/40 p-12 shadow-inner border border-[var(--color-border-light)] relative overflow-hidden">
+        <BotanicalDecor className="absolute -top-6 -left-6 w-20 h-20 text-[var(--color-sage)]/20" />
+        <BotanicalDecor className="absolute -bottom-6 -right-6 w-20 h-20 text-[var(--color-sage)]/20 rotate-180" />
+        
+        <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[var(--color-text-dark)]/20"></div>
+        <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[var(--color-text-dark)]/20"></div>
+        
+        <h2 className="text-2xl font-serif text-center mb-12 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+          {greeting.title}
+        </h2>
+        <p className="text-lg leading-[2.8] text-center whitespace-pre-line tracking-[0.2em] font-serif text-[var(--color-text)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+          {greeting.message}
+        </p>
+        <div className="mt-12 text-right text-lg font-serif tracking-widest text-[var(--color-text-light)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+          勇樹 & 紗弥香
+        </div>
+      </div>
+    </PrintPage>
+  );
+}
+
+/* 3. 開催情報 & スケジュール */
+export function PrintEventInfo() {
+  return (
+    <PrintPage contentClassName="justify-center">
+      <BotanicalDecor className="absolute top-10 right-4 w-20 h-20 text-[var(--color-sage)]/10 -rotate-12" />
+      <BotanicalDecor className="absolute bottom-10 left-4 w-20 h-20 text-[var(--color-sage)]/10 rotate-180" />
+      <div className="max-w-sm mx-auto w-full space-y-12">
+        <section>
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/10"></div>
+            <h2 className="text-xl font-serif tracking-widest text-[var(--color-text-dark)]">
+              案内
+            </h2>
+            <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/10"></div>
+          </div>
+          <div className="space-y-6 text-center">
+            <div>
+              <span className="text-[10px] font-serif text-[var(--color-text-light)] block mb-1">DATE</span>
+              <p className="text-xl font-serif font-bold text-[var(--color-text-dark)]">{eventInfo.date} ({eventInfo.dayOfWeek})</p>
+            </div>
+            <div>
+              <span className="text-[10px] font-serif text-[var(--color-text-light)] block mb-1">PLACE</span>
+              <p className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{eventInfo.venue.name}</p>
+              <p className="text-[10px] font-serif text-[var(--color-text)] opacity-70">{eventInfo.venue.address}</p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <div className="flex items-center gap-4 mb-8">
+            <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/10"></div>
+            <h2 className="text-xl font-serif tracking-widest text-[var(--color-text-dark)]">
+              次第
+            </h2>
+            <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/10"></div>
+          </div>
+          <div className="space-y-3">
+            {schedule.items.map((item) => (
+              <div key={item.time} className="flex gap-6 items-baseline justify-center border-b border-dotted border-[var(--color-border)] pb-2 last:border-0">
+                <span className="text-sm font-serif font-bold w-12 text-[var(--color-sage)]">{item.time}</span>
+                <span className="text-sm font-serif text-[var(--color-text)] flex-1 text-left">{item.content}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+    </PrintPage>
+  );
+}
+
+/* 4. 座席案内 */
+export function PrintSeating() {
+  return (
+    <PrintPage contentClassName="justify-center items-center">
+      <h2 className="text-xl font-serif text-center mb-16 tracking-widest text-[var(--color-text-dark)]">
+        {seating.title}
+      </h2>
+      
+      <div className="relative w-[280px] h-[280px] flex items-center justify-center">
+        {/* 装飾用のリング */}
+        <div className="absolute inset-0 border border-[var(--color-sage)]/10 rounded-full scale-105"></div>
+        
+        <div className="relative w-full h-full border-2 border-[var(--color-sage)]/20 rounded-full flex items-center justify-center bg-white/40 shadow-inner">
+          <BotanicalDecor className="absolute top-4 left-4 w-12 h-12 text-[var(--color-sage)]/10" />
+          <BotanicalDecor className="absolute bottom-4 right-4 w-12 h-12 text-[var(--color-sage)]/10 rotate-180" />
+          
+          <div className="w-[120px] h-[120px] border border-[var(--color-sage)]/40 rounded-full flex flex-col items-center justify-center font-serif bg-white z-10 shadow-md">
+            <span className="text-[10px] text-[var(--color-sage)] mb-1 opacity-60">TABLE</span>
+            <span className="text-lg font-bold">{seating.table.name}</span>
+          </div>
+          
+          {seating.table.positions.map((pos) => {
+            const rad = ((pos.angle - 90) * Math.PI) / 180;
+            const x = 50 + 42 * Math.cos(rad);
+            const y = 50 + 42 * Math.sin(rad);
+
+            return (
+              <div
+                key={pos.id}
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 text-center whitespace-nowrap bg-white/90 px-3 py-1.5 border border-[var(--color-sage)]/10 rounded-sm font-serif text-xs font-bold shadow-sm z-20"
+                style={{ left: `${x}%`, top: `${y}%` }}
+              >
+                {pos.name}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <p className="mt-20 text-[10px] font-serif text-[var(--color-text-light)] text-center opacity-60">
+        ※当日の状況により変更になる場合がございます
+      </p>
+    </PrintPage>
+  );
+}
+
+/* 5. プロフィール */
+export function PrintProfile() {
+  const ProfileItem = ({ label, value }: { label: string; value: string | string[] }) => (
+    <div className="mb-4">
+      <span className="text-[10px] font-bold text-[var(--color-text-light)] block border-b border-[var(--color-border-light)] mb-1">{label}</span>
+      <p className="text-sm font-serif text-[var(--color-text)]">{Array.isArray(value) ? value.join("、") : value}</p>
+    </div>
+  );
+
+  return (
+    <PrintPage contentClassName="justify-center">
+      <BotanicalDecor className="absolute top-10 right-10 w-24 h-24 text-[var(--color-sage)]/10" />
+      <h2 className="text-xl font-serif text-center mb-10 tracking-widest text-[var(--color-text-dark)]">
+        プロフィール
+      </h2>
+
+      <div className="space-y-6">
+        {/* 新郎 */}
+        <div className="flex gap-6 items-start">
+          <div className="w-24 aspect-[3/4] border-2 border-[var(--color-sage)]/20 p-1 bg-white shrink-0 shadow-lg rotate-[-2deg]">
+            <img src={groom.image} alt={groom.name} className="w-full h-full object-cover" />
+          </div>
+          <div className="flex-1">
+            <div className="mb-3">
+              <span className="text-[10px] bg-[var(--color-sage)] text-white px-2 py-0.5 mb-1 inline-block">新郎</span>
+              <h3 className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{groom.name}</h3>
+              <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-tighter">{groom.furigana}</p>
+            </div>
+            <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+              <ProfileItem label="生年月日" value={groom.birthDate} />
+              <ProfileItem label="出身地" value={groom.hometown} />
+              <ProfileItem label="趣味" value={groom.hobbies} />
+              <ProfileItem label="性格" value={groom.personality} />
+            </div>
+          </div>
+        </div>
+
+        {/* 新婦 */}
+        <div className="flex gap-6 items-start flex-row-reverse">
+          <div className="w-24 aspect-[3/4] border-2 border-[var(--color-pink)]/20 p-1 bg-white shrink-0 shadow-lg rotate-[2deg]">
+            <img src={bride.image} alt={bride.name} className="w-full h-full object-cover" />
+          </div>
+          <div className="flex-1 text-right">
+            <div className="mb-3">
+              <span className="text-[10px] bg-[var(--color-pink)] text-white px-2 py-0.5 mb-1 inline-block">新婦</span>
+              <h3 className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{bride.name}</h3>
+              <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-tighter">{bride.furigana}</p>
+            </div>
+            <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-left">
+              <ProfileItem label="生年月日" value={bride.birthDate} />
+              <ProfileItem label="出身地" value={bride.hometown} />
+              <ProfileItem label="趣味" value={bride.hobbies} />
+              <ProfileItem label="性格" value={bride.personality} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </PrintPage>
+  );
+}
+
+/* 6. なれそめ */
+export function PrintOurStory() {
+  return (
+    <PrintPage contentClassName="justify-center">
+      <BotanicalDecor className="absolute bottom-10 left-10 w-24 h-24 text-[var(--color-sage)]/10 rotate-180" />
+      <div className="max-w-md mx-auto p-12 border border-[var(--color-sage)]/10 relative bg-white/30 backdrop-blur-[1px]">
+        <h2 className="text-xl font-serif text-center mb-10 tracking-[0.4em] font-bold text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+          {ourStory.title}
+        </h2>
+        <p className="text-base leading-[2.8] font-serif text-center whitespace-pre-line tracking-[0.2em] text-[var(--color-text)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+          {ourStory.content}
+        </p>
+        <div className="absolute -top-2 -left-2 w-10 h-10 border-t-2 border-l-2 border-[var(--color-sage)]/10"></div>
+        <div className="absolute -bottom-2 -right-2 w-10 h-10 border-b-2 border-r-2 border-[var(--color-sage)]/10"></div>
+      </div>
+    </PrintPage>
+  );
+}
+
+/* 7. 思い出 */
+export function PrintMemories() {
+  return (
+    <PrintPage contentClassName="justify-center">
+      <BotanicalDecor className="absolute top-10 right-10 w-24 h-24 text-[var(--color-sage)]/10" />
+      <h2 className="text-xl font-serif text-center mb-10 tracking-widest text-[var(--color-text-dark)]">
+        思い出
+      </h2>
+      <div className="max-w-sm mx-auto grid grid-cols-2 gap-6 w-full px-4">
+        {memories.images.slice(0, 6).map((img, i) => (
+          <div key={i} className="bg-white p-2 border border-[var(--color-border-light)] shadow-md relative group">
+            <div className="absolute top-1 left-1 w-2 h-2 border-t border-l border-[var(--color-text-dark)]/10"></div>
+            <div className="aspect-[4/3] bg-gray-100 overflow-hidden mb-2">
+              <img src={img.src} alt={img.caption} className="w-full h-full object-cover" />
+            </div>
+            <p className="text-[10px] font-serif font-bold text-center mb-0.5 text-[var(--color-text-dark)] truncate px-1">{img.caption}</p>
+            <p className="text-[8px] text-center text-[var(--color-text-light)] opacity-60 tracking-wider">{img.date}</p>
+          </div>
+        ))}
+      </div>
+      <p className="mt-12 text-center text-[10px] text-[var(--color-text-light)] font-serif italic tracking-widest opacity-40">
+        & more memories
+      </p>
+    </PrintPage>
+  );
+}
+
+/* 8. 家族紹介 (新郎) */
+export function PrintGroomFamily() {
+  return (
+    <PrintPage contentClassName="justify-center">
+      <BotanicalDecor className="absolute top-20 right-4 w-16 h-16 text-[var(--color-sage)]/5" />
+      <div className="max-w-sm mx-auto w-full">
+        <h2 className="text-xl font-serif mb-10 border-b border-[var(--color-sage)]/20 pb-4 text-center tracking-widest text-[var(--color-text-dark)]">
+          {groomFamily.title}
+        </h2>
+        <div className="space-y-4">
+          {groomFamily.members.map((member) => (
+            <div key={member.name} className="flex gap-5 items-start bg-white/40 p-3.5 border border-[var(--color-border-light)] shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-1 h-full bg-[var(--color-sage)]/10"></div>
+              <div className="w-16 h-20 shrink-0 border border-[var(--color-sage)]/20 p-1.5 bg-white shadow-sm relative">
+                <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-[var(--color-sage)]/20 group-even:hidden"></div>
+                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+              </div>
+              <div className="flex-1">
+                <div className="flex items-baseline gap-3 mb-1.5">
+                  <span className="text-[9px] font-bold text-[var(--color-sage-dark)] tracking-tighter opacity-70">{member.relation}</span>
+                  <span className="text-base font-bold font-serif text-[var(--color-text-dark)]">{member.name}</span>
+                </div>
+                <p className="text-[10px] font-serif leading-relaxed text-[var(--color-text)] opacity-80">{member.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </PrintPage>
+  );
+}
+
+/* 9. 家族紹介 (新婦) */
+export function PrintBrideFamily() {
+  return (
+    <PrintPage contentClassName="justify-center">
+      <BotanicalDecor className="absolute top-20 left-4 w-16 h-16 text-[var(--color-pink)]/5 -rotate-90" />
+      <div className="max-w-sm mx-auto w-full">
+        <h2 className="text-xl font-serif mb-10 border-b border-[var(--color-pink)]/20 pb-4 text-center tracking-widest text-[var(--color-text-dark)]">
+          {brideFamily.title}
+        </h2>
+        <div className="space-y-4">
+          {brideFamily.members.map((member) => (
+            <div key={member.name} className="flex gap-5 items-start bg-white/40 p-3.5 border border-[var(--color-border-light)] shadow-sm relative overflow-hidden group">
+              <div className="absolute top-0 right-0 w-1 h-full bg-[var(--color-pink)]/10"></div>
+              <div className="w-16 h-20 shrink-0 border border-[var(--color-pink)]/20 p-1.5 bg-white shadow-sm relative">
+                <div className="absolute -top-1 -right-1 w-3 h-3 border-t border-r border-[var(--color-pink)]/20 group-odd:hidden"></div>
+                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+              </div>
+              <div className="flex-1">
+                <div className="flex items-baseline gap-3 mb-1.5">
+                  <span className="text-[9px] font-bold text-[var(--color-pink-dark)] tracking-tighter opacity-70">{member.relation}</span>
+                  <span className="text-base font-bold font-serif text-[var(--color-text-dark)]">{member.name}</span>
+                </div>
+                <p className="text-[10px] font-serif leading-relaxed text-[var(--color-text)] opacity-80">{member.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </PrintPage>
+  );
+}
+
+/* 10. お料理メニュー */
+export function PrintMenu() {
+  return (
+    <PrintPage contentClassName="justify-center items-center">
+      <BotanicalDecor className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 text-[var(--color-sage)]/[0.03]" />
+      <div className="max-w-sm mx-auto w-full border border-[var(--color-border)] p-12 bg-white/40 shadow-inner relative">
+        <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[var(--color-text-dark)]/20"></div>
+        <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[var(--color-text-dark)]/20"></div>
+        
+        <h2 className="text-2xl font-serif text-center mb-12 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+          お品書き
+        </h2>
+        <div className="space-y-8 text-center px-4">
+          <div className="space-y-4">
+            {menu.items.map((item) => (
+              <p key={item} className="text-base font-serif text-[var(--color-text-dark)] font-bold tracking-[0.2em]">
+                {item}
+              </p>
+            ))}
+          </div>
+          <div className="pt-8 border-t border-dotted border-[var(--color-text-dark)]/20">
+            <span className="text-[10px] font-serif text-[var(--color-text-light)] mb-2 block uppercase tracking-widest">お飲み物</span>
+            <p className="text-[10px] font-serif text-[var(--color-text)] leading-relaxed opacity-70">
+              {menu.drinks.join(" / ")}
+            </p>
+          </div>
+        </div>
+      </div>
+      <p className="mt-12 text-[10px] font-serif text-[var(--color-text-light)] text-center italic opacity-60">
+        Bon Appétit
+      </p>
+    </PrintPage>
+  );
+}
+
+/* 11. これからの予定 */
+export function PrintFuturePlans() {
+  return (
+    <PrintPage contentClassName="justify-center">
+      <BotanicalDecor className="absolute bottom-10 right-10 w-32 h-32 text-[var(--color-sage)]/5 rotate-12" />
+      <div className="max-w-sm mx-auto w-full">
+        <h2 className="text-xl font-serif text-center mb-16 tracking-widest text-[var(--color-text-dark)]">
+          これからの予定
+        </h2>
+        
+        <div className="grid grid-cols-2 gap-8 mb-16">
+          <div className="relative pt-6 pb-4 px-4 bg-white/40 border-t border-[var(--color-sage)] shadow-sm">
+            <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--color-sage)] text-white text-[9px] px-3 py-0.5 font-bold tracking-widest">入籍日</span>
+            <p className="text-lg font-serif font-bold text-center text-[var(--color-text-dark)]">{futurePlans.marry.date}</p>
+          </div>
+          <div className="relative pt-6 pb-4 px-4 bg-white/40 border-t border-[var(--color-pink)] shadow-sm">
+            <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--color-pink)] text-white text-[9px] px-3 py-0.5 font-bold tracking-widest">結婚式</span>
+            <p className="text-lg font-serif font-bold text-center text-[var(--color-text-dark)]">{futurePlans.wedding.date}</p>
+          </div>
+        </div>
+
+        <div className="p-10 bg-white/30 border border-[var(--color-border-light)] relative shadow-[inset_0_0_20px_rgba(0,0,0,0.02)]">
+          <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-[var(--color-text-dark)]/10"></div>
+          <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-[var(--color-text-dark)]/10"></div>
+          <p className="text-base leading-[2.8] font-serif text-center whitespace-pre-line tracking-[0.2em] text-[var(--color-text)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+            {futurePlans.message}
+          </p>
+        </div>
+      </div>
+    </PrintPage>
+  );
+}
+
+/* 12. Web版QRコード */
+export function PrintQRCode() {
+  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(siteUrl)}`;
+
+  return (
+    <PrintPage contentClassName="justify-center items-center">
+      <BotanicalDecor className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 text-[var(--color-sage)]/[0.05]" />
+      
+      <div className="text-center w-full px-10 mb-16 relative">
+        <h2 className="text-2xl font-serif mb-4 tracking-[0.3em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+          WEB版のご案内
+        </h2>
+        <div className="w-12 h-[1px] bg-[var(--color-text-dark)] mx-auto mb-6 opacity-30"></div>
+        <p className="text-sm font-serif leading-relaxed text-[var(--color-text)]">
+          本日はお集まりいただき、誠にありがとうございます。<br />
+          スマートフォンでも、ふたりのプロフィールや思い出の写真などを<br />
+          ご覧いただけます。
+        </p>
+      </div>
+
+      <div className="bg-white p-6 shadow-2xl border border-[var(--color-border-light)] relative group">
+        <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-[var(--color-sage)]/30"></div>
+        <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-[var(--color-sage)]/30"></div>
+        
+        <div className="w-40 h-40 bg-gray-50 flex items-center justify-center overflow-hidden">
+          <img 
+            src={qrCodeUrl} 
+            alt="Web Version QR Code" 
+            className="w-full h-full p-2"
+          />
+        </div>
+      </div>
+
+      <div className="mt-16 text-center">
+        <p className="text-[10px] font-serif text-[var(--color-text-light)] tracking-widest opacity-60">
+          {siteUrl}
+        </p>
+      </div>
+    </PrintPage>
+  );
+}
+
