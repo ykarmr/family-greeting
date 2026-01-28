@@ -1,4 +1,6 @@
-export const siteUrl = "https://family-greeting.vercel.app"; // 仮のURL。実際のデプロイ先に変更してください
+import updateEnvPath from "@/utils/updateEnvPath";
+
+export const siteUrl = "https://ykarmr.github.io/family-greeting"; // 仮のURL。実際のデプロイ先に変更してください
 
 export const greeting = {
   title: "ご挨拶",
@@ -52,7 +54,7 @@ export const groom = {
   favorites: ["ラーメン", "寿司", "焼肉", "お酒に合うもの全般"],
   personality: ["穏やかで真面目、マイペース"],
   message: "これからどうぞよろしくお願いいたします。",
-  image: "/images/groom.jpg",
+  image: updateEnvPath("/images/groom.jpg"),
 };
 
 export const bride = {
@@ -67,7 +69,7 @@ export const bride = {
   favorites: ["餃子", "肉", "寿司", "納豆巻き"],
   personality: ["マイペース、意外と慎重でも大胆"],
   message: "温かい家庭を築いていきたいと思います。",
-  image: "/images/bride.jpg",
+  image: updateEnvPath("/images/bride.jpg"),
 };
 
 export const ourStory = {
@@ -97,21 +99,21 @@ export const groomFamily = {
       name: "有村 賢治",
       furigana: "ありむら けんじ",
       description: `定年の年にめでたい報告が聞けてうれしい限りです！。鹿児島の焼酎オタクです`,
-      image: "/images/groom-father.jpg",
+      image: updateEnvPath("/images/groom-father.jpg"),
     },
     {
       relation: "母",
       name: "有村 智子",
       furigana: "ありむら ともこ",
       description: `還暦を少し過ぎた現在も、看護師として働いております。私は種子島出身なので、徳之島にご縁のある紗弥香さんと勇樹が結婚することとなり、大変うれしく、ありがたく思っております。`,
-      image: "/images/groom-mother.jpg",
+      image: updateEnvPath("/images/groom-mother.jpg"),
     },
     {
       relation: "兄",
       name: "有村 大樹",
       furigana: "ありむら だいき",
       description: "勇樹のビッグブラザー",
-      image: "/images/groom-brother.jpg",
+      image: updateEnvPath("/images/groom-brother.jpg"),
     },
   ],
 };
@@ -124,14 +126,14 @@ export const brideFamily = {
       name: "池上 喜恵子",
       furigana: "いけがみ きえこ",
       description: "TODO",
-      image: "/images/bride-mother.jpg",
+      image: updateEnvPath("/images/bride-mother.jpg"),
     },
     {
       relation: "兄",
       name: "池上 雄太郎",
       furigana: "いけがみ ゆうたろう",
       description: "紗弥香のビッグブラザー",
-      image: "/images/bride-brother.jpg",
+      image: updateEnvPath("/images/bride-brother.jpg"),
     },
     {
       relation: "姉",
@@ -139,14 +141,14 @@ export const brideFamily = {
       furigana: "いまい ゆりか",
       description:
         "現在は小学校教諭として働いています。昨年度に息子を出産し、毎日育児に奮闘中です。優しさに溢れる勇樹さんとの結婚、本当に嬉しい限りです。",
-      image: "/images/bride-sister.jpg",
+      image: updateEnvPath("/images/bride-sister.jpg"),
     },
     {
       relation: "姉義兄",
       name: "今井 洋佑",
       furigana: "いまい ようすけ",
       description: "紗弥香の義理のビッグブラザー",
-      image: "/images/bride-sister-daddy.jpg",
+      image: updateEnvPath("/images/bride-sister-daddy.jpg"),
     },
     {
       relation: "甥",
@@ -154,7 +156,7 @@ export const brideFamily = {
       furigana: "いまい そうじろう",
       description:
         "どうも、今井家の長男の想仁郎です。１歳になったばかりです。絵本が大好きです。ぼくと一緒に遊んでね✨",
-      image: "/images/bride-sister-baby.jpg",
+      image: updateEnvPath("/images/bride-sister-baby.jpg"),
     },
   ],
 };
@@ -179,67 +181,67 @@ export const memories = {
   title: "ふたりの思い出",
   images: [
     {
-      src: "/images/memory13.jpeg",
+      src: updateEnvPath("/images/memory13.jpeg"),
       caption: "付き合った日！",
       date: "2024.03",
     },
     {
-      src: "/images/memory5.jpeg",
+      src: updateEnvPath("/images/memory5.jpeg"),
       caption: "初野球観戦",
       date: "2024.03",
     },
     {
-      src: "/images/memory6.jpeg",
+      src: updateEnvPath("/images/memory6.jpeg"),
       caption: "三崎口デート！",
       date: "2024.05",
     },
     {
-      src: "/images/memory10.jpeg",
+      src: updateEnvPath("/images/memory10.jpeg"),
       caption: "音楽FES!",
       date: "2024.05",
     },
     {
-      src: "/images/memory8.jpeg",
+      src: updateEnvPath("/images/memory8.jpeg"),
       caption: "今井夫婦とのご飯会！",
       date: "2024.06",
     },
     {
-      src: "/images/memory9.jpeg",
+      src: updateEnvPath("/images/memory9.jpeg"),
       caption: "有村家とのご飯会！",
       date: "2024.06",
     },
     {
-      src: "/images/memory11.jpeg",
+      src: updateEnvPath("/images/memory11.jpeg"),
       caption: "福島旅行!",
       date: "2024.07",
     },
     {
-      src: "/images/memory7.jpeg",
+      src: updateEnvPath("/images/memory7.jpeg"),
       caption: "喜恵子とのご飯会！",
       date: "2024.10",
     },
     {
-      src: "/images/memory12.jpeg",
+      src: updateEnvPath("/images/memory12.jpeg"),
       caption: "北海道！",
       date: "2025.06",
     },
     {
-      src: "/images/memory1.jpeg",
+      src: updateEnvPath("/images/memory1.jpeg"),
       caption: "仙台旅行",
       date: "2025.08",
     },
     {
-      src: "/images/memory2.jpeg",
+      src: updateEnvPath("/images/memory2.jpeg"),
       caption: "ディズニーデート",
       date: "2025.12",
     },
     {
-      src: "/images/memory3.jpeg",
+      src: updateEnvPath("/images/memory3.jpeg"),
       caption: "ディズニーデート",
       date: "2025.12",
     },
     {
-      src: "/images/memory4.jpeg",
+      src: updateEnvPath("/images/memory4.jpeg"),
       caption: "プロポーズの日",
       date: "2025.12",
     },
@@ -269,15 +271,15 @@ export const seating = {
   table: {
     name: "円卓",
     positions: [
-      { id: 1, name: "有村 勇樹", angle: 160 },
-      { id: 2, name: "池上 紗弥香", angle: 200 },
-      { id: 3, name: "池上 喜恵子", angle: 240 },
+      { id: 1, name: "有村 勇樹", angle: 200 },
+      { id: 2, name: "池上 紗弥香", angle: 160 },
+      { id: 3, name: "池上 喜恵子", angle: 120 },
       { id: 4, name: "池上 雄太郎", angle: 360 },
-      { id: 5, name: "今井 優理香・想仁郎", angle: 280 },
-      { id: 6, name: "今井 洋佑", angle: 320 },
-      { id: 8, name: "有村 大樹", angle: 40 },
-      { id: 9, name: "有村 智子", angle: 120 },
-      { id: 10, name: "有村 賢治", angle: 80 },
+      { id: 5, name: "今井 優理香・想仁郎", angle: 80 },
+      { id: 6, name: "今井 洋佑", angle: 40 },
+      { id: 8, name: "有村 大樹", angle: 320 },
+      { id: 9, name: "有村 智子", angle: 240 },
+      { id: 10, name: "有村 賢治", angle: 280 },
     ],
   },
 };

@@ -1,6 +1,7 @@
 "use client";
 
 import { useInView } from "@/hooks/useInView";
+import updateEnvPath from "@/utils/updateEnvPath";
 
 export function CoverSection() {
   const { ref, isInView } = useInView();
@@ -69,7 +70,7 @@ export function CoverSection() {
           {/* 写真フレーム */}
           <div className="relative w-full h-full overflow-hidden border border-[var(--color-border)] bg-gray-100">
             <img
-              src="/images/cover.jpg"
+              src={updateEnvPath("/images/cover.jpg")}
               alt="Main Visual"
               className="w-full h-full object-cover grayscale-[20%] sepia-[10%] contrast-[0.95]"
             />
