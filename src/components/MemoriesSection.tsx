@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { memories } from "@/data/content";
 import { useInView } from "@/hooks/useInView";
+import updateEnvPath from "@/utils/updateEnvPath";
 
 export function MemoriesSection() {
   const { ref, isInView } = useInView();
@@ -120,7 +121,7 @@ export function MemoriesSection() {
             className="w-12 h-12 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-colors"
           >
             <img
-              src="/images/arrow-left.svg"
+              src={updateEnvPath("/images/arrow-left.svg")}
               alt="前へ"
               width="24"
               height="24"
@@ -138,7 +139,7 @@ export function MemoriesSection() {
             className="w-12 h-12 rounded-full border-2 border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-colors"
           >
             <img
-              src="/images/arrow-right.svg"
+              src={updateEnvPath("/images/arrow-right.svg")}
               alt="次へ"
               width="24"
               height="24"
