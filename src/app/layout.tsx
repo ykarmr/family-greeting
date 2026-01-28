@@ -33,6 +33,14 @@ const yosugara = localFont({
 export const metadata: Metadata = {
   title: "両家顔合わせのしおり",
   description: "FAMILY GREETING - 顔合わせのご案内",
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+    },
+  },
 };
 
 export default function RootLayout({
