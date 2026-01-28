@@ -58,7 +58,7 @@ export function GreetingSection() {
               className="mt-12 text-right font-handwritten text-[var(--color-text-light)] text-base tracking-widest"
               style={{ fontFamily: "var(--font-yosugara)" }}
             >
-              {groom.name} & {bride.name}
+              勇樹 & 紗弥香
             </div>
           </div>
         </div>

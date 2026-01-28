@@ -33,9 +33,9 @@ export function ClosingSection() {
 
         <div className="flex flex-col items-center gap-4">
           <div className="flex items-center gap-4 text-white/60 font-serif tracking-widest text-sm uppercase">
-            <span>{groom.name}</span>
+            <span>勇樹</span>
             <span>&</span>
-            <span>{bride.name}</span>
+            <span>紗弥香</span>
           </div>
 
           <div className="w-px h-8 bg-white/20 my-2"></div>

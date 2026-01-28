@@ -37,7 +37,7 @@ export function CoverSection() {
             製作者
           </span>
           <span className="text-base md:text-lg font-bold font-serif tracking-widest text-[var(--color-text-dark)]">
-            有村勇樹・池上紗弥香
+            勇樹・紗弥香
           </span>
         </div>
       </div>

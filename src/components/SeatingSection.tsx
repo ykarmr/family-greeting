@@ -47,19 +47,6 @@ export function SeatingSection() {
           {/* 円卓 */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[52%] h-[52%] rounded-full bg-white border-4 border-[var(--color-sage)]/20 shadow-xl flex items-center justify-center z-0">
             <div className="text-center p-2">
-              <div className="w-8 h-8 md:w-12 md:h-12 mx-auto mb-1 md:mb-2 opacity-20">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                >
-                  <path d="M12 3v18M3 12h18" />
-                </svg>
-              </div>
-              <span className="font-serif text-[var(--color-sage)] text-[8px] md:text-xs tracking-widest uppercase block mb-0.5 md:mb-1">
-                Central Table
-              </span>
               <span className="font-serif text-lg md:text-2xl font-bold text-[var(--color-text-dark)]">
                 {seating.table.name}
               </span>
