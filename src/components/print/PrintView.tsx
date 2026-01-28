@@ -5,7 +5,8 @@ import {
   PrintFuturePlans,
   PrintGreeting,
   PrintGroomFamily,
-  PrintMemories,
+  PrintMemoriesPage1,
+  PrintMemoriesPage2,
   PrintMenu,
   PrintOurStory,
   PrintProfile,
@@ -52,7 +53,10 @@ export function PrintView() {
 
       {/* 7. ふたりの思い出 */}
       <div className="print-page">
-        <PrintMemories />
+        <PrintMemoriesPage1 />
+      </div>
+      <div className="print-page">
+        <PrintMemoriesPage2 />
       </div>
 
       {/* 8. 新郎家族の紹介 */}

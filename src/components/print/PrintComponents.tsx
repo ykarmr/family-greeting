@@ -351,48 +351,54 @@ export function PrintOurStory() {
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute bottom-10 left-10 w-24 h-24 text-[var(--color-sage)]/10 rotate-180" />
-      <div className="max-w-md mx-auto p-12 border-x border-[var(--color-text-dark)]/10 relative bg-white/30 backdrop-blur-[1px] shadow-sm">
-        {/* フィルム穴の装飾（縦） */}
-        <div className="absolute -left-4 top-0 bottom-0 w-3 flex flex-col justify-around py-4 opacity-10">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={`film-l-${i}`} className="w-2 h-3 bg-black rounded-[1px]"></div>
+      <div className="max-w-[420px] mx-auto bg-white border border-[var(--color-text-dark)]/10 p-12 relative shadow-2xl">
+        {/* Negative Film Decorations (Vertical) */}
+        <div className="absolute -left-6 top-0 bottom-0 w-4 flex flex-col justify-around py-6 bg-[#1a1a1a] rounded-sm">
+          {Array.from({ length: 14 }).map((_, i) => (
+            <div key={`film-l-${i}`} className="w-2.5 h-3 bg-white/20 rounded-[1px] mx-auto"></div>
           ))}
         </div>
-        <div className="absolute -right-4 top-0 bottom-0 w-3 flex flex-col justify-around py-4 opacity-10">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <div key={`film-r-${i}`} className="w-2 h-3 bg-black rounded-[1px]"></div>
+        <div className="absolute -right-6 top-0 bottom-0 w-4 flex flex-col justify-around py-6 bg-[#1a1a1a] rounded-sm">
+          {Array.from({ length: 14 }).map((_, i) => (
+            <div key={`film-r-${i}`} className="w-2.5 h-3 bg-white/20 rounded-[1px] mx-auto"></div>
           ))}
         </div>
 
-        <h2 className="text-xl font-serif text-center mb-10 tracking-[0.4em] font-bold text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
-          {ourStory.title}
-        </h2>
-        <p className="text-base leading-[2.8] font-serif text-center whitespace-pre-line tracking-[0.2em] text-[var(--color-text)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+        {/* Cinematic Header */}
+        <div className="text-center mb-12">
+          <span className="text-[10px] font-bold tracking-[0.5em] text-[var(--color-sage-dark)] uppercase opacity-60 mb-2 block">Our Story</span>
+          <h2 className="text-2xl font-serif tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+            {ourStory.title}
+          </h2>
+          <div className="w-8 h-[1px] bg-[var(--color-text-dark)]/20 mx-auto mt-4"></div>
+        </div>
+
+        <p className="text-base leading-[2.8] font-serif text-center whitespace-pre-line tracking-[0.15em] text-[var(--color-text)] relative z-10" style={{ fontFamily: "var(--font-yosugara)" }}>
           {ourStory.content}
         </p>
         
-        <div className="absolute top-2 left-2 w-8 h-8 border-t border-l border-[var(--color-text-dark)]/10"></div>
-        <div className="absolute bottom-2 right-2 w-8 h-8 border-b border-r border-[var(--color-text-dark)]/10"></div>
+        {/* Subtle texture overlay */}
+        <div className="absolute inset-0 opacity-[0.02] pointer-events-none" style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/film-grain.png")' }}></div>
       </div>
     </PrintPage>
   );
 }
 
-/* 7. 思い出 */
-export function PrintMemories() {
+/* 7. 思い出 (Page 1) */
+export function PrintMemoriesPage1() {
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute top-10 right-10 w-24 h-24 text-[var(--color-sage)]/10" />
-      <h2 className="text-xl font-serif text-center mb-10 tracking-widest text-[var(--color-text-dark)]"
+      <h2 className="text-xl font-serif text-center mb-12 tracking-widest text-[var(--color-text-dark)]"
         style={{ fontFamily: "var(--font-yosugara)" }}
       >
-        思い出
+        ふたりの歩み (1)
       </h2>
-      <div className="max-w-md mx-auto grid grid-cols-2 gap-x-8 gap-y-10 w-full px-4">
+      <div className="max-w-md mx-auto grid grid-cols-2 gap-x-8 gap-y-12 w-full px-4">
         {memories.images.slice(0, 6).map((img, i) => (
-          <div key={`memory-${img.src}-${i}`} className="relative group">
+          <div key={`memory1-${img.src}-${i}`} className="relative group">
             <TapeDecor className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 w-8 h-3 opacity-40 group-even:rotate-2 group-odd:-rotate-2" />
-            <div className="bg-white p-2 border border-[var(--color-border-light)] shadow-lg relative h-full">
+            <div className="bg-white p-2 border border-[var(--color-border-light)] shadow-lg relative h-full transition-transform duration-500 hover:scale-[1.02]">
               <div className="aspect-[4/3] bg-[#f9f9f9] overflow-hidden mb-3">
                 <img src={img.src} alt={img.caption} className="w-full h-full object-cover grayscale-[5%]" />
               </div>
@@ -408,9 +414,55 @@ export function PrintMemories() {
           </div>
         ))}
       </div>
-      <p className="mt-12 text-center text-[10px] text-[var(--color-text-light)] font-serif italic tracking-widest opacity-40">
-        & more memories
-      </p>
+    </PrintPage>
+  );
+}
+
+/* 7b. 思い出 (Page 2) */
+export function PrintMemoriesPage2() {
+  const remainingImages = memories.images.slice(6, 12);
+  
+  return (
+    <PrintPage contentClassName="justify-center">
+      <BotanicalDecor className="absolute bottom-10 left-10 w-24 h-24 text-[var(--color-sage)]/10 rotate-180" />
+      <h2 className="text-xl font-serif text-center mb-12 tracking-widest text-[var(--color-text-dark)]"
+        style={{ fontFamily: "var(--font-yosugara)" }}
+      >
+        ふたりの歩み (2)
+      </h2>
+      
+      {remainingImages.length > 0 ? (
+        <div className="max-w-md mx-auto grid grid-cols-2 gap-x-8 gap-y-12 w-full px-4">
+          {remainingImages.map((img, i) => (
+            <div key={`memory2-${img.src}-${i}`} className="relative group">
+              <TapeDecor className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 w-8 h-3 opacity-40 group-even:rotate-2 group-odd:-rotate-2" />
+              <div className="bg-white p-2 border border-[var(--color-border-light)] shadow-lg relative h-full">
+                <div className="aspect-[4/3] bg-[#f9f9f9] overflow-hidden mb-3">
+                  <img src={img.src} alt={img.caption} className="w-full h-full object-cover grayscale-[5%]" />
+                </div>
+                <div className="px-1 text-center">
+                  <p className="text-[10px] font-serif font-bold text-[var(--color-text-dark)] line-clamp-1 mb-0.5">{img.caption}</p>
+                  <div className="flex items-center justify-center gap-2 opacity-50">
+                    <div className="h-[0.5px] w-4 bg-[var(--color-text-light)]"></div>
+                    <p className="text-[8px] text-[var(--color-text-light)] tracking-widest">{img.date}</p>
+                    <div className="h-[0.5px] w-4 bg-[var(--color-text-light)]"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="flex-1 flex items-center justify-center border-2 border-dashed border-[var(--color-border-light)] mx-10 rounded-lg">
+          <p className="text-sm font-serif text-[var(--color-text-light)] italic">No more memories found.</p>
+        </div>
+      )}
+
+      <div className="mt-16 text-center">
+        <p className="text-[10px] text-[var(--color-text-light)] font-serif italic tracking-widest opacity-60">
+          ... and hundreds of more memories await on the Web edition
+        </p>
+      </div>
     </PrintPage>
   );
 }
@@ -526,28 +578,52 @@ export function PrintFuturePlans() {
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute bottom-10 right-10 w-32 h-32 text-[var(--color-sage)]/5 rotate-12" />
-      <div className="max-w-md mx-auto w-full">
-        <h2 className="text-xl font-serif text-center mb-16 tracking-widest text-[var(--color-text-dark)]"
-          style={{ fontFamily: "var(--font-yosugara)" }}
-        >
-          これからの予定
-        </h2>
+      <div className="max-w-md mx-auto w-full px-4">
+        <div className="text-center mb-20">
+          <span className="text-[10px] font-bold tracking-[0.5em] text-[var(--color-sage-dark)] uppercase opacity-60 mb-2 block">Road to Marriage</span>
+          <h2 className="text-2xl font-serif text-center tracking-widest text-[var(--color-text-dark)]"
+            style={{ fontFamily: "var(--font-yosugara)" }}
+          >
+            これからの予定
+          </h2>
+          <div className="w-8 h-[1px] bg-[var(--color-text-dark)]/20 mx-auto mt-4"></div>
+        </div>
         
-        <div className="grid grid-cols-2 gap-8 mb-16">
-          <div className="relative pt-6 pb-4 px-4 bg-white/40 border-t border-[var(--color-sage)] shadow-sm">
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--color-sage)] text-white text-[9px] px-3 py-0.5 font-bold tracking-widest">入籍日</span>
-            <p className="text-lg font-serif font-bold text-center text-[var(--color-text-dark)]">{futurePlans.marry.date}</p>
+        {/* Timeline Layout */}
+        <div className="relative space-y-16 mb-20">
+          <div className="absolute left-1/2 -translate-x-1/2 top-4 bottom-4 w-[1px] bg-dashed border-l border-dashed border-[var(--color-text-dark)]/20"></div>
+
+          {/* Item 1 */}
+          <div className="relative flex items-center justify-between group">
+            <div className="w-[45%] text-right pr-8">
+              <span className="text-[10px] font-bold text-[var(--color-sage-dark)] tracking-widest uppercase mb-1 block">Registration</span>
+              <p className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{futurePlans.marry.date}</p>
+            </div>
+            <div className="absolute left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-2 border-[var(--color-sage)] rounded-full z-10 shadow-sm"></div>
+            <div className="w-[45%] pl-8">
+              <p className="text-xs font-serif text-[var(--color-text-light)]">入籍日</p>
+            </div>
           </div>
-          <div className="relative pt-6 pb-4 px-4 bg-white/40 border-t border-[var(--color-pink)] shadow-sm">
-            <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--color-pink)] text-white text-[9px] px-3 py-0.5 font-bold tracking-widest">結婚式</span>
-            <p className="text-lg font-serif font-bold text-center text-[var(--color-text-dark)]">{futurePlans.wedding.date}</p>
+
+          {/* Item 2 */}
+          <div className="relative flex items-center justify-between group">
+            <div className="w-[45%] text-right pr-8">
+              <p className="text-xs font-serif text-[var(--color-text-light)]">結婚式</p>
+            </div>
+            <div className="absolute left-1/2 -translate-x-1/2 w-3 h-3 bg-white border-2 border-[var(--color-pink)] rounded-full z-10 shadow-sm"></div>
+            <div className="w-[45%] pl-8">
+              <span className="text-[10px] font-bold text-[var(--color-pink-dark)] tracking-widest uppercase mb-1 block">Wedding Ceremony</span>
+              <p className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{futurePlans.wedding.date}</p>
+            </div>
           </div>
         </div>
 
-        <div className="p-10 bg-white/30 border border-[var(--color-border-light)] relative shadow-[inset_0_0_20px_rgba(0,0,0,0.02)]">
-          <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-[var(--color-text-dark)]/10"></div>
-          <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-[var(--color-text-dark)]/10"></div>
-          <p className="text-base leading-[2.8] font-serif text-center whitespace-pre-line tracking-[0.2em] text-[var(--color-text)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+        <div className="p-12 bg-white border border-[var(--color-border-light)] relative shadow-xl overflow-hidden rounded-sm">
+          <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[var(--color-text-dark)]/10"></div>
+          <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[var(--color-text-dark)]/10"></div>
+          <BotanicalDecor className="absolute -bottom-6 -right-6 w-24 h-24 text-[var(--color-sage)]/10 rotate-180" />
+          
+          <p className="text-base leading-[3] font-serif text-center whitespace-pre-line tracking-[0.2em] text-[var(--color-text-dark)] relative z-10" style={{ fontFamily: "var(--font-yosugara)" }}>
             {futurePlans.message}
           </p>
         </div>
