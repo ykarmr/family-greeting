@@ -26,19 +26,19 @@ export const eventInfo = {
     meetingPoint: "当日は1階ロビーにお集まりください。",
     mapUrl: "https://www.google.com/maps/place/%E3%83%AB%E3%83%BC%E3%82%AD%E3%82%B9%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3/@35.7106097,139.7685127,16z/data=!3m1!5s0x60188c26bace2625:0x5e217e59dc7dc174!4m15!1m8!3m7!1s0x60188c26986d78b3:0x3f5d35e552bfd111!2z44Or44O844Kt44K544Ks44O844OH44Oz!8m2!3d35.7106097!4d139.7685127!10e1!16s%2Fg%2F1vzqs7lb!3m5!1s0x60188c26986d78b3:0x3f5d35e552bfd111!8m2!3d35.7106097!4d139.7685127!16s%2Fg%2F1vzqs7lb?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoASAFQAw%3D%3D",
   },
+  timeLimit: "2時間制",
 };
 
 export const schedule = {
   title: "当日の流れ",
   items: [
     { time: "11:15", content: "集合（1階ロビー）" },
-    { time: "11:30", content: "入店" },
-    { time: "11:35", content: "開会・乾杯のご挨拶" },
-    { time: "11:45", content: "お食事スタート" },
-    { time: "12:30", content: "自己紹介タイム" },
-    { time: "13:30", content: "記念撮影" },
-    { time: "14:00", content: "新郎新婦からの今後のご挨拶" },
-    { time: "14:15", content: "閉会" },
+    { time: "11:30", content: "新郎挨拶" },
+    { time: "11:35", content: "それぞれの家族の紹介" },
+    { time: "11:40", content: "お食事スタート・乾杯" },
+    { time: "13:15", content: "記念撮影" },
+    { time: "13:25", content: "閉会の挨拶" },
+    { time: "13:30", content: "お開き" },
   ],
 };
 

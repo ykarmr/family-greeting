@@ -49,10 +49,17 @@ export function MenuSection() {
               {/* ドリンク */}
               <div className="mt-16 pt-8 border-t border-[var(--color-text-light)]/20 text-center">
                  <span className="inline-block bg-[var(--color-text-dark)] text-white text-xs px-4 py-1 tracking-widest mb-4 font-serif rounded-sm">お飲み物</span>
-                 <p className="font-serif text-[var(--color-text)] leading-loose break-words overflow-wrap-anywhere">
+                  <p className="font-serif text-[var(--color-text)] leading-loose break-words overflow-wrap-anywhere">
                     {menu.drinks.join("　・　")}
-                 </p>
-              </div>
+                  </p>
+               </div>
+
+               {/* 2時間制の注釈 */}
+               <div className="mt-8 text-center">
+                  <p className="text-[var(--color-text-light)] text-xs tracking-widest">
+                     ※お席は2時間制となっております。
+                  </p>
+               </div>
            </div>
         </div>
 

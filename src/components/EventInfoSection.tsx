@@ -49,10 +49,17 @@ export function EventInfoSection() {
                  </div>
 
                  <div className="space-y-6">
-                    <div>
-                       <span className="font-serif text-[var(--color-text-light)] text-sm tracking-widest uppercase block mb-1">Time</span>
-                       <p className="font-serif text-2xl">{eventInfo.time}</p>
-                    </div>
+                     <div>
+                        <span className="font-serif text-[var(--color-text-light)] text-sm tracking-widest uppercase block mb-1">Time</span>
+                        <div className="flex items-baseline gap-3">
+                           <p className="font-serif text-2xl">{eventInfo.time}</p>
+                           {eventInfo.timeLimit && (
+                              <span className="text-sm bg-[var(--color-sage)]/10 text-[var(--color-sage)] px-2 py-0.5 rounded-sm font-bold">
+                                 {eventInfo.timeLimit}
+                              </span>
+                           )}
+                        </div>
+                     </div>
                     
                     <div>
                        <span className="font-serif text-[var(--color-text-light)] text-sm tracking-widest uppercase block mb-1">Place</span>
