@@ -81,9 +81,6 @@ export function SeatingSection() {
                 style={{ left: `${x}%`, top: `${y}%` }}
               >
                 <div className="bg-white/95 backdrop-blur-sm px-2 md:px-4 py-1.5 md:py-2 rounded-lg border border-[var(--color-text-dark)]/10 shadow-md min-w-[75px] md:min-w-[110px] group hover:border-[var(--color-sage)] transition-colors">
-                  <span className="block text-[8px] md:text-[10px] text-[var(--color-sage)] font-bold whitespace-nowrap mb-0.5">
-                    {pos.role}
-                  </span>
                   <span className="block text-[11px] md:text-base font-bold text-[var(--color-text-dark)] whitespace-nowrap">
                     {pos.name}
                   </span>
