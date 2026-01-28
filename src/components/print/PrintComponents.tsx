@@ -15,6 +15,7 @@ import {
   seating,
   siteUrl,
 } from "@/data/content";
+import updateEnvPath from "@/utils/updateEnvPath";
 
 /* 装飾用コンポーネント: 植物モチーフ */
 const BotanicalDecor = ({ className = "" }: { className?: string }) => (
@@ -97,7 +98,7 @@ export function PrintCover() {
         <div className="absolute -top-1.5 -left-1.5 w-6 h-6 border-t-2 border-l-2 border-[var(--color-sage)]/30"></div>
         <div className="absolute -bottom-1.5 -right-1.5 w-6 h-6 border-b-2 border-r-2 border-[var(--color-sage)]/30"></div>
         <div className="aspect-[3/2] bg-gray-100 flex items-center justify-center overflow-hidden">
-          <img src="/images/cover.jpg" alt="Cover" className="w-full h-full object-cover" />
+          <img src={updateEnvPath("/images/cover.jpg")} alt="Cover" className="w-full h-full object-cover" />
         </div>
       </div>
 

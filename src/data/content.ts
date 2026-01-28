@@ -1,6 +1,6 @@
 import updateEnvPath from "@/utils/updateEnvPath";
 
-export const siteUrl = "https://ykarmr.github.io/family-greeting"; // 仮のURL。実際のデプロイ先に変更してください
+export const siteUrl = "https://ykarmr.github.io/family-greeting";
 
 export const greeting = {
   title: "ご挨拶",
