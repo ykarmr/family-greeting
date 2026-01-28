@@ -24,7 +24,8 @@ export const eventInfo = {
     postalCode: "〒110-8707",
     address: "東京都台東区池之端１丁目４−１",
     meetingPoint: "当日は1階ロビーにお集まりください。",
-    mapUrl: "https://www.google.com/maps/place/%E3%83%AB%E3%83%BC%E3%82%AD%E3%82%B9%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3/@35.7106097,139.7685127,16z/data=!3m1!5s0x60188c26bace2625:0x5e217e59dc7dc174!4m15!1m8!3m7!1s0x60188c26986d78b3:0x3f5d35e552bfd111!2z44Or44O844Kt44K544Ks44O844OH44Oz!8m2!3d35.7106097!4d139.7685127!10e1!16s%2Fg%2F1vzqs7lb!3m5!1s0x60188c26986d78b3:0x3f5d35e552bfd111!8m2!3d35.7106097!4d139.7685127!16s%2Fg%2F1vzqs7lb?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoASAFQAw%3D%3D",
+    mapUrl:
+      "https://www.google.com/maps/place/%E3%83%AB%E3%83%BC%E3%82%AD%E3%82%B9%E3%82%AC%E3%83%BC%E3%83%87%E3%83%B3/@35.7106097,139.7685127,16z/data=!3m1!5s0x60188c26bace2625:0x5e217e59dc7dc174!4m15!1m8!3m7!1s0x60188c26986d78b3:0x3f5d35e552bfd111!2z44Or44O844Kt44K544Ks44O844OH44Oz!8m2!3d35.7106097!4d139.7685127!10e1!16s%2Fg%2F1vzqs7lb!3m5!1s0x60188c26986d78b3:0x3f5d35e552bfd111!8m2!3d35.7106097!4d139.7685127!16s%2Fg%2F1vzqs7lb?entry=ttu&g_ep=EgoyMDI2MDEyMS4wIKXMDSoASAFQAw%3D%3D",
   },
   timeLimit: "2時間制",
 };
@@ -67,7 +68,7 @@ export const bride = {
   job: "イベント映像業",
   hobbies: ["野球観戦(ヤクルトスワローズ)"],
   favorites: ["餃子", "肉", "寿司", "納豆巻き"],
-  personality: ["マイペース", "意外と慎重でも大胆"],
+  personality: ["マイペース、意外と慎重でも大胆"],
   message: "温かい家庭を築いていきたいと思います。",
   image: "/images/bride.jpg",
 };
@@ -105,7 +106,7 @@ export const groomFamily = {
       relation: "母",
       name: "有村 智子",
       furigana: "ありむら ともこ",
-      description: `還暦を少し過ぎた現在も、看護師として働いております。私は種子島出身なので、徳之島にご縁のある紗弥香さんと勇樹が結婚することとなり、大変うれしく、ありがたく思っております。` ,
+      description: `還暦を少し過ぎた現在も、看護師として働いております。私は種子島出身なので、徳之島にご縁のある紗弥香さんと勇樹が結婚することとなり、大変うれしく、ありがたく思っております。`,
       image: "/images/groom-mother.jpg",
     },
     {
@@ -139,7 +140,8 @@ export const brideFamily = {
       relation: "姉",
       name: "今井 優理香",
       furigana: "いまい ゆりか",
-      description: "現在は小学校教諭として働いています。昨年度に息子を出産し、毎日育児に奮闘中です。優しさに溢れる勇樹さんとの結婚、本当に嬉しい限りです。",
+      description:
+        "現在は小学校教諭として働いています。昨年度に息子を出産し、毎日育児に奮闘中です。優しさに溢れる勇樹さんとの結婚、本当に嬉しい限りです。",
       image: "/images/bride-sister.jpg",
     },
     {
@@ -153,9 +155,10 @@ export const brideFamily = {
       relation: "甥",
       name: "今井 想仁郎",
       furigana: "いまい そうじろう",
-      description: "どうも、今井家の長男の想仁郎です。１歳になったばかりです。絵本が大好きです。ぼくと一緒に遊んでね✨",
+      description:
+        "どうも、今井家の長男の想仁郎です。１歳になったばかりです。絵本が大好きです。ぼくと一緒に遊んでね✨",
       image: "/images/bride-sister-baby.jpg",
-    }
+    },
   ],
 };
 
@@ -174,9 +177,6 @@ export const menu = {
   ],
   drinks: ["ビール", "ワイン", "ソフトドリンク各種"],
 };
-
-
-
 
 export const memories = {
   title: "ふたりの思い出",
@@ -249,7 +249,6 @@ export const memories = {
   ],
 };
 
-
 export const futurePlans = {
   title: "結婚後の予定",
   marry: {
@@ -268,7 +267,6 @@ export const futurePlans = {
 今後ともどうぞよろしくお願いいたします。`,
 };
 
-
 export const seating = {
   title: "座席",
   table: {
@@ -283,8 +281,8 @@ export const seating = {
       { id: 8, role: "新郎兄", name: "有村 大樹", angle: 40 },
       { id: 9, role: "新郎母", name: "有村 智子", angle: 120 },
       { id: 10, role: "新郎父", name: "有村 賢治", angle: 80 },
-    ]
-  }
+    ],
+  },
 };
 
 export const closingMessage = {

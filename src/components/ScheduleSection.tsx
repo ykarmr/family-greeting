@@ -7,7 +7,10 @@ export function ScheduleSection() {
   const { ref, isInView } = useInView();
 
   return (
-    <section ref={ref} className="px-6 py-20 bg-[var(--color-cream)] relative overflow-hidden">
+    <section
+      ref={ref}
+      className="px-6 py-20 bg-[var(--color-cream)] relative overflow-hidden"
+    >
       {/* 背景装飾 */}
       <div className="absolute top-16 right-8 text-[var(--color-sage-light)] text-2xl opacity-30">
         🌿
@@ -54,7 +57,9 @@ export function ScheduleSection() {
 
                 {/* 内容 */}
                 <div className="pl-4 flex-1 pt-0">
-                  <p className="text-base text-[var(--color-text)] font-medium">{item.content}</p>
+                  <p className="text-base text-[var(--color-text)] font-medium">
+                    {item.content}
+                  </p>
                 </div>
               </div>
             ))}
@@ -66,7 +71,8 @@ export function ScheduleSection() {
             isInView ? "opacity-100" : "opacity-0"
           }`}
         >
-          <span className="text-[var(--color-pink)]">✿</span> 時間は目安です <span className="text-[var(--color-pink)]">✿</span>
+          <span className="text-[var(--color-pink)]">✿</span> 時間は目安です{" "}
+          <span className="text-[var(--color-pink)]">✿</span>
         </p>
       </div>
     </section>
