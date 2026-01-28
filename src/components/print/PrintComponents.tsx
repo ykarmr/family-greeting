@@ -47,13 +47,17 @@ const PrintPage = ({ children, className = "", contentClassName = "" }: { childr
         backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20L0 40h40L20 20zM0 0l20 20L40 0H0z' fill='%238da58d' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
       }}
     />
+    {/* 雑誌風の枠線(二重線) */}
+    <div className="absolute inset-3 border border-[var(--color-text-dark)] opacity-[0.08] pointer-events-none z-10"></div>
+    <div className="absolute inset-4 border border-[var(--color-text-dark)] opacity-[0.04] pointer-events-none z-10"></div>
+    
     {/* 角の装飾 */}
     <CornerDecor className="absolute top-6 left-6" />
     <CornerDecor className="absolute top-6 right-6 rotate-90" />
     <CornerDecor className="absolute bottom-6 left-6 -rotate-90" />
     <CornerDecor className="absolute bottom-6 right-6 rotate-180" />
     
-    <div className={`relative z-10 flex-1 flex flex-col p-8 pt-10 ${contentClassName}`}>
+    <div className={`relative z-10 flex-1 flex flex-col p-10 ${contentClassName}`}>
       {children}
     </div>
   </div>
@@ -110,12 +114,15 @@ export function PrintCover() {
 export function PrintGreeting() {
   return (
     <PrintPage className="justify-center">
-      <div className="max-w-md mx-auto bg-white/40 p-12 shadow-inner border border-[var(--color-border-light)] relative overflow-hidden">
+      <div className="max-w-md mx-auto bg-white border border-[var(--color-text-dark)]/10 p-12 relative overflow-hidden shadow-[0_4px_30px_rgba(0,0,0,0.03)] rounded-sm">
+        {/* インナーフレーム */}
+        <div className="absolute inset-3 border border-[var(--color-text-dark)]/5 pointer-events-none"></div>
+        
         <BotanicalDecor className="absolute -top-6 -left-6 w-20 h-20 text-[var(--color-sage)]/20" />
         <BotanicalDecor className="absolute -bottom-6 -right-6 w-20 h-20 text-[var(--color-sage)]/20 rotate-180" />
         
-        <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[var(--color-text-dark)]/20"></div>
-        <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[var(--color-text-dark)]/20"></div>
+        <div className="absolute top-6 left-6 w-6 h-6 border-t border-l border-[var(--color-text-dark)]/20"></div>
+        <div className="absolute bottom-6 right-6 w-6 h-6 border-b border-r border-[var(--color-text-dark)]/20"></div>
         
         <h2 className="text-2xl font-serif text-center mb-12 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
           {greeting.title}
@@ -137,10 +144,14 @@ export function PrintEventInfo() {
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute top-10 right-4 w-20 h-20 text-[var(--color-sage)]/10 -rotate-12" />
       <BotanicalDecor className="absolute bottom-10 left-4 w-20 h-20 text-[var(--color-sage)]/10 rotate-180" />
-      <div className="max-w-sm mx-auto w-full space-y-12">
-        <section>
+      <div className="max-w-sm mx-auto w-full space-y-8">
+        <section className="bg-white/60 p-10 border-2 border-[var(--color-text-dark)]/10 shadow-lg relative rounded-sm">
+          {/* チケット風の切り欠き */}
+          <div className="absolute top-1/2 -translate-y-1/2 -left-3 w-6 h-6 bg-[var(--color-cream)] rounded-full border border-[var(--color-text-dark)]/10 shadow-[inset_-2px_0_4px_rgba(0,0,0,0.02)]"></div>
+          <div className="absolute top-1/2 -translate-y-1/2 -right-3 w-6 h-6 bg-[var(--color-cream)] rounded-full border border-[var(--color-text-dark)]/10 shadow-[inset_2px_0_4px_rgba(0,0,0,0.02)]"></div>
+
           <div className="flex items-center gap-4 mb-8">
-            <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/10"></div>
+            <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/20"></div>
             <h2 className="text-xl font-serif tracking-widest text-[var(--color-text-dark)]">
               案内
             </h2>
@@ -159,7 +170,7 @@ export function PrintEventInfo() {
           </div>
         </section>
 
-        <section>
+        <section className="bg-white border-2 border-[var(--color-sage)]/20 p-10 shadow-xl relative rounded-sm">
           <div className="flex items-center gap-4 mb-8">
             <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/10"></div>
             <h2 className="text-xl font-serif tracking-widest text-[var(--color-text-dark)]">
@@ -190,10 +201,13 @@ export function PrintSeating() {
       </h2>
       
       <div className="relative w-[280px] h-[280px] flex items-center justify-center">
+        {/* 会場の壁イメージ */}
+        <div className="absolute inset-[-20px] border-2 border-dashed border-[var(--color-text-dark)]/5 rounded-full pointer-events-none"></div>
+        
         {/* 装飾用のリング */}
         <div className="absolute inset-0 border border-[var(--color-sage)]/10 rounded-full scale-105"></div>
         
-        <div className="relative w-full h-full border-2 border-[var(--color-sage)]/20 rounded-full flex items-center justify-center bg-white/40 shadow-inner">
+        <div className="relative w-full h-full border-2 border-[var(--color-sage)]/20 rounded-full flex items-center justify-center bg-white shadow-inner">
           <BotanicalDecor className="absolute top-4 left-4 w-12 h-12 text-[var(--color-sage)]/10" />
           <BotanicalDecor className="absolute bottom-4 right-4 w-12 h-12 text-[var(--color-sage)]/10 rotate-180" />
           
@@ -210,7 +224,7 @@ export function PrintSeating() {
             return (
               <div
                 key={pos.id}
-                className="absolute transform -translate-x-1/2 -translate-y-1/2 text-center whitespace-nowrap bg-white/90 px-3 py-1.5 border border-[var(--color-sage)]/10 rounded-sm font-serif text-xs font-bold shadow-sm z-20"
+                className="absolute transform -translate-x-1/2 -translate-y-1/2 text-center whitespace-nowrap bg-white/95 px-3 py-1.5 border border-[var(--color-sage)]/20 rounded-sm font-serif text-[11px] font-bold shadow-sm z-20"
                 style={{ left: `${x}%`, top: `${y}%` }}
               >
                 {pos.name}
@@ -218,9 +232,18 @@ export function PrintSeating() {
             );
           })}
         </div>
+
+        {/* 入り口 */}
+        <div className="absolute -bottom-14 left-1/2 -translate-x-1/2 z-20">
+          <div className="bg-[var(--color-text-dark)] text-white px-5 py-2 rounded-full text-[9px] tracking-[0.2em] font-bold uppercase shadow-md whitespace-nowrap">
+            Entrance / 入り口
+          </div>
+          {/* 入り口からテーブルへの案内ライン */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 w-[1px] h-8 border-l border-dashed border-[var(--color-text-dark)]/20"></div>
+        </div>
       </div>
 
-      <p className="mt-20 text-[10px] font-serif text-[var(--color-text-light)] text-center opacity-60">
+      <p className="mt-24 text-[10px] font-serif text-[var(--color-text-light)] text-center opacity-60">
         ※当日の状況により変更になる場合がございます
       </p>
     </PrintPage>
@@ -243,43 +266,49 @@ export function PrintProfile() {
         プロフィール
       </h2>
 
-      <div className="space-y-6">
-        {/* 新郎 */}
-        <div className="flex gap-6 items-start">
-          <div className="w-24 aspect-[3/4] border-2 border-[var(--color-sage)]/20 p-1 bg-white shrink-0 shadow-lg rotate-[-2deg]">
-            <img src={groom.image} alt={groom.name} className="w-full h-full object-cover" />
-          </div>
-          <div className="flex-1">
-            <div className="mb-3">
-              <span className="text-[10px] bg-[var(--color-sage)] text-white px-2 py-0.5 mb-1 inline-block">新郎</span>
-              <h3 className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{groom.name}</h3>
-              <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-tighter">{groom.furigana}</p>
-            </div>
-            <div className="grid grid-cols-2 gap-x-3 gap-y-1">
-              <ProfileItem label="生年月日" value={groom.birthDate} />
-              <ProfileItem label="出身地" value={groom.hometown} />
-              <ProfileItem label="趣味" value={groom.hobbies} />
-              <ProfileItem label="性格" value={groom.personality} />
-            </div>
-          </div>
-        </div>
+      <div className="max-w-md mx-auto w-full border border-[var(--color-text-dark)]/5 p-10 bg-white shadow-xl relative rounded-sm">
+        {/* インナー装飾 */}
+        <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-[var(--color-text-dark)]/10"></div>
+        <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-[var(--color-text-dark)]/10"></div>
 
-        {/* 新婦 */}
-        <div className="flex gap-6 items-start flex-row-reverse">
-          <div className="w-24 aspect-[3/4] border-2 border-[var(--color-pink)]/20 p-1 bg-white shrink-0 shadow-lg rotate-[2deg]">
-            <img src={bride.image} alt={bride.name} className="w-full h-full object-cover" />
-          </div>
-          <div className="flex-1 text-right">
-            <div className="mb-3">
-              <span className="text-[10px] bg-[var(--color-pink)] text-white px-2 py-0.5 mb-1 inline-block">新婦</span>
-              <h3 className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{bride.name}</h3>
-              <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-tighter">{bride.furigana}</p>
+        <div className="space-y-8">
+          {/* 新郎 */}
+          <div className="flex gap-6 items-start">
+            <div className="w-24 aspect-[3/4] border-2 border-[var(--color-sage)]/20 p-1 bg-white shrink-0 shadow-lg rotate-[-2deg]">
+              <img src={groom.image} alt={groom.name} className="w-full h-full object-cover" width={100} height={133} />
             </div>
-            <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-left">
-              <ProfileItem label="生年月日" value={bride.birthDate} />
-              <ProfileItem label="出身地" value={bride.hometown} />
-              <ProfileItem label="趣味" value={bride.hobbies} />
-              <ProfileItem label="性格" value={bride.personality} />
+            <div className="flex-1">
+              <div className="mb-3">
+                <span className="text-[10px] bg-[var(--color-sage)] text-white px-2 py-0.5 mb-1 inline-block">新郎</span>
+                <h3 className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{groom.name}</h3>
+                <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-tighter">{groom.furigana}</p>
+              </div>
+              <div className="grid grid-cols-2 gap-x-3 gap-y-1">
+                <ProfileItem label="生年月日" value={groom.birthDate} />
+                <ProfileItem label="出身地" value={groom.hometown} />
+                <ProfileItem label="趣味" value={groom.hobbies} />
+                <ProfileItem label="性格" value={groom.personality} />
+              </div>
+            </div>
+          </div>
+
+          {/* 新婦 */}
+          <div className="flex gap-6 items-start flex-row-reverse text-right">
+            <div className="w-24 aspect-[3/4] border-2 border-[var(--color-pink)]/20 p-1 bg-white shrink-0 shadow-lg rotate-[2deg]">
+              <img src={bride.image} alt={bride.name} className="w-full h-full object-cover" width={100} height={133} />
+            </div>
+            <div className="flex-1">
+              <div className="mb-3">
+                <span className="text-[10px] bg-[var(--color-pink)] text-white px-2 py-0.5 mb-1 inline-block">新婦</span>
+                <h3 className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{bride.name}</h3>
+                <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-tighter">{bride.furigana}</p>
+              </div>
+              <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-left">
+                <ProfileItem label="生年月日" value={bride.birthDate} />
+                <ProfileItem label="出身地" value={bride.hometown} />
+                <ProfileItem label="趣味" value={bride.hobbies} />
+                <ProfileItem label="性格" value={bride.personality} />
+              </div>
             </div>
           </div>
         </div>
@@ -293,15 +322,28 @@ export function PrintOurStory() {
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute bottom-10 left-10 w-24 h-24 text-[var(--color-sage)]/10 rotate-180" />
-      <div className="max-w-md mx-auto p-12 border border-[var(--color-sage)]/10 relative bg-white/30 backdrop-blur-[1px]">
+      <div className="max-w-md mx-auto p-12 border-x border-[var(--color-text-dark)]/10 relative bg-white/30 backdrop-blur-[1px] shadow-sm">
+        {/* フィルム穴の装飾（縦） */}
+        <div className="absolute -left-4 top-0 bottom-0 w-3 flex flex-col justify-around py-4 opacity-10">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div key={`film-l-${i}`} className="w-2 h-3 bg-black rounded-[1px]"></div>
+          ))}
+        </div>
+        <div className="absolute -right-4 top-0 bottom-0 w-3 flex flex-col justify-around py-4 opacity-10">
+          {Array.from({ length: 12 }).map((_, i) => (
+            <div key={`film-r-${i}`} className="w-2 h-3 bg-black rounded-[1px]"></div>
+          ))}
+        </div>
+
         <h2 className="text-xl font-serif text-center mb-10 tracking-[0.4em] font-bold text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
           {ourStory.title}
         </h2>
         <p className="text-base leading-[2.8] font-serif text-center whitespace-pre-line tracking-[0.2em] text-[var(--color-text)]" style={{ fontFamily: "var(--font-yosugara)" }}>
           {ourStory.content}
         </p>
-        <div className="absolute -top-2 -left-2 w-10 h-10 border-t-2 border-l-2 border-[var(--color-sage)]/10"></div>
-        <div className="absolute -bottom-2 -right-2 w-10 h-10 border-b-2 border-r-2 border-[var(--color-sage)]/10"></div>
+        
+        <div className="absolute top-2 left-2 w-8 h-8 border-t border-l border-[var(--color-text-dark)]/10"></div>
+        <div className="absolute bottom-2 right-2 w-8 h-8 border-b border-r border-[var(--color-text-dark)]/10"></div>
       </div>
     </PrintPage>
   );
@@ -339,13 +381,13 @@ export function PrintGroomFamily() {
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute top-20 right-4 w-16 h-16 text-[var(--color-sage)]/5" />
-      <div className="max-w-sm mx-auto w-full">
+      <div className="max-w-md mx-auto w-full">
         <h2 className="text-xl font-serif mb-10 border-b border-[var(--color-sage)]/20 pb-4 text-center tracking-widest text-[var(--color-text-dark)]">
           {groomFamily.title}
         </h2>
         <div className="space-y-4">
           {groomFamily.members.map((member) => (
-            <div key={member.name} className="flex gap-5 items-start bg-white/40 p-3.5 border border-[var(--color-border-light)] shadow-sm relative overflow-hidden group">
+            <div key={`${groomFamily.title}-${member.name}`} className="flex gap-5 items-start bg-white/40 p-3.5 border border-[var(--color-border-light)] shadow-sm relative overflow-hidden group">
               <div className="absolute top-0 left-0 w-1 h-full bg-[var(--color-sage)]/10"></div>
               <div className="w-16 h-20 shrink-0 border border-[var(--color-sage)]/20 p-1.5 bg-white shadow-sm relative">
                 <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-[var(--color-sage)]/20 group-even:hidden"></div>
@@ -371,13 +413,13 @@ export function PrintBrideFamily() {
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute top-20 left-4 w-16 h-16 text-[var(--color-pink)]/5 -rotate-90" />
-      <div className="max-w-sm mx-auto w-full">
+      <div className="max-w-md mx-auto w-full">
         <h2 className="text-xl font-serif mb-10 border-b border-[var(--color-pink)]/20 pb-4 text-center tracking-widest text-[var(--color-text-dark)]">
           {brideFamily.title}
         </h2>
         <div className="space-y-4">
           {brideFamily.members.map((member) => (
-            <div key={member.name} className="flex gap-5 items-start bg-white/40 p-3.5 border border-[var(--color-border-light)] shadow-sm relative overflow-hidden group">
+            <div key={`${brideFamily.title}-${member.name}`} className="flex gap-5 items-start bg-white/40 p-3.5 border border-[var(--color-border-light)] shadow-sm relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-1 h-full bg-[var(--color-pink)]/10"></div>
               <div className="w-16 h-20 shrink-0 border border-[var(--color-pink)]/20 p-1.5 bg-white shadow-sm relative">
                 <div className="absolute -top-1 -right-1 w-3 h-3 border-t border-r border-[var(--color-pink)]/20 group-odd:hidden"></div>
@@ -403,9 +445,10 @@ export function PrintMenu() {
   return (
     <PrintPage contentClassName="justify-center items-center">
       <BotanicalDecor className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 text-[var(--color-sage)]/[0.03]" />
-      <div className="max-w-sm mx-auto w-full border border-[var(--color-border)] p-12 bg-white/40 shadow-inner relative">
-        <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[var(--color-text-dark)]/20"></div>
-        <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[var(--color-text-dark)]/20"></div>
+      <div className="max-w-md mx-auto w-full border-[3px] border-double border-[var(--color-text-dark)]/20 p-12 bg-white relative shadow-xl">
+        {/* 装飾用の角 */}
+        <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-[var(--color-text-dark)]/10"></div>
+        <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-[var(--color-text-dark)]/10"></div>
         
         <h2 className="text-2xl font-serif text-center mb-12 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
           お品書き
@@ -419,9 +462,9 @@ export function PrintMenu() {
             ))}
           </div>
           <div className="pt-8 border-t border-dotted border-[var(--color-text-dark)]/20">
-            <span className="text-[10px] font-serif text-[var(--color-text-light)] mb-2 block uppercase tracking-widest">お飲み物</span>
-            <p className="text-[10px] font-serif text-[var(--color-text)] leading-relaxed opacity-70">
-              {menu.drinks.join(" / ")}
+            <span className="text-[10px] bg-[var(--color-text-dark)] text-white px-3 py-0.5 tracking-widest mb-4 inline-block rounded-sm">お飲み物</span>
+            <p className="text-[10px] font-serif text-[var(--color-text)] leading-relaxed">
+              {menu.drinks.join("　・　")}
             </p>
           </div>
         </div>
@@ -438,7 +481,7 @@ export function PrintFuturePlans() {
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute bottom-10 right-10 w-32 h-32 text-[var(--color-sage)]/5 rotate-12" />
-      <div className="max-w-sm mx-auto w-full">
+      <div className="max-w-md mx-auto w-full">
         <h2 className="text-xl font-serif text-center mb-16 tracking-widest text-[var(--color-text-dark)]">
           これからの予定
         </h2>
