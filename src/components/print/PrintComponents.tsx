@@ -152,7 +152,9 @@ export function PrintEventInfo() {
 
           <div className="flex items-center gap-4 mb-8">
             <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/20"></div>
-            <h2 className="text-xl font-serif tracking-widest text-[var(--color-text-dark)]">
+            <h2 className="text-xl font-serif tracking-widest text-[var(--color-text-dark)]"
+              style={{ fontFamily: "var(--font-yosugara)" }}
+            >
               案内
             </h2>
             <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/10"></div>
@@ -173,8 +175,10 @@ export function PrintEventInfo() {
         <section className="bg-white border-2 border-[var(--color-sage)]/20 p-10 shadow-xl relative rounded-sm">
           <div className="flex items-center gap-4 mb-8">
             <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/10"></div>
-            <h2 className="text-xl font-serif tracking-widest text-[var(--color-text-dark)]">
-              次第
+            <h2 className="text-xl font-serif tracking-widest text-[var(--color-text-dark)]"
+              style={{ fontFamily: "var(--font-yosugara)" }}
+            >
+              プログラム
             </h2>
             <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/10"></div>
           </div>
@@ -196,7 +200,9 @@ export function PrintEventInfo() {
 export function PrintSeating() {
   return (
     <PrintPage contentClassName="justify-center items-center">
-      <h2 className="text-xl font-serif text-center mb-16 tracking-widest text-[var(--color-text-dark)]">
+      <h2 className="text-xl font-serif text-center mb-16 tracking-widest text-[var(--color-text-dark)]"
+        style={{ fontFamily: "var(--font-yosugara)" }}
+      >
         {seating.title}
       </h2>
       
@@ -250,64 +256,87 @@ export function PrintSeating() {
   );
 }
 
+/* 装飾用コンポーネント: マスキングテープ */
+const TapeDecor = ({ className = "" }: { className?: string }) => (
+  <div className={`h-4 w-12 bg-[#E6DCC8]/60 shadow-sm border-x border-white/20 -rotate-2 ${className}`}></div>
+);
+
 /* 5. プロフィール */
 export function PrintProfile() {
   const ProfileItem = ({ label, value }: { label: string; value: string | string[] }) => (
-    <div className="mb-4">
-      <span className="text-[10px] font-bold text-[var(--color-text-light)] block border-b border-[var(--color-border-light)] mb-1">{label}</span>
-      <p className="text-sm font-serif text-[var(--color-text)]">{Array.isArray(value) ? value.join("、") : value}</p>
+    <div className="mb-2.5">
+      <span className="text-[8px] font-bold text-[var(--color-text-light)]/60 tracking-widest block uppercase mb-0.5">{label}</span>
+      <p className="text-[11px] font-serif text-[var(--color-text-dark)] leading-snug">{Array.isArray(value) ? value.join("、") : value}</p>
     </div>
   );
 
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute top-10 right-10 w-24 h-24 text-[var(--color-sage)]/10" />
-      <h2 className="text-xl font-serif text-center mb-10 tracking-widest text-[var(--color-text-dark)]">
+      <h2 className="text-xl font-serif text-center mb-10 tracking-widest text-[var(--color-text-dark)]"
+        style={{ fontFamily: "var(--font-yosugara)" }}
+      >
         プロフィール
       </h2>
 
-      <div className="max-w-md mx-auto w-full border border-[var(--color-text-dark)]/5 p-10 bg-white shadow-xl relative rounded-sm">
+      <div className="max-w-md mx-auto w-full border border-[var(--color-text-dark)]/10 p-10 bg-white shadow-xl relative rounded-sm">
         {/* インナー装飾 */}
-        <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-[var(--color-text-dark)]/10"></div>
-        <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-[var(--color-text-dark)]/10"></div>
+        <div className="absolute top-3 left-3 w-6 h-6 border-t border-l border-[var(--color-text-dark)]/5"></div>
+        <div className="absolute bottom-3 right-3 w-6 h-6 border-b border-r border-[var(--color-text-dark)]/5"></div>
 
-        <div className="space-y-8">
+        <div className="space-y-12 relative">
           {/* 新郎 */}
-          <div className="flex gap-6 items-start">
-            <div className="w-24 aspect-[3/4] border-2 border-[var(--color-sage)]/20 p-1 bg-white shrink-0 shadow-lg rotate-[-2deg]">
-              <img src={groom.image} alt={groom.name} className="w-full h-full object-cover" width={100} height={133} />
-            </div>
-            <div className="flex-1">
-              <div className="mb-3">
-                <span className="text-[10px] bg-[var(--color-sage)] text-white px-2 py-0.5 mb-1 inline-block">新郎</span>
-                <h3 className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{groom.name}</h3>
-                <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-tighter">{groom.furigana}</p>
+          <div className="flex gap-8 items-start relative pb-8 border-b border-dashed border-[var(--color-border-light)]">
+            <div className="relative shrink-0">
+              <TapeDecor className="absolute -top-2 left-1/2 -translate-x-1/2 z-20" />
+              <div className="w-28 aspect-[3/4] border-4 border-white shadow-xl rotate-[-2deg] bg-[#f9f9f9] overflow-hidden relative">
+                <img src={groom.image} alt={groom.name} className="w-full h-full object-cover grayscale-[10%]" width={112} height={149} />
+                <div className="absolute inset-x-0 bottom-0 bg-white/80 py-1 text-center">
+                   <p className="text-[9px] font-bold tracking-widest text-[var(--color-sage-dark)]">GROOM</p>
+                </div>
               </div>
-              <div className="grid grid-cols-2 gap-x-3 gap-y-1">
-                <ProfileItem label="生年月日" value={groom.birthDate} />
-                <ProfileItem label="出身地" value={groom.hometown} />
-                <ProfileItem label="趣味" value={groom.hobbies} />
-                <ProfileItem label="性格" value={groom.personality} />
+            </div>
+            <div className="flex-1 pt-2">
+              <div className="mb-6">
+                <h3 className="text-xl font-serif font-bold text-[var(--color-text-dark)] mb-0.5" style={{ fontFamily: "var(--font-yosugara)" }}>{groom.name}</h3>
+                <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-[0.2em] font-light">{groom.furigana}</p>
+              </div>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1">
+                <ProfileItem label="Birthday" value={groom.birthDate} />
+                <ProfileItem label="From" value={groom.hometown} />
+                <ProfileItem label="Personality" value={groom.personality} />
+                <ProfileItem label="Job" value={groom.job} />
+              </div>
+              <div className="mt-2 text-[10px] font-serif italic text-[var(--color-text-light)] border-t border-[var(--color-border-light)] pt-2 line-clamp-2">
+                "{groom.message}"
               </div>
             </div>
           </div>
 
           {/* 新婦 */}
-          <div className="flex gap-6 items-start flex-row-reverse text-right">
-            <div className="w-24 aspect-[3/4] border-2 border-[var(--color-pink)]/20 p-1 bg-white shrink-0 shadow-lg rotate-[2deg]">
-              <img src={bride.image} alt={bride.name} className="w-full h-full object-cover" width={100} height={133} />
-            </div>
-            <div className="flex-1">
-              <div className="mb-3">
-                <span className="text-[10px] bg-[var(--color-pink)] text-white px-2 py-0.5 mb-1 inline-block">新婦</span>
-                <h3 className="text-lg font-serif font-bold text-[var(--color-text-dark)]">{bride.name}</h3>
-                <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-tighter">{bride.furigana}</p>
+          <div className="flex gap-8 items-start flex-row-reverse text-left relative">
+            <div className="relative shrink-0 text-left">
+              <TapeDecor className="absolute -top-2 left-1/2 -translate-x-1/2 z-20 rotate-1" />
+              <div className="w-28 aspect-[3/4] border-4 border-white shadow-xl rotate-[2deg] bg-[#f9f9f9] overflow-hidden relative">
+                <img src={bride.image} alt={bride.name} className="w-full h-full object-cover grayscale-[10%]" width={112} height={149} />
+                <div className="absolute inset-x-0 bottom-0 bg-white/80 py-1 text-center">
+                   <p className="text-[9px] font-bold tracking-widest text-[var(--color-pink-dark)]">BRIDE</p>
+                </div>
               </div>
-              <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-left">
-                <ProfileItem label="生年月日" value={bride.birthDate} />
-                <ProfileItem label="出身地" value={bride.hometown} />
-                <ProfileItem label="趣味" value={bride.hobbies} />
-                <ProfileItem label="性格" value={bride.personality} />
+            </div>
+            <div className="flex-1 pt-2">
+              <div className="mb-6 text-left">
+                <h3 className="text-xl font-serif font-bold text-[var(--color-text-dark)] mb-0.5" style={{ fontFamily: "var(--font-yosugara)" }}>{bride.name}</h3>
+                <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-[0.2em] font-light">{bride.furigana}</p>
+              </div>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-left">
+                <ProfileItem label="Birthday" value={bride.birthDate} />
+                <ProfileItem label="From" value={bride.hometown} />
+                <ProfileItem label="Personality" value={bride.personality} />
+                <ProfileItem label="Job" value={bride.job} />
+              </div>
+              <div className="mt-2 text-[10px] font-serif italic text-[var(--color-text-light)] border-t border-[var(--color-border-light)] pt-2 line-clamp-2">
+                "{bride.message}"
               </div>
             </div>
           </div>
@@ -354,18 +383,28 @@ export function PrintMemories() {
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute top-10 right-10 w-24 h-24 text-[var(--color-sage)]/10" />
-      <h2 className="text-xl font-serif text-center mb-10 tracking-widest text-[var(--color-text-dark)]">
+      <h2 className="text-xl font-serif text-center mb-10 tracking-widest text-[var(--color-text-dark)]"
+        style={{ fontFamily: "var(--font-yosugara)" }}
+      >
         思い出
       </h2>
-      <div className="max-w-sm mx-auto grid grid-cols-2 gap-6 w-full px-4">
+      <div className="max-w-md mx-auto grid grid-cols-2 gap-x-8 gap-y-10 w-full px-4">
         {memories.images.slice(0, 6).map((img, i) => (
-          <div key={i} className="bg-white p-2 border border-[var(--color-border-light)] shadow-md relative group">
-            <div className="absolute top-1 left-1 w-2 h-2 border-t border-l border-[var(--color-text-dark)]/10"></div>
-            <div className="aspect-[4/3] bg-gray-100 overflow-hidden mb-2">
-              <img src={img.src} alt={img.caption} className="w-full h-full object-cover" />
+          <div key={`memory-${img.src}-${i}`} className="relative group">
+            <TapeDecor className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 w-8 h-3 opacity-40 group-even:rotate-2 group-odd:-rotate-2" />
+            <div className="bg-white p-2 border border-[var(--color-border-light)] shadow-lg relative h-full">
+              <div className="aspect-[4/3] bg-[#f9f9f9] overflow-hidden mb-3">
+                <img src={img.src} alt={img.caption} className="w-full h-full object-cover grayscale-[5%]" />
+              </div>
+              <div className="px-1 text-center">
+                <p className="text-[10px] font-serif font-bold text-[var(--color-text-dark)] line-clamp-1 mb-0.5">{img.caption}</p>
+                <div className="flex items-center justify-center gap-2 opacity-50">
+                   <div className="h-[0.5px] w-4 bg-[var(--color-text-light)]"></div>
+                   <p className="text-[8px] text-[var(--color-text-light)] tracking-widest">{img.date}</p>
+                   <div className="h-[0.5px] w-4 bg-[var(--color-text-light)]"></div>
+                </div>
+              </div>
             </div>
-            <p className="text-[10px] font-serif font-bold text-center mb-0.5 text-[var(--color-text-dark)] truncate px-1">{img.caption}</p>
-            <p className="text-[8px] text-center text-[var(--color-text-light)] opacity-60 tracking-wider">{img.date}</p>
           </div>
         ))}
       </div>
@@ -382,23 +421,26 @@ export function PrintGroomFamily() {
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute top-20 right-4 w-16 h-16 text-[var(--color-sage)]/5" />
       <div className="max-w-md mx-auto w-full">
-        <h2 className="text-xl font-serif mb-10 border-b border-[var(--color-sage)]/20 pb-4 text-center tracking-widest text-[var(--color-text-dark)]">
+        <h2 className="text-xl font-serif mb-10 border-b border-[var(--color-sage)]/20 pb-4 text-center tracking-widest text-[var(--color-text-dark)]"
+          style={{ fontFamily: "var(--font-yosugara)" }}
+        >
           {groomFamily.title}
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-5">
           {groomFamily.members.map((member) => (
-            <div key={`${groomFamily.title}-${member.name}`} className="flex gap-5 items-start bg-white/40 p-3.5 border border-[var(--color-border-light)] shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 left-0 w-1 h-full bg-[var(--color-sage)]/10"></div>
-              <div className="w-16 h-20 shrink-0 border border-[var(--color-sage)]/20 p-1.5 bg-white shadow-sm relative">
-                <div className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-[var(--color-sage)]/20 group-even:hidden"></div>
-                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+            <div key={`${groomFamily.title}-${member.name}`} className="flex gap-6 items-start bg-white/60 p-5 shadow-sm relative overflow-hidden group border-l-2 border-[var(--color-sage)]/20">
+              <div className="relative shrink-0 pt-2">
+                <TapeDecor className="absolute -top-1 left-1/2 -translate-x-1/2 z-20 w-8 h-3 opacity-50" />
+                <div className="w-16 h-20 border-2 border-white shadow-md bg-[#f9f9f9] overflow-hidden relative rotate-[-1deg]">
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale-[10%]" />
+                </div>
               </div>
               <div className="flex-1">
-                <div className="flex items-baseline gap-3 mb-1.5">
-                  <span className="text-[9px] font-bold text-[var(--color-sage-dark)] tracking-tighter opacity-70">{member.relation}</span>
+                <div className="flex items-baseline gap-3 mb-2 pb-1 border-b border-dotted border-[var(--color-border-light)]">
+                  <span className="text-[8px] font-bold text-[var(--color-sage-dark)] tracking-widest opacity-60 uppercase">{member.relation}</span>
                   <span className="text-base font-bold font-serif text-[var(--color-text-dark)]">{member.name}</span>
                 </div>
-                <p className="text-[10px] font-serif leading-relaxed text-[var(--color-text)] opacity-80">{member.description}</p>
+                <p className="text-[10px] font-serif leading-relaxed text-[var(--color-text)] opacity-90">{member.description}</p>
               </div>
             </div>
           ))}
@@ -414,23 +456,26 @@ export function PrintBrideFamily() {
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute top-20 left-4 w-16 h-16 text-[var(--color-pink)]/5 -rotate-90" />
       <div className="max-w-md mx-auto w-full">
-        <h2 className="text-xl font-serif mb-10 border-b border-[var(--color-pink)]/20 pb-4 text-center tracking-widest text-[var(--color-text-dark)]">
+        <h2 className="text-xl font-serif mb-10 border-b border-[var(--color-pink)]/20 pb-4 text-center tracking-widest text-[var(--color-text-dark)]"
+          style={{ fontFamily: "var(--font-yosugara)" }}
+        >
           {brideFamily.title}
         </h2>
-        <div className="space-y-4">
+        <div className="space-y-5">
           {brideFamily.members.map((member) => (
-            <div key={`${brideFamily.title}-${member.name}`} className="flex gap-5 items-start bg-white/40 p-3.5 border border-[var(--color-border-light)] shadow-sm relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-1 h-full bg-[var(--color-pink)]/10"></div>
-              <div className="w-16 h-20 shrink-0 border border-[var(--color-pink)]/20 p-1.5 bg-white shadow-sm relative">
-                <div className="absolute -top-1 -right-1 w-3 h-3 border-t border-r border-[var(--color-pink)]/20 group-odd:hidden"></div>
-                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+            <div key={`${brideFamily.title}-${member.name}`} className="flex gap-6 items-start flex-row-reverse text-left bg-white/60 p-5 shadow-sm relative overflow-hidden group border-r-2 border-[var(--color-pink)]/20">
+              <div className="relative shrink-0 pt-2 text-left">
+                <TapeDecor className="absolute -top-1 left-1/2 -translate-x-1/2 z-20 w-8 h-3 opacity-50 rotate-1" />
+                <div className="w-16 h-20 border-2 border-white shadow-md bg-[#f9f9f9] overflow-hidden relative rotate-[1deg]">
+                  <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale-[10%]" />
+                </div>
               </div>
               <div className="flex-1">
-                <div className="flex items-baseline gap-3 mb-1.5">
-                  <span className="text-[9px] font-bold text-[var(--color-pink-dark)] tracking-tighter opacity-70">{member.relation}</span>
+                <div className="flex items-baseline gap-3 mb-2 pb-1 border-b border-dotted border-[var(--color-border-light)]">
+                  <span className="text-[8px] font-bold text-[var(--color-pink-dark)] tracking-widest opacity-60 uppercase">{member.relation}</span>
                   <span className="text-base font-bold font-serif text-[var(--color-text-dark)]">{member.name}</span>
                 </div>
-                <p className="text-[10px] font-serif leading-relaxed text-[var(--color-text)] opacity-80">{member.description}</p>
+                <p className="text-[10px] font-serif leading-relaxed text-[var(--color-text)] opacity-90">{member.description}</p>
               </div>
             </div>
           ))}
@@ -482,7 +527,9 @@ export function PrintFuturePlans() {
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute bottom-10 right-10 w-32 h-32 text-[var(--color-sage)]/5 rotate-12" />
       <div className="max-w-md mx-auto w-full">
-        <h2 className="text-xl font-serif text-center mb-16 tracking-widest text-[var(--color-text-dark)]">
+        <h2 className="text-xl font-serif text-center mb-16 tracking-widest text-[var(--color-text-dark)]"
+          style={{ fontFamily: "var(--font-yosugara)" }}
+        >
           これからの予定
         </h2>
         
