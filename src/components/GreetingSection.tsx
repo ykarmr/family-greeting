@@ -39,7 +39,7 @@ export function GreetingSection() {
           <div className="relative z-10 text-center">
             <h2
               className="text-2xl md:text-3xl mb-12 tracking-[0.3em] text-[var(--color-text-dark)] flex items-center justify-center gap-4"
-              style={{ fontFamily: "var(--font-yosugara)" }}
+              style={{ fontFamily: "var(--font-yomogi)" }}
             >
               <span className="h-[1px] w-8 bg-[var(--color-text-light)]"></span>
               {greeting.title}
@@ -48,7 +48,7 @@ export function GreetingSection() {
 
             <p
               className="text-lg md:text-xl text-[var(--color-text)] leading-[2.8rem] tracking-widest whitespace-pre-line"
-              style={{ fontFamily: "var(--font-yosugara)" }}
+              style={{ fontFamily: "var(--font-yomogi)" }}
             >
               {greeting.message}
             </p>
@@ -56,7 +56,7 @@ export function GreetingSection() {
             {/* サイン風 */}
             <div
               className="mt-12 text-right font-handwritten text-[var(--color-text-light)] text-base tracking-widest"
-              style={{ fontFamily: "var(--font-yosugara)" }}
+              style={{ fontFamily: "var(--font-yomogi)" }}
             >
               勇樹 & 紗弥香
             </div>

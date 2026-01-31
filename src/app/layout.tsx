@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { Klee_One, Zen_Maru_Gothic } from "next/font/google";
-import localFont from "next/font/local";
+import { Klee_One, Yomogi, Zen_Maru_Gothic } from "next/font/google";
 import "./globals.css";
 
 const kleeOne = Klee_One({
@@ -24,9 +23,10 @@ const shippori = Shippori_Mincho_B1({
   display: "swap",
 });
 
-const yosugara = localFont({
-  src: "../../public/fonts/yosugaraver1_2.ttf",
-  variable: "--font-yosugara",
+const yomogi = Yomogi({
+  variable: "--font-yomogi",
+  weight: ["400"],
+  subsets: ["latin"],
   display: "swap",
 });
 
@@ -51,7 +51,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body
-        className={`${kleeOne.variable} ${zenMaru.variable} ${shippori.variable} ${yosugara.variable} antialiased`}
+        className={`${kleeOne.variable} ${zenMaru.variable} ${shippori.variable} ${yomogi.variable} antialiased`}
       >
         {children}
       </body>

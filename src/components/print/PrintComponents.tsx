@@ -85,7 +85,7 @@ export function PrintCover() {
             <path d="M20 5L20 35M5 20L35 20" stroke="currentColor" strokeWidth="0.5" />
           </svg>
         </div>
-        <h1 className="text-6xl font-bold mb-8 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+        <h1 className="text-6xl font-bold mb-8 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yomogi)" }}>
           顔合わせの栞
         </h1>
         <div className="w-16 h-[1px] bg-[var(--color-text-dark)] mx-auto mb-6 opacity-30"></div>
@@ -125,13 +125,13 @@ export function PrintGreeting() {
         <div className="absolute top-6 left-6 w-6 h-6 border-t border-l border-[var(--color-text-dark)]/20"></div>
         <div className="absolute bottom-6 right-6 w-6 h-6 border-b border-r border-[var(--color-text-dark)]/20"></div>
         
-        <h2 className="text-2xl font-serif text-center mb-12 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+        <h2 className="text-2xl font-serif text-center mb-12 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yomogi)" }}>
           {greeting.title}
         </h2>
-        <p className="text-lg leading-[2.8] text-center whitespace-pre-line tracking-[0.2em] font-serif text-[var(--color-text)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+        <p className="text-lg leading-[2.8] text-center whitespace-pre-line tracking-[0.2em] font-serif text-[var(--color-text)]" style={{ fontFamily: "var(--font-yomogi)" }}>
           {greeting.message}
         </p>
-        <div className="mt-12 text-right text-lg font-serif tracking-widest text-[var(--color-text-light)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+        <div className="mt-12 text-right text-lg font-serif tracking-widest text-[var(--color-text-light)]" style={{ fontFamily: "var(--font-yomogi)" }}>
           勇樹 & 紗弥香
         </div>
       </div>
@@ -154,7 +154,7 @@ export function PrintEventInfo() {
           <div className="flex items-center gap-4 mb-8">
             <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/20"></div>
             <h2 className="text-xl font-serif tracking-widest text-[var(--color-text-dark)]"
-              style={{ fontFamily: "var(--font-yosugara)" }}
+              style={{ fontFamily: "var(--font-yomogi)" }}
             >
               案内
             </h2>
@@ -177,7 +177,7 @@ export function PrintEventInfo() {
           <div className="flex items-center gap-4 mb-8">
             <div className="h-[1px] flex-1 bg-[var(--color-text-dark)]/10"></div>
             <h2 className="text-xl font-serif tracking-widest text-[var(--color-text-dark)]"
-              style={{ fontFamily: "var(--font-yosugara)" }}
+              style={{ fontFamily: "var(--font-yomogi)" }}
             >
               プログラム
             </h2>
@@ -202,7 +202,7 @@ export function PrintSeating() {
   return (
     <PrintPage contentClassName="justify-center items-center">
       <h2 className="text-xl font-serif text-center mb-16 tracking-widest text-[var(--color-text-dark)]"
-        style={{ fontFamily: "var(--font-yosugara)" }}
+        style={{ fontFamily: "var(--font-yomogi)" }}
       >
         {seating.title}
       </h2>
@@ -275,7 +275,7 @@ export function PrintProfile() {
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute top-10 right-10 w-24 h-24 text-[var(--color-sage)]/10" />
       <h2 className="text-xl font-serif text-center mb-10 tracking-widest text-[var(--color-text-dark)]"
-        style={{ fontFamily: "var(--font-yosugara)" }}
+        style={{ fontFamily: "var(--font-yomogi)" }}
       >
         プロフィール
       </h2>
@@ -299,7 +299,7 @@ export function PrintProfile() {
             </div>
             <div className="flex-1 pt-2">
               <div className="mb-6">
-                <h3 className="text-xl font-serif font-bold text-[var(--color-text-dark)] mb-0.5" style={{ fontFamily: "var(--font-yosugara)" }}>{groom.name}</h3>
+                <h3 className="text-xl font-serif font-bold text-[var(--color-text-dark)] mb-0.5" style={{ fontFamily: "var(--font-yomogi)" }}>{groom.name}</h3>
                 <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-[0.2em] font-light">{groom.furigana}</p>
               </div>
               <div className="grid grid-cols-2 gap-x-4 gap-y-1">
@@ -327,7 +327,7 @@ export function PrintProfile() {
             </div>
             <div className="flex-1 pt-2">
               <div className="mb-6 text-left">
-                <h3 className="text-xl font-serif font-bold text-[var(--color-text-dark)] mb-0.5" style={{ fontFamily: "var(--font-yosugara)" }}>{bride.name}</h3>
+                <h3 className="text-xl font-serif font-bold text-[var(--color-text-dark)] mb-0.5" style={{ fontFamily: "var(--font-yomogi)" }}>{bride.name}</h3>
                 <p className="text-[10px] text-[var(--color-text-light)] uppercase tracking-[0.2em] font-light">{bride.furigana}</p>
               </div>
               <div className="grid grid-cols-2 gap-x-4 gap-y-1 text-left">
@@ -368,13 +368,13 @@ export function PrintOurStory() {
         {/* Cinematic Header */}
         <div className="text-center mb-12">
           <span className="text-[10px] font-bold tracking-[0.5em] text-[var(--color-sage-dark)] uppercase opacity-60 mb-2 block">Our Story</span>
-          <h2 className="text-2xl font-serif tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+          <h2 className="text-2xl font-serif tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yomogi)" }}>
             {ourStory.title}
           </h2>
           <div className="w-8 h-[1px] bg-[var(--color-text-dark)]/20 mx-auto mt-4"></div>
         </div>
 
-        <p className="text-base leading-[2.8] font-serif text-center whitespace-pre-line tracking-[0.15em] text-[var(--color-text)] relative z-10" style={{ fontFamily: "var(--font-yosugara)" }}>
+        <p className="text-base leading-[2.8] font-serif text-center whitespace-pre-line tracking-[0.15em] text-[var(--color-text)] relative z-10" style={{ fontFamily: "var(--font-yomogi)" }}>
           {ourStory.content}
         </p>
         
@@ -391,7 +391,7 @@ export function PrintMemoriesPage1() {
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute top-10 right-10 w-24 h-24 text-[var(--color-sage)]/10" />
       <h2 className="text-xl font-serif text-center mb-12 tracking-widest text-[var(--color-text-dark)]"
-        style={{ fontFamily: "var(--font-yosugara)" }}
+        style={{ fontFamily: "var(--font-yomogi)" }}
       >
         ふたりの歩み (1)
       </h2>
@@ -427,7 +427,7 @@ export function PrintMemoriesPage2() {
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute bottom-10 left-10 w-24 h-24 text-[var(--color-sage)]/10 rotate-180" />
       <h2 className="text-xl font-serif text-center mb-12 tracking-widest text-[var(--color-text-dark)]"
-        style={{ fontFamily: "var(--font-yosugara)" }}
+        style={{ fontFamily: "var(--font-yomogi)" }}
       >
         ふたりの歩み (2)
       </h2>
@@ -475,7 +475,7 @@ export function PrintGroomFamily() {
       <BotanicalDecor className="absolute top-20 right-4 w-16 h-16 text-[var(--color-sage)]/5" />
       <div className="max-w-md mx-auto w-full">
         <h2 className="text-xl font-serif mb-10 border-b border-[var(--color-sage)]/20 pb-4 text-center tracking-widest text-[var(--color-text-dark)]"
-          style={{ fontFamily: "var(--font-yosugara)" }}
+          style={{ fontFamily: "var(--font-yomogi)" }}
         >
           {groomFamily.title}
         </h2>
@@ -510,7 +510,7 @@ export function PrintBrideFamily() {
       <BotanicalDecor className="absolute top-20 left-4 w-16 h-16 text-[var(--color-pink)]/5 -rotate-90" />
       <div className="max-w-md mx-auto w-full">
         <h2 className="text-xl font-serif mb-10 border-b border-[var(--color-pink)]/20 pb-4 text-center tracking-widest text-[var(--color-text-dark)]"
-          style={{ fontFamily: "var(--font-yosugara)" }}
+          style={{ fontFamily: "var(--font-yomogi)" }}
         >
           {brideFamily.title}
         </h2>
@@ -548,7 +548,7 @@ export function PrintMenu() {
         <div className="absolute top-2 left-2 w-4 h-4 border-t border-l border-[var(--color-text-dark)]/10"></div>
         <div className="absolute bottom-2 right-2 w-4 h-4 border-b border-r border-[var(--color-text-dark)]/10"></div>
         
-        <h2 className="text-2xl font-serif text-center mb-12 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+        <h2 className="text-2xl font-serif text-center mb-12 tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yomogi)" }}>
           お品書き
         </h2>
         <div className="space-y-8 text-center px-4">
@@ -583,7 +583,7 @@ export function PrintFuturePlans() {
         <div className="text-center mb-20">
           <span className="text-[10px] font-bold tracking-[0.5em] text-[var(--color-sage-dark)] uppercase opacity-60 mb-2 block">Road to Marriage</span>
           <h2 className="text-2xl font-serif text-center tracking-widest text-[var(--color-text-dark)]"
-            style={{ fontFamily: "var(--font-yosugara)" }}
+            style={{ fontFamily: "var(--font-yomogi)" }}
           >
             これからの予定
           </h2>
@@ -624,7 +624,7 @@ export function PrintFuturePlans() {
           <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[var(--color-text-dark)]/10"></div>
           <BotanicalDecor className="absolute -bottom-6 -right-6 w-24 h-24 text-[var(--color-sage)]/10 rotate-180" />
           
-          <p className="text-base leading-[3] font-serif text-center whitespace-pre-line tracking-[0.2em] text-[var(--color-text-dark)] relative z-10" style={{ fontFamily: "var(--font-yosugara)" }}>
+          <p className="text-base leading-[3] font-serif text-center whitespace-pre-line tracking-[0.2em] text-[var(--color-text-dark)] relative z-10" style={{ fontFamily: "var(--font-yomogi)" }}>
             {futurePlans.message}
           </p>
         </div>
@@ -642,7 +642,7 @@ export function PrintQRCode() {
       <BotanicalDecor className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 text-[var(--color-sage)]/[0.05]" />
       
       <div className="text-center w-full px-10 mb-16 relative">
-        <h2 className="text-2xl font-serif mb-4 tracking-[0.3em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yosugara)" }}>
+        <h2 className="text-2xl font-serif mb-4 tracking-[0.3em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yomogi)" }}>
           WEB版のご案内
         </h2>
         <div className="w-12 h-[1px] bg-[var(--color-text-dark)] mx-auto mb-6 opacity-30"></div>

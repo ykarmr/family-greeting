@@ -58,7 +58,7 @@
   --font-sans: var(--font-rounded);
   --font-serif: var(--font-handwritten);
   --font-mincho: var(--font-mincho);
-  --font-yosugara: var(--font-yosugara);
+  --font-yomogi: var(--font-yomogi);
 }
 
 body {
@@ -100,7 +100,7 @@ h6 {
 
 /* ヴィンテージ・雑誌風共通スタイル */
 .section-title {
-  font-family: var(--font-yosugara);
+  font-family: var(--font-yomogi);
   color: var(--color-text-dark);
   font-size: 2.5rem;
   font-weight: 700;

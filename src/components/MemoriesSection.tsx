@@ -63,7 +63,7 @@ export function MemoriesSection() {
         <h2
           className="text-4xl md:text-5xl text-[var(--color-white)] tracking-[0.3em]"
           style={{
-            fontFamily: "var(--font-yosugara)",
+            fontFamily: "var(--font-yomogi)",
             textShadow: "0 0 10px rgba(255,255,255,0.5)",
           }}
         >
@@ -103,7 +103,7 @@ export function MemoriesSection() {
           <div className="mt-4 text-center pb-2">
             <p
               className="font-handwritten text-gray-600 text-2xl rotate-[-1deg]"
-              style={{ fontFamily: "var(--font-yosugara)" }}
+              style={{ fontFamily: "var(--font-yomogi)" }}
             >
               {memories.images[currentIndex].caption}
               <span className="text-sm text-gray-400 ml-2 font-sans tracking-widest">

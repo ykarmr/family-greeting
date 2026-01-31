@@ -62,7 +62,7 @@ export function FuturePlansSection() {
             {/* 縦書きのメッセージ */}
             <div
               className="writing-vertical-rl text-xl leading-loose font-serif h-full mx-auto md:ml-auto md:mr-0 text-[var(--color-text)] tracking-wider py-4 border-r border-[var(--color-border)] pr-8 mr-4"
-              style={{ fontFamily: "var(--font-yosugara)" }}
+              style={{ fontFamily: "var(--font-yomogi)" }}
             >
               {futurePlans.message.split("\n").map((line, i) => (
                 <span key={line} className="mb-4 inline-block">

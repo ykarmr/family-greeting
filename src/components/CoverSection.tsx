@@ -49,7 +49,7 @@ export function CoverSection() {
       >
         <h1
           className="text-5xl md:text-7xl font-bold tracking-[0.3em] text-[var(--color-text-dark)] mb-4"
-          style={{ fontFamily: "var(--font-yosugara)" }}
+          style={{ fontFamily: "var(--font-yomogi)" }}
         >
           顔合わせの栞
         </h1>

@@ -90,7 +90,7 @@ export function ProfileIntroSection() {
               {/* ひとこと (Lead) */}
               <div
                 className="mb-10 font-serif text-xl leading-loose text-[var(--color-text-dark)] border-b pb-6 border-dashed border-[var(--color-border)]"
-                style={{ fontFamily: "var(--font-yosugara)" }}
+                style={{ fontFamily: "var(--font-yomogi)" }}
               >
                 "{groom.message}"
               </div>
@@ -155,7 +155,7 @@ export function ProfileIntroSection() {
               {/* ひとこと (Lead) */}
               <div
                 className="mb-10 font-serif text-xl leading-loose text-[var(--color-text-dark)] border-b pb-6 border-dashed border-[var(--color-border)]"
-                style={{ fontFamily: "var(--font-yosugara)" }}
+                style={{ fontFamily: "var(--font-yomogi)" }}
               >
                 "{bride.message}"
               </div>
@@ -227,7 +227,7 @@ export function OurStorySection() {
           <h2
             className="text-4xl md:text-5xl text-[var(--color-white)] tracking-[0.3em]"
             style={{
-              fontFamily: "var(--font-yosugara)",
+              fontFamily: "var(--font-yomogi)",
               textShadow: "0 0 10px rgba(255,255,255,0.5)",
             }}
           >
@@ -244,7 +244,7 @@ export function OurStorySection() {
           <p
             className="text-lg md:text-2xl text-[var(--color-white)] leading-[2.8] whitespace-pre-line text-center font-serif"
             style={{
-              fontFamily: "var(--font-yosugara)",
+              fontFamily: "var(--font-yomogi)",
               textShadow: "0 2px 4px rgba(0,0,0,0.8)",
             }}
           >
