@@ -48,7 +48,7 @@ export function CoverSection() {
         className={`relative z-10 text-center mb-6 md:mb-10 transition-all duration-1000 ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
       >
         <h1
-          className="text-5xl md:text-7xl font-bold tracking-[0.3em] text-[var(--color-text-dark)] mb-4"
+          className="text-4xl md:text-7xl font-bold tracking-[0.3em] text-[var(--color-text-dark)] mb-4"
           style={{ fontFamily: "var(--font-yomogi)" }}
         >
           顔合わせの栞
