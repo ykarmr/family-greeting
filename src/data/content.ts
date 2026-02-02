@@ -92,7 +92,7 @@ export const ourStory = {
 };
 
 export const groomFamily = {
-  title: "新郎家族",
+  title: "有村家紹介",
   members: [
     {
       relation: "父",
@@ -119,7 +119,7 @@ export const groomFamily = {
 };
 
 export const brideFamily = {
-  title: "新婦家族",
+  title: "池上家紹介",
   members: [
     {
       relation: "母",
