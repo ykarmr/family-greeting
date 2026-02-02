@@ -125,7 +125,7 @@ export const brideFamily = {
       relation: "母",
       name: "池上 喜恵子",
       furigana: "いけがみ きえこ",
-      description: "TODO",
+      description: "さやかのははうえ。徳之島に住んでいます。毎日コーヒーを飲みます☕️",
       image: updateEnvPath("/images/bride-mother.jpg"),
     },
     {
@@ -147,7 +147,7 @@ export const brideFamily = {
       relation: "姉義兄",
       name: "今井 洋佑",
       furigana: "いまい ようすけ",
-      description: "紗弥香の義理のビッグブラザー",
+      description: "優理香の夫です。勇樹君と紗弥香ちゃんの結婚、大変うれしく思います！",
       image: updateEnvPath("/images/bride-sister-daddy.jpg"),
     },
     {
