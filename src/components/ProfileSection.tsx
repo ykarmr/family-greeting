@@ -74,9 +74,7 @@ export function ProfileIntroSection() {
                   <p className="font-sans text-sm text-[var(--color-text-light)] tracking-wider uppercase mb-3">
                     {groom.furigana}
                   </p>
-                  <span className="inline-block px-3 py-1 bg-[var(--color-sage)] text-white text-sm tracking-widest font-serif">
-                    {groom.role}
-                  </span>
+      
                 </div>
               </div>
             </div>
@@ -139,9 +137,6 @@ export function ProfileIntroSection() {
                   <p className="font-sans text-sm text-[var(--color-text-light)] tracking-wider uppercase mb-3">
                     {bride.furigana}
                   </p>
-                  <span className="inline-block px-3 py-1 bg-[var(--color-pink)] text-white text-sm tracking-widest font-serif">
-                    {bride.role}
-                  </span>
                 </div>
               </div>
             </div>

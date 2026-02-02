@@ -33,7 +33,7 @@ export const schedule = {
   title: "当日の流れ",
   items: [
     { time: "11:15", content: "集合（1階ロビー）" },
-    { time: "11:30", content: "新郎挨拶" },
+    { time: "11:30", content: "挨拶" },
     { time: "11:35", content: "それぞれの家族の紹介" },
     { time: "11:40", content: "お食事スタート・乾杯" },
     { time: "13:15", content: "記念撮影" },

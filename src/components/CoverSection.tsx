@@ -77,15 +77,6 @@ export function CoverSection() {
             {/* フィルムノイズなどの演出 */}
             <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-coffee)]/20 to-transparent mix-blend-overlay pointer-events-none"></div>
           </div>
-
-          {/* キャプション */}
-          <div className="absolute -bottom-8 right-4 max-w-[200px] text-right">
-            <p className="text-xs text-[var(--color-text-light)] font-serif leading-relaxed tracking-wider transform -rotate-1">
-              ふたつの家族が
-              <br />
-              ひとつになる日
-            </p>
-          </div>
         </div>
       </div>
 
