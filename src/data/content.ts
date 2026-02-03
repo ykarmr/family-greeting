@@ -125,7 +125,7 @@ export const brideFamily = {
       relation: "母",
       name: "池上 喜恵子",
       furigana: "いけがみ きえこ",
-      description: "さやかのははうえ。徳之島に住んでいます。毎日コーヒーを飲みます☕️",
+      description: "さやかのははうえ。徳之島に住んでいます。読書とコーヒーが好きです☕️📗",
       image: updateEnvPath("/images/bride-mother.jpg"),
     },
     {
