@@ -568,8 +568,8 @@ export function PrintMenu() {
   );
 }
 
-/* 11. これからの予定 */
-export function PrintFuturePlans() {
+/* 11. これからの予定 (タイムライン) */
+export function PrintFuturePlansTimeline() {
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute bottom-10 right-10 w-32 h-32 text-[var(--color-sage)]/5 rotate-12" />
@@ -612,7 +612,17 @@ export function PrintFuturePlans() {
             </div>
           </div>
         </div>
+      </div>
+    </PrintPage>
+  );
+}
 
+/* 11b. メッセージ */
+export function PrintFuturePlansMessage() {
+  return (
+    <PrintPage contentClassName="justify-center">
+      <BotanicalDecor className="absolute top-10 left-10 w-32 h-32 text-[var(--color-sage)]/5 -rotate-12" />
+      <div className="max-w-md mx-auto w-full px-4">
         <div className="p-12 bg-white border border-[var(--color-border-light)] relative shadow-xl overflow-hidden rounded-sm">
           <div className="absolute top-4 left-4 w-6 h-6 border-t border-l border-[var(--color-text-dark)]/10"></div>
           <div className="absolute bottom-4 right-4 w-6 h-6 border-b border-r border-[var(--color-text-dark)]/10"></div>
@@ -626,6 +636,7 @@ export function PrintFuturePlans() {
     </PrintPage>
   );
 }
+
 
 /* 12. Web版QRコード */
 export function PrintQRCode() {

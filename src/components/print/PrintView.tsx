@@ -2,7 +2,8 @@ import {
   PrintBrideFamily,
   PrintCover,
   PrintEventInfo,
-  PrintFuturePlans,
+  PrintFuturePlansMessage,
+  PrintFuturePlansTimeline,
   PrintGreeting,
   PrintGroomFamily,
   PrintMemoriesPage1,
@@ -76,13 +77,17 @@ export function PrintView() {
 
       {/* 11. 結婚後の予定 */}
       <div className="print-page">
-        <PrintFuturePlans />
+        <PrintFuturePlansTimeline />
+      </div>
+      <div className="print-page">
+        <PrintFuturePlansMessage />
       </div>
 
-      {/* 12. WEB版への案内 */}
       <div className="print-page">
         <PrintQRCode />
       </div>
+
+      {/* 12. WEB版への案内 */}
     </div>
   );
 }
