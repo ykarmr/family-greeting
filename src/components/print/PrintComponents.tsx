@@ -352,7 +352,7 @@ export function PrintOurStory() {
   return (
     <PrintPage contentClassName="justify-center">
       <BotanicalDecor className="absolute bottom-10 left-10 w-24 h-24 text-[var(--color-sage)]/10 rotate-180" />
-      <div className="max-w-[420px] mx-auto bg-white border border-[var(--color-text-dark)]/10 p-12 relative shadow-2xl">
+      <div className="max-w-[420px] mx-auto bg-white border border-[var(--color-text-dark)]/10 py-8 px-12 relative shadow-2xl">
         {/* Negative Film Decorations (Vertical) */}
         <div className="absolute -left-6 top-0 bottom-0 w-4 flex flex-col justify-around py-6 bg-[#1a1a1a] rounded-sm">
           {Array.from({ length: 14 }).map((_, i) => (
@@ -366,7 +366,7 @@ export function PrintOurStory() {
         </div>
 
         {/* Cinematic Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <span className="text-[10px] font-bold tracking-[0.5em] text-[var(--color-sage-dark)] uppercase opacity-60 mb-2 block">Our Story</span>
           <h2 className="text-2xl font-serif tracking-[0.4em] text-[var(--color-text-dark)]" style={{ fontFamily: "var(--font-yomogi)" }}>
             {ourStory.title}
@@ -374,7 +374,7 @@ export function PrintOurStory() {
           <div className="w-8 h-[1px] bg-[var(--color-text-dark)]/20 mx-auto mt-4"></div>
         </div>
 
-        <p className="text-base leading-[2.8] font-serif text-center whitespace-pre-line tracking-[0.15em] text-[var(--color-text)] relative z-10" style={{ fontFamily: "var(--font-yomogi)" }}>
+        <p className="text-base leading-[2.2] font-serif text-center whitespace-pre-line tracking-[0.15em] text-[var(--color-text)] relative z-10" style={{ fontFamily: "var(--font-yomogi)" }}>
           {ourStory.content}
         </p>
         
