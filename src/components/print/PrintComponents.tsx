@@ -40,14 +40,8 @@ const CornerDecor = ({ className = "" }: { className?: string }) => (
 
 /* 共通コンポーネント: 印刷用ページ枠 */
 const PrintPage = ({ children, className = "", contentClassName = "" }: { children: React.ReactNode; className?: string; contentClassName?: string }) => (
-  <div className={`print-page-container bg-[var(--color-cream)] relative flex flex-col overflow-hidden ${className}`}>
-    {/* 背景テクスチャ */}
-    <div
-      className="absolute inset-0 opacity-[0.03] pointer-events-none z-0"
-      style={{
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 20L0 40h40L20 20zM0 0l20 20L40 0H0z' fill='%238da58d' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E")`,
-      }}
-    />
+  <div className={`print-page-container relative flex flex-col overflow-hidden ${className}`}>
+    {/* 背景テクスチャ - globals.cssで管理するように変更 */}
     {/* 雑誌風の枠線(二重線) */}
     <div className="absolute inset-3 border border-[var(--color-text-dark)] opacity-[0.08] pointer-events-none z-10"></div>
     <div className="absolute inset-4 border border-[var(--color-text-dark)] opacity-[0.04] pointer-events-none z-10"></div>
@@ -97,7 +91,7 @@ export function PrintCover() {
       <div className="w-full max-w-[300px] border border-[var(--color-text-dark)]/10 p-3 bg-white shadow-2xl relative">
         <div className="absolute -top-1.5 -left-1.5 w-6 h-6 border-t-2 border-l-2 border-[var(--color-sage)]/30"></div>
         <div className="absolute -bottom-1.5 -right-1.5 w-6 h-6 border-b-2 border-r-2 border-[var(--color-sage)]/30"></div>
-        <div className="aspect-[3/2] bg-gray-100 flex items-center justify-center overflow-hidden">
+        <div className="aspect-[3/2] bg-white flex items-center justify-center overflow-hidden">
           <img src={updateEnvPath("/images/cover.jpg")} alt="Cover" className="w-full h-full object-cover" />
         </div>
       </div>
@@ -290,7 +284,7 @@ export function PrintProfile() {
           <div className="flex gap-8 items-start relative pb-8 border-b border-dashed border-[var(--color-border-light)]">
             <div className="relative shrink-0">
               <TapeDecor className="absolute -top-2 left-1/2 -translate-x-1/2 z-20" />
-              <div className="w-28 aspect-[3/4] border-4 border-white shadow-xl rotate-[-2deg] bg-[#f9f9f9] overflow-hidden relative">
+              <div className="w-28 aspect-[3/4] border-4 border-white shadow-xl rotate-[-2deg] bg-white overflow-hidden relative">
                 <img src={groom.image} alt={groom.name} className="w-full h-full object-cover grayscale-[10%]" width={112} height={149} />
                 <div className="absolute inset-x-0 bottom-0 bg-white/80 py-1 text-center">
                    <p className="text-[9px] font-bold tracking-widest text-[var(--color-sage-dark)]">GROOM</p>
@@ -318,7 +312,7 @@ export function PrintProfile() {
           <div className="flex gap-8 items-start flex-row-reverse text-left relative">
             <div className="relative shrink-0 text-left">
               <TapeDecor className="absolute -top-2 left-1/2 -translate-x-1/2 z-20 rotate-1" />
-              <div className="w-28 aspect-[3/4] border-4 border-white shadow-xl rotate-[2deg] bg-[#f9f9f9] overflow-hidden relative">
+              <div className="w-28 aspect-[3/4] border-4 border-white shadow-xl rotate-[2deg] bg-white overflow-hidden relative">
                 <img src={bride.image} alt={bride.name} className="w-full h-full object-cover grayscale-[10%]" width={112} height={149} />
                 <div className="absolute inset-x-0 bottom-0 bg-white/80 py-1 text-center">
                    <p className="text-[9px] font-bold tracking-widest text-[var(--color-pink-dark)]">BRIDE</p>
@@ -400,7 +394,7 @@ export function PrintMemoriesPage1() {
           <div key={`memory1-${img.src}-${i}`} className="relative group">
             <TapeDecor className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 w-8 h-3 opacity-40 group-even:rotate-2 group-odd:-rotate-2" />
             <div className="bg-white p-2 border border-[var(--color-border-light)] shadow-lg relative h-full transition-transform duration-500 hover:scale-[1.02]">
-              <div className="aspect-[4/3] bg-[#f9f9f9] overflow-hidden mb-3">
+              <div className="aspect-[4/3] bg-white overflow-hidden mb-3">
                 <img src={img.src} alt={img.caption} className="w-full h-full object-cover grayscale-[5%]" />
               </div>
               <div className="px-1 text-center">
@@ -438,7 +432,7 @@ export function PrintMemoriesPage2() {
             <div key={`memory2-${img.src}-${i}`} className="relative group">
               <TapeDecor className="absolute -top-3 left-1/2 -translate-x-1/2 z-20 w-8 h-3 opacity-40 group-even:rotate-2 group-odd:-rotate-2" />
               <div className="bg-white p-2 border border-[var(--color-border-light)] shadow-lg relative h-full">
-                <div className="aspect-[4/3] bg-[#f9f9f9] overflow-hidden mb-3">
+                <div className="aspect-[4/3] bg-white overflow-hidden mb-3">
                   <img src={img.src} alt={img.caption} className="w-full h-full object-cover grayscale-[5%]" />
                 </div>
                 <div className="px-1 text-center">
@@ -484,7 +478,7 @@ export function PrintGroomFamily() {
             <div key={`${groomFamily.title}-${member.name}`} className="flex gap-6 items-start bg-white/60 p-5 shadow-sm relative overflow-hidden group border-l-2 border-[var(--color-sage)]/20">
               <div className="relative shrink-0 pt-2">
                 <TapeDecor className="absolute -top-1 left-1/2 -translate-x-1/2 z-20 w-8 h-3 opacity-50" />
-                <div className="w-16 h-20 border-2 border-white shadow-md bg-[#f9f9f9] overflow-hidden relative rotate-[-1deg]">
+                <div className="w-16 h-20 border-2 border-white shadow-md bg-white overflow-hidden relative rotate-[-1deg]">
                   <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale-[10%]" />
                 </div>
               </div>
@@ -519,7 +513,7 @@ export function PrintBrideFamily() {
             <div key={`${brideFamily.title}-${member.name}`} className="flex gap-6 items-start flex-row-reverse text-left bg-white/60 p-5 shadow-sm relative overflow-hidden group border-r-2 border-[var(--color-pink)]/20">
               <div className="relative shrink-0 pt-2 text-left">
                 <TapeDecor className="absolute -top-1 left-1/2 -translate-x-1/2 z-20 w-8 h-3 opacity-50 rotate-1" />
-                <div className="w-16 h-20 border-2 border-white shadow-md bg-[#f9f9f9] overflow-hidden relative rotate-[1deg]">
+                <div className="w-16 h-20 border-2 border-white shadow-md bg-white overflow-hidden relative rotate-[1deg]">
                   <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale-[10%]" />
                 </div>
               </div>
@@ -657,7 +651,7 @@ export function PrintQRCode() {
         <div className="absolute -top-2 -left-2 w-6 h-6 border-t-2 border-l-2 border-[var(--color-sage)]/30"></div>
         <div className="absolute -bottom-2 -right-2 w-6 h-6 border-b-2 border-r-2 border-[var(--color-sage)]/30"></div>
         
-        <div className="w-40 h-40 bg-gray-50 flex items-center justify-center overflow-hidden">
+        <div className="w-40 h-40 bg-white flex items-center justify-center overflow-hidden">
           <img 
             src={qrCodeUrl} 
             alt="Web Version QR Code" 
